@@ -3,17 +3,12 @@
 
 name: Deploy to Firebase Hosting on merge
 'on':
-  workflow_dispatch:
-    branches: [ master ]
   push:
     branches:
       - master
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    env:
-      REACT_APP_VERSION: ${{ npm_package_version }}
-      REACT_APP_NAME: ${{ npm_package_name }}
     steps:
       - uses: actions/checkout@v2
       - run: npm i && npm run build
