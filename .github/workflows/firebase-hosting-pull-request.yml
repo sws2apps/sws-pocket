@@ -7,10 +7,12 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
-    env:
-      REACT_APP_VERSION: ${{ npm_package_version }}
-      REACT_APP_NAME: ${{ npm_package_name }}
     steps:
+      - name: get-npm-version
+          id: package-version
+          uses: martinbeentjes/npm-get-version-action@master
+          env:
+            REACT_APP_VERSION: ${{ steps.package-version.outputs.current-version}}
       - uses: actions/checkout@v2
       - run: npm i && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
