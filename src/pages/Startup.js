@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
 import { deleteDb, initAppDb } from '../indexedDb/dbUtility';
 import { dbGetAppSettings, dbUpdateAppSettings } from '../indexedDb/dbAppSettings';
-import { apiHostState, isAppLoadState, settingsState } from '../appStates/appSettings';
+import { apiHostState, appVersionState, isAppLoadState, settingsState } from '../appStates/appSettings';
 import { scheduleState } from '../appStates/appSchedule';
 import { dbGetScheduleAll } from '../indexedDb/dbSchedule';
 import { appMessageState, appSeverityState, appSnackOpenState } from '../appStates/appNotification';
@@ -28,6 +28,7 @@ const Startup = () => {
     const setAppMessage = useSetRecoilState(appMessageState);
 
     const apiHost = useRecoilValue(apiHostState);
+    const appVersion = useRecoilValue(appVersionState);
 
     const handleLoginPocket = useCallback(async (congID, congPIN, studentPIN) => {
         return new Promise((resolve, reject) => {
@@ -207,7 +208,7 @@ const Startup = () => {
                     >
                         <img src="/img/appLogo.png" alt="App logo" className="appLogoMini" />
                         <Typography sx={{fontWeight: 'bold', fontSize: '16px'}}>SWS Pocket</Typography>
-                        <Typography variant="body1">{process.env.REACT_APP_VERSION}</Typography>
+                        <Typography variant="body1">{appVersion}</Typography>
                     </Box>
                     <Box
                         sx={{

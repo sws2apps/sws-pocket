@@ -44,10 +44,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
-    "build": "react-scripts build && workbox generateSW workbox-config.js",
-    "ver-build": "npm version patch --no-git-tag-version",
-    "ver-minor": "npm version minor --no-git-tag-version",
-    "ver-major": "npm version major --no-git-tag-version",
+    "build": "cross-env GENERATE_SOURCEMAP=false && react-scripts build && workbox generateSW workbox-config.js",
     "version": ""
   },
   "eslintConfig": {

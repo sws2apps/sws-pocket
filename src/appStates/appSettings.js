@@ -14,3 +14,8 @@ export const apiHostState = atom({
     key: 'apiHost',
     default: 'http://localhost:8000/',
 })
+
+export const appVersionState = atom({
+    key: 'appVersion',
+    default: '1.0.15',
+})

@@ -5,10 +5,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
-import { settingsState } from "../appStates/appSettings";
+import { appVersionState, settingsState } from "../appStates/appSettings";
 
 const AboutMe = () => {
     const appSettings = useRecoilValue(settingsState);
+    const appVersion = useRecoilValue(appVersionState);
 
     const congID = appSettings.cong_id;
     const congPIN = appSettings.cong_PIN;
