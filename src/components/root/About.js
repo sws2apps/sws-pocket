@@ -48,7 +48,9 @@ const About = (props) => {
                             marginTop: '10px',
                             marginBottom: '10px',
                         }}
-                    >Programa fijerena fandaharam-pivoriana natao ampiasain’ny mpianatra sy mpitory ny SWS Pocket.</Typography>
+                    >
+                        Programa fijerena anjara amin’ny fivoriana andavanandro sy faran’ny herinandro ny SWS Pocket.
+                    </Typography>
                     <Typography variant="body2">Copyright © 2021 | SWS Pocket [SWS]</Typography>
                 </Box>
             </DialogContent>
