@@ -59,8 +59,8 @@ const Startup = () => {
 
     const handleLogin = async () => {
         setIsLoginLoading(true);
-        const fetchResult = await handleLoginPocket(congID, congPIN, studentPIN);
-        console.log(fetchResult);
+        try {
+            const fetchResult = await handleLoginPocket(congID, congPIN, studentPIN);
         if (fetchResult === 'Error') {
             setAppSnackOpen(true);
             setAppSeverity("error");
@@ -93,6 +93,12 @@ const Startup = () => {
                 setAppMessage(message);
             }
         }
+        } catch {
+            setIsLoginLoading(false);
+            setAppSnackOpen(true);
+            setAppSeverity("warning");
+            setAppMessage("Nisy olana ka tsy mbola afaka miditra ianao izao");
+        } 
     }
 
     useEffect(() => {
