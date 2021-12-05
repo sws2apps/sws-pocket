@@ -121,9 +121,8 @@ const AppMenus = (props) => {
       }
 
       setOpenSyncDlg(false);
-      setStartSync(false)
     }
-  }, [apiHost, congID, congPIN, studentPIN, schedules, setOpenSyncDlg, setStartSync, setSchedules])
+  }, [apiHost, congID, congPIN, studentPIN, schedules, setOpenSyncDlg, setSchedules])
 
   useEffect(() => {
     if (startSync) {
