@@ -17,5 +17,5 @@ export const apiHostState = atom({
 
 export const appVersionState = atom({
     key: 'appVersion',
-    default: '1.0.15',
+    default: '1.0.17',
 })
