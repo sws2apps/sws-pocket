@@ -31,28 +31,30 @@ const Startup = () => {
     const appVersion = useRecoilValue(appVersionState);
 
     const handleLoginPocket = useCallback(async (congID, congPIN, studentPIN) => {
-        return new Promise((resolve, reject) => {
-            fetch(`${apiHost}api/sws-pocket/login`, {
-                method: 'GET',
-                headers: {
-                    'cong_id': congID.toString(),
-                    'cong_pin': congPIN.toString(),
-                    'user_pin': studentPIN.toString(), 
-                }
-            })
-            .then(async (res) => {
-                const data = await res.json();
+        if (apiHost !== '') {
+            return new Promise((resolve, reject) => {
+                fetch(`${apiHost}api/sws-pocket/login`, {
+                    method: 'GET',
+                    headers: {
+                        'cong_id': congID.toString(),
+                        'cong_pin': congPIN.toString(),
+                        'user_pin': studentPIN.toString(), 
+                    }
+                })
+                .then(async (res) => {
+                    const data = await res.json();
 
-                let obj = {};
-                obj.status = res.status;                
-                obj.message = data.message;
+                    let obj = {};
+                    obj.status = res.status;                
+                    obj.message = data.message;
 
-                resolve(obj);
-            })
-            .catch(() => {
-                reject('Error')
-            })
-        });
+                    resolve(obj);
+                })
+                .catch(() => {
+                    reject('Error')
+                })
+            });
+        }
     }, [apiHost])
 
     const handleLogin = async () => {
