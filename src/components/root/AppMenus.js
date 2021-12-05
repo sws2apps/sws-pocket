@@ -121,9 +121,13 @@ const AppMenus = (props) => {
       }
 
       setOpenSyncDlg(false);
-      setStartSync(false);
     }
   }, [apiHost, congID, congPIN, studentPIN, schedules, setOpenSyncDlg, setStartSync, setSchedules])
+  
+  const handleManualSync = () => {
+    setStartSync(false);
+    setStartSync(true);
+  }
 
   useEffect(() => {
     if (startSync) {
@@ -208,7 +212,7 @@ const AppMenus = (props) => {
           <IconButton
             color="inherit"
             edge="start"
-            onClick={() => setStartSync(true)}
+            onClick={() => handleManualSync()}
             sx={{marginRight: '5px'}}
           >
             <SyncIcon />
