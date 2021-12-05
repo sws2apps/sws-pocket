@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Typography from '@mui/material/Typography';
-import { appVersionState) from '../../appStates/appSettings';
+import { appVersionState } from '../../appStates/appSettings';
 
 const About = (props) => {
     const { isAboutOpen } = props;
