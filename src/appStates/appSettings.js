@@ -12,7 +12,7 @@ export const isAppLoadState = atom({
 
 export const apiHostState = atom({
     key: 'apiHost',
-    default: 'http://localhost:8000/',
+    default: '',
 })
 
 export const appVersionState = atom({
