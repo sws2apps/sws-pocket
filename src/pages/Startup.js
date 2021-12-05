@@ -174,9 +174,12 @@ const Startup = () => {
                 setAppMessage("Havaozy ny fanazavana hidirana amin’ny SWS Pocket");
             }
         }
-
-        startApp();
-    }, [handleLoginPocket, setAppMessage, setAppSeverity, setAppSnackOpen, setIsAppLoad, setSchedules, setSettings])
+        
+        if (apiHost !== '') {
+            startApp();
+        }
+        
+    }, [apiHost, handleLoginPocket, setAppMessage, setAppSeverity, setAppSnackOpen, setIsAppLoad, setSchedules, setSettings])
 
     if (isLogin) {
         return (
