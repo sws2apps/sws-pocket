@@ -15,6 +15,7 @@ import GetApp from '@mui/icons-material/GetApp';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SyncIcon from '@mui/icons-material/Sync';
 import AppDrawer from "./AppDrawer";
+import DlgSyncSchedule from '../home/DlgSyncSchedule';
 import * as serviceWorkerRegistration from '../../serviceWorkerRegistration';
 import { deleteDb } from "../../indexedDb/dbUtility";
 import { openSyncDlgState } from "../../appStates/appDialog";
@@ -50,7 +51,10 @@ const AppMenus = (props) => {
     } else if (location.pathname === "/AboutMe") {
       setAppBarTitle("Mombamomba Ahy");
     };
-    serviceWorkerRegistration.update();
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+    } else {
+      serviceWorkerRegistration.update();
+    }
   }, [location.pathname])
 
   const handleInstallPwa = () => {
@@ -74,52 +78,52 @@ const AppMenus = (props) => {
   const handleSyncSchedule = useCallback(async () => {
     if (navigator.onLine) {
       setOpenSyncDlg(true);
-
-      const receivedSched = await fetch(`${apiHost}api/sws-pocket/schedules`, {
-        method: 'GET',
-        headers: {
-            'cong_id': congID.toString(),
-            'cong_pin': congPIN.toString(),
-            'user_pin': studentPIN.toString(), 
+      try {
+        const receivedSched = await fetch(`${apiHost}api/sws-pocket/schedules`, {
+          method: 'GET',
+          headers: {
+              'cong_id': congID.toString(),
+              'cong_pin': congPIN.toString(),
+              'user_pin': studentPIN.toString(), 
+          }
+        })
+  
+        if (receivedSched.status === 200) {
+          const msgData = await receivedSched.json();
+          let data = msgData.message;
+  
+          let finalData = [];
+  
+          for(let i=0; i < data.length; i++) {
+              let obj = {};
+  
+              obj.id = data[i].id;
+              obj.title = data[i].title;
+              obj.date_received = data[i].dateSent;
+              obj.schedule_data = data[i].schedule_data;
+  
+              const schedInfo = await dbGetScheduleInfo(data[i].id);
+              
+              if (schedInfo) {
+                  if (schedInfo.date_received !== data[i].dateSent) {
+                      await dbUpdateSchedule(obj);
+                      let newSched = schedules.filter(schedule => schedule.id !== data[i].id)
+                      newSched.push(obj);
+                      finalData = [...finalData, ...newSched]
+                  }
+              } else {
+                  await dbUpdateSchedule(obj);
+                  let newSched = [...schedules];
+                  newSched.push(obj);
+                  finalData = [...finalData, ...newSched]
+              }
+          }
+  
+          if (finalData.length > 0) {
+            setSchedules(finalData);
+          }
         }
-      })
-
-      if (receivedSched.status === 200) {
-        const msgData = await receivedSched.json();
-        let data = msgData.message;
-
-        let finalData = [];
-
-        for(let i=0; i < data.length; i++) {
-            let obj = {};
-
-            obj.id = data[i].id;
-            obj.title = data[i].title;
-            obj.date_received = data[i].dateSent;
-            obj.schedule_data = data[i].schedule_data;
-
-            const schedInfo = await dbGetScheduleInfo(data[i].id);
-            
-            if (schedInfo) {
-                if (schedInfo.date_received !== data[i].dateSent) {
-                    await dbUpdateSchedule(obj);
-                    let newSched = schedules.filter(schedule => schedule.id !== data[i].id)
-                    newSched.push(obj);
-                    finalData = [...finalData, ...newSched]
-                }
-            } else {
-                await dbUpdateSchedule(obj);
-                let newSched = [...schedules];
-                newSched.push(obj);
-                finalData = [...finalData, ...newSched]
-            }
-        }
-
-        if (finalData.length > 0) {
-          setSchedules(finalData);
-        }
-      }
-
+      } catch { }
       setOpenSyncDlg(false);
     }
   }, [apiHost, congID, congPIN, studentPIN, schedules, setOpenSyncDlg, setSchedules])
@@ -131,35 +135,129 @@ const AppMenus = (props) => {
   }, [startSync, handleSyncSchedule])
 
   return (
-    <Box sx={{display: 'flex'}}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          height: '50px !important',
-          minHeight: '50px !important',
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Toolbar
+    <>
+      <DlgSyncSchedule />
+      <Box sx={{display: 'flex'}}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
           sx={{
+            zIndex: (theme) => theme.zIndex.drawer + 1,
             height: '50px !important',
             minHeight: '50px !important',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
           }}
         >
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
+          <Toolbar
             sx={{
+              height: '50px !important',
+              minHeight: '50px !important',
+            }}
+          >
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{
+                '@media screen and (max-width: 959px)': {
+                  fontSize: 0,
+                  marginRight: '2px',
+                  display: 'block',
+                },
+                '@media screen and (min-width: 960px)': {
+                  display: 'none',
+                },
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap>
+              <Box sx={{display: "flex"}}>
+                <Box
+                  sx={{
+                    '@media screen and (max-width: 959px)': {
+                      display: 'none',
+                    },
+                    '@media screen and (min-width: 960px)': {
+                      marginRight: '3px',
+                      display: 'block',
+                    },
+                  }}
+                >
+                  SWS Pocket |
+                </Box>
+                {appBarTitle}
+              </Box>
+            </Typography>
+          </Toolbar>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            {(!isLoading && enabledInstall) && (
+              <IconButton
+                color="inherit"
+                edge="start"
+                sx={{marginRight: '8px'}}
+                onClick={() => handleInstallPwa()}
+              >
+                <GetApp />
+              </IconButton>
+            )}
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={() => handleSyncSchedule()}
+              sx={{marginRight: '5px'}}
+            >
+              <SyncIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={handleLogout}
+              sx={{marginRight: '5px'}}
+            >
+              <LogoutIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={() => handleAbout()}
+            >
+              <InfoIcon />
+            </IconButton>
+          </Box>
+        </AppBar>
+        
+        <Box
+          component="nav"
+          sx={{
+            '@media screen and (min-width: 960px)': {
+              width: drawerWidth,
+              flexShrink: 0,
+            },
+          }}
+        >
+          <Drawer
+            variant="temporary"
+            anchor="left"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            onClick={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              zIndex: (theme) => theme.zIndex.drawer + 2,
               '@media screen and (max-width: 959px)': {
-                fontSize: 0,
-                marginRight: '2px',
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 display: 'block',
               },
               '@media screen and (min-width: 960px)': {
@@ -167,132 +265,41 @@ const AppMenus = (props) => {
               },
             }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            <Box sx={{display: "flex"}}>
-              <Box
-                sx={{
-                  '@media screen and (max-width: 959px)': {
-                    display: 'none',
-                  },
-                  '@media screen and (min-width: 960px)': {
-                    marginRight: '3px',
-                    display: 'block',
-                  },
-                }}
-              >
-                SWS Pocket |
-              </Box>
-              {appBarTitle}
-            </Box>
-          </Typography>
-        </Toolbar>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          {(!isLoading && enabledInstall) && (
-            <IconButton
-              color="inherit"
-              edge="start"
-              sx={{marginRight: '8px'}}
-              onClick={() => handleInstallPwa()}
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                backgroundColor: '#3f51b5',
+                height: 50,
+              }}
             >
-              <GetApp />
-            </IconButton>
-          )}
-          <IconButton
-            color="inherit"
-            edge="start"
-            onClick={() => handleSyncSchedule()}
-            sx={{marginRight: '5px'}}
-          >
-            <SyncIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            edge="start"
-            onClick={handleLogout}
-            sx={{marginRight: '5px'}}
-          >
-            <LogoutIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            edge="start"
-            onClick={() => handleAbout()}
-          >
-            <InfoIcon />
-          </IconButton>
-        </Box>
-      </AppBar>
-      
-      <Box
-        component="nav"
-        sx={{
-          '@media screen and (min-width: 960px)': {
-            width: drawerWidth,
-            flexShrink: 0,
-          },
-        }}
-      >
-        <Drawer
-          variant="temporary"
-          anchor="left"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          onClick={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            zIndex: (theme) => theme.zIndex.drawer + 2,
-            '@media screen and (max-width: 959px)': {
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-              display: 'block',
-            },
-            '@media screen and (min-width: 960px)': {
-              display: 'none',
-            },
-          }}
-        >
-          <Typography
-            variant="h6"
-            noWrap
+              SWS Pocket
+            </Typography>
+            <AppDrawer />
+          </Drawer>
+          <Drawer
+            variant="permanent"
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              backgroundColor: '#3f51b5',
-              height: 50,
+              '@media screen and (min-width: 960px)': {
+                '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                display: 'block',
+              },
+              '@media screen and (max-width: 959px)': {
+                display: 'none',
+              },
             }}
           >
-            SWS Pocket
-          </Typography>
-          <AppDrawer />
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            '@media screen and (min-width: 960px)': {
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-              display: 'block',
-            },
-            '@media screen and (max-width: 959px)': {
-              display: 'none',
-            },
-          }}
-        >
-          <Offset />
-          <AppDrawer />
-        </Drawer>  
+            <Offset />
+            <AppDrawer />
+          </Drawer>  
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
  

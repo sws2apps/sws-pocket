@@ -5,7 +5,6 @@ import Grid from '@mui/material/Grid';
 import Typography from "@mui/material/Typography";
 import { formatScheduleState, startSyncState } from "../appStates/appSchedule";
 import { settingsState } from "../appStates/appSettings";
-import DlgSyncSchedule from "../components/home/DlgSyncSchedule";
 
 const Home = () => {
     const scheduleData = useRecoilValue(formatScheduleState);
@@ -240,7 +239,6 @@ const Home = () => {
     
     return (
         <>
-            <DlgSyncSchedule />
             <Grid
                 container
                 sx={{

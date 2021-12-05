@@ -111,30 +111,34 @@ const Startup = () => {
 
             if (cong_id && cong_PIN && student_PIN) {
                 if (navigator.onLine) {
-                    const fetchResult = await handleLoginPocket(cong_id, cong_PIN, student_PIN);
-                    const { message } = fetchResult || '';
-                    let isValid = 'invalid';
+                    try {
+                        const fetchResult = await handleLoginPocket(cong_id, cong_PIN, student_PIN);
+                        const { message } = fetchResult || '';
+                        let isValid = 'invalid';
 
-                    if (fetchResult === 'Error') {
-                        isValid = 'ok';
-                    } else {
-                        const { status } = fetchResult;
-                        if (status === 401 || status === 404) {
-                            isValid = 'invalid';
-                        } else if (status === 200) {
+                        if (fetchResult === 'Error') {
                             isValid = 'ok';
+                        } else {
+                            const { status } = fetchResult;
+                            if (status === 401 || status === 404) {
+                                isValid = 'invalid';
+                            } else if (status === 200) {
+                                isValid = 'ok';
+                            }
                         }
-                    }
 
-                    if (isValid === 'invalid') {
-                        await deleteDb();
-                        setIsLogin(true);
-                        return;
-                    } else if (isValid === 'ok') {
-                        id_lmm_oa = message.lmmoaID;
-                        student_name = message.studentName;
-                        viewStudent_Part = message.viewList;
-                        class_count = message.classCount;
+                        if (isValid === 'invalid') {
+                            await deleteDb();
+                            setIsLogin(true);
+                            return;
+                        } else if (isValid === 'ok') {
+                            id_lmm_oa = message.lmmoaID;
+                            student_name = message.studentName;
+                            viewStudent_Part = message.viewList;
+                            class_count = message.classCount;
+                            loginVerified = true;
+                        }
+                    } catch {
                         loginVerified = true;
                     }
                 } else {
