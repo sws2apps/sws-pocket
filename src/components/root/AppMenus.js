@@ -32,10 +32,10 @@ const AppMenus = (props) => {
   const { enabledInstall, isLoading, installPwa } = props;
 
   const [schedules, setSchedules] = useRecoilState(scheduleState);
-  const [startSync, setStartSync] = useRecoilState(startSyncState);
   
   const setOpenSyncDlg = useSetRecoilState(openSyncDlgState);
-
+  
+  const startSync = useRecoilValue(startSyncState);
   const appSettings = useRecoilValue(settingsState);
   const apiHost = useRecoilValue(apiHostState);
   const congID = appSettings.cong_id;
