@@ -122,7 +122,7 @@ const AppMenus = (props) => {
 
       setOpenSyncDlg(false);
     }
-  }, [apiHost, congID, congPIN, studentPIN, schedules, setOpenSyncDlg, setStartSync, setSchedules])
+  }, [apiHost, congID, congPIN, studentPIN, schedules, setOpenSyncDlg, setSchedules])
   
   const handleManualSync = () => {
     setStartSync(false);
