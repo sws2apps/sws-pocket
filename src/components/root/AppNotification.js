@@ -3,7 +3,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { appMessageState, appSeverityState, appSnackOpenState } from '../../appStates/appNotification';
 
-const AppNotification = (props) => {
+const AppNotification = () => {
     const [appSnackOpen, setAppSnackOpen] = useRecoilState(appSnackOpenState)
     const appSeverity = useRecoilValue(appSeverityState);
     const appMessage = useRecoilValue(appMessageState);
