@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/sws2apps/sws-pocket/compare/v1.0.0...v1.0.1) (2021-12-11)
+
+
+### Bug Fixes
+
+* **firebase-actions:** support for beta release ([20cb98f](https://github.com/sws2apps/sws-pocket/commit/20cb98fc7d7128f33c6a92872b6c2c083135aec7))
+
 # 1.0.0 (2021-12-11)
 
 
