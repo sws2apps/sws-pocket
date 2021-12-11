@@ -51,6 +51,7 @@
     "url": "https://github.com/sws2apps/sws-pocket.git"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^18.0.1"
   },
