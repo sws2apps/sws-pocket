@@ -1,6 +1,8 @@
 # How to Contribute
 SWS Pocket is one of the application that is developped by the Scheduling Workbox System (SWS) team. But we are also more than happy to receive support from those who are very intersted to assist us. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
 
+Please make sure that you have read the [code of conduct](https://github.com/sws2apps/sws-pocket/blob/main/CODE_OF_CONDUCT.md) before continuing.
+
 ## Semantic Versioning
 SWS Pocket follows semantic versioning. We release patch versions for bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. Every significant change is documented in the [changelog](https://github.com/sws2apps/sws-pocket/blob/main/CHANGELOG.md) file.
 
