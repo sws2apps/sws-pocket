@@ -12,8 +12,8 @@ SWS Pocket is a web application, and it is also PWA capable. All devices that ha
 
 ## Screenshots
 
-![SWS Home Page](https://github.com/sws2apps/sws-pocket/img/sws-pocket-home.png "SWS Home Page")
-![SWS Schedule Page](https://github.com/sws2apps/sws-pocket/img/sws-pocket-schedule.png "SWS Schedule Page")
+![SWS Home Page](https://github.com/sws2apps/sws-pocket/blob/main/img/sws-pocket-home.png "SWS Home Page")
+![SWS Schedule Page](https://github.com/sws2apps/sws-pocket/blob/main/img/sws-pocket-schedule.png "SWS Schedule Page")
 
 ## May I contribute?
 
