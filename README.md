@@ -10,6 +10,11 @@ SWS Pocket is designed for use by students for midweek meeting, and publishers. 
 
 SWS Pocket is a web application, and it is also PWA capable. All devices that have up to date browser, depending on which platform it is running can use this web application.
 
+## Screenshots
+
+![SWS Home Page](https://github.com/sws2apps/sws-pocket/img/sws-pocket-home.png "SWS Home Page")
+![SWS Schedule Page](https://github.com/sws2apps/sws-pocket/img/sws-pocket-schedule.png "SWS Schedule Page")
+
 ## May I contribute?
 
 Of course!!! We are more than happy to receive support from you, if you are very interested to help us. Please read our [contribution workflow](https://github.com/sws2apps/sws-pocket/blob/main/CONTRIBUTING.md) on how to do so.
