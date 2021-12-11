@@ -33,7 +33,7 @@ module.exports = {
     [
       "@semantic-release/exec",
       {
-        prepareCmd: "npm run build:ci"
+        prepareCmd: "npm run build"
       }
     ],
     "@semantic-release/github",
