@@ -12,4 +12,4 @@ SWS Pocket is a web application, and it is also PWA capable. All devices that ha
 
 ## May I contribute?
 
-Of course!!! We are more than happy to receive support from you, if you are very interested to help us. Create an issue, or a PR to contribute directly to this application.
+Of course!!! We are more than happy to receive support from you, if you are very interested to help us. Please read our [contribution workflow](https://github.com/sws2apps/sws-pocket/blob/main/CONTRIBUTING.md) on how to do so.
