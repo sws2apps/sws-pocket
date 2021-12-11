@@ -1,6 +1,6 @@
 {
   "name": "sws-pocket",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.1",
