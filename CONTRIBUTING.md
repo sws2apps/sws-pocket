@@ -35,18 +35,20 @@ If you’re only fixing a bug, it’s fine to submit a pull request right away b
 We are monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. We’ll do our best to provide updates and feedback throughout the process.
 
 **Before submitting a pull request**, please make sure the following is done:
-1. Fork the corresponding repository, depending on what you are suggesting:
+1. Fork the repository
+2. Depending on what you are suggesting, start working in the appropriate branch:
    - `main`, if you want to suggest a bug fix for the current version released in production.
    - `beta`, if you want to suggest a new feature.
    - `alpha`, if you want to suggest a major update to the application.
-2. Run `npm i` in the repository root.
+2. Run `npm i` in the branch root.
 3. Run `npm start` to make sure that the code is compiled successfully.
+4. Test your changes to make sure that they are working as intended.
 
-**When pushing your local change to the forked repository on GitHub**, we recommend the following commands to be run:
+**When commiting your changes**, we recommend the following commands to be run:
 1. Run `git add .`
 2. Run `npm run commit` to start the [commitizen cli](https://github.com/commitizen/cz-cli#using-the-command-line-tool). Make sure that you’ve set your changes accordingly. Failure to set this accordingly will cause your pull request on the release branch to be discarded.
 3. Run `git push`
 
-**When your change on GitHub**, create your pull request.
+**When your proposed changes are in the forked repository on GitHub**, create your pull request.
 
 You will receive a notification and be informed when your PR is published on beta, or alpha, or in production.
