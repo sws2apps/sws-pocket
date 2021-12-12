@@ -8,7 +8,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze Code with CodeQL
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -34,6 +34,7 @@ jobs:
       uses: github/codeql-action/analyze@v1
   
   build_and_deploy:
+    name: Build ReactApp and Deploy to Firebase Hosting
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs: [analyze]
