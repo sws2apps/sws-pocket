@@ -41,9 +41,10 @@ We are monitoring for pull requests. We will review your pull request and either
    - `main`, if you want to suggest a bug fix for the current version released in production.
    - `beta`, if you want to suggest a new feature.
    - `alpha`, if you want to suggest a major update to the application.
-4. Run `npm i` in your local branch.
-5. Run `npm start` to make sure that the code is compiled successfully.
-6. Test your changes to make sure that they are working as intended.
+4. If you have forked repository, fetch and pull changes first.
+5. Run `npm i` in your local branch.
+6. Run `npm start` to make sure that the code is compiled successfully.
+7. Test your changes to make sure that they are working as intended.
 
 **When commiting your changes**, we recommend the following commands to be run:
 1. Run `git add .`
