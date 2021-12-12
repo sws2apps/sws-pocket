@@ -33,7 +33,7 @@ jobs:
         with:
           files: "build"
       - name: Deploy SWS Pocket to Production
-        if: steps.check_build.outputs.files.exists == 'true'
+        if: steps.check_build.outputs.files_exists == 'true'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
