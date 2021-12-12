@@ -34,14 +34,14 @@ If you’re only fixing a bug, it’s fine to submit a pull request right away b
 ## Sending a Pull Request (PR)
 We are monitoring for pull requests. We will review your pull request and either merge it, request changes to it, or close it with an explanation. We’ll do our best to provide updates and feedback throughout the process.
 
-**Before submitting a pull request**, please make sure the following is done:
+**Before submitting a PR**, please make sure the following is done:
 1. Fork the repository
 2. Enable Actions for the forked repository. This will allow your code changes to be analyzed only, without publishing it. 😄
-3. Depending on what you are suggesting, start working in the appropriate branch:
+3. Depending on what you are suggesting, clone or create a new branch from the appropriate branch in the forked repository:
    - `main`, if you want to suggest a bug fix for the current version released in production.
    - `beta`, if you want to suggest a new feature.
    - `alpha`, if you want to suggest a major update to the application.
-4. Run `npm i` in the branch root.
+4. Run `npm i` in your local branch.
 5. Run `npm start` to make sure that the code is compiled successfully.
 6. Test your changes to make sure that they are working as intended.
 
@@ -49,7 +49,10 @@ We are monitoring for pull requests. We will review your pull request and either
 1. Run `git add .`
 2. Run `npm run commit` to start the [commitizen cli](https://github.com/commitizen/cz-cli#using-the-command-line-tool). Make sure that you’ve set your changes accordingly. Failure to set this accordingly will cause your pull request on the release branch to be discarded.
 3. Run `git push`
+4. Fetch and pull the approriate branch in the forked repository. This will make sure that you will receive the latest remote code changes before merging your local changes.
+5. Compare your local branch and the branch in the forked repository, and create a PR.
+6. Rebase and Merge to bring your code to the forked repository branch. Make sure to resolve any conflicts.
 
-**When your proposed changes are in the forked repository on GitHub**, create your pull request.
+**When your proposed changes are in the forked repository on GitHub**, create your final PR.
 
 You will receive a notification and be informed when your PR is published on beta, or alpha, or in production.
