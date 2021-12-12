@@ -25,7 +25,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && workbox generateSW workbox-config.js",
-    "commit": "git-cz",
+    "preghpush": "git add .",
+    "ghpush": "git-cz",
+    "postghpush": "git push",
     "semantic-release": "semantic-release"
   },
   "eslintConfig": {
