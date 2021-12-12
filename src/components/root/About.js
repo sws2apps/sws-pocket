@@ -51,7 +51,7 @@ const About = (props) => {
                             marginBottom: '10px',
                         }}
                     >
-                        Programa fijerena anjara amin’ny fivoriana andavanandro sy faran’ny herinandro ny SWS Pocket. Raha mila fanampiana amin’ny fampiasana ity programa ity ianao dia miresaha amin’ny anti-panahy ao amin’ny fiangonana misy anao.
+                        Programa fijerena anjara amin’ny fivoriana andavanandro sy faran’ny herinandro ny SWS Pocket. Raha manana fanontaniana momba ny fampiasaina azy ity ianao, dia miresaha amin’ny anti-panahy ao amin’ny fiangonana misy anao.
                     </Typography>
                     <Typography variant="body2">Copyright © 2021 | SWS Pocket [SWS]</Typography>
                 </Box>
