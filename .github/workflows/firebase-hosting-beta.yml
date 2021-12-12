@@ -8,7 +8,7 @@ on:
 
 jobs:
   analyze:
-    name: Analyze Code with CodeQL
+    name: Code QL (Beta)
     runs-on: ubuntu-latest
     permissions:
       actions: read
