@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
       - run: npm ci
       - name: Run Semantic Release to version and build App
         run: npx semantic-release
@@ -33,7 +32,7 @@ jobs:
         with:
           files: "build"
       - name: Deploy SWS Pocket to Production
-        if: steps.check_build.outputs.files.exists == 'true'
+        if: steps.check_build.outputs.files_exists == 'true'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
