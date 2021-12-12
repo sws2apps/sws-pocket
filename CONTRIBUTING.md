@@ -36,13 +36,14 @@ We are monitoring for pull requests. We will review your pull request and either
 
 **Before submitting a pull request**, please make sure the following is done:
 1. Fork the repository
-2. Depending on what you are suggesting, start working in the appropriate branch:
+2. Go to the repository settings > Actions > Disable Actions
+3. Depending on what you are suggesting, start working in the appropriate branch:
    - `main`, if you want to suggest a bug fix for the current version released in production.
    - `beta`, if you want to suggest a new feature.
    - `alpha`, if you want to suggest a major update to the application.
-2. Run `npm i` in the branch root.
-3. Run `npm start` to make sure that the code is compiled successfully.
-4. Test your changes to make sure that they are working as intended.
+4. Run `npm i` in the branch root.
+5. Run `npm start` to make sure that the code is compiled successfully.
+6. Test your changes to make sure that they are working as intended.
 
 **When commiting your changes**, we recommend the following commands to be run:
 1. Run `git add .`
