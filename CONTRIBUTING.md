@@ -36,7 +36,7 @@ We are monitoring for pull requests. We will review your pull request and either
 
 **Before submitting a pull request**, please make sure the following is done:
 1. Fork the repository
-2. Go to the repository settings > Actions > Disable Actions
+2. Enable Actions for the forked repository. This will allow your code changes to be analyzed only, without publishing it. 😄
 3. Depending on what you are suggesting, start working in the appropriate branch:
    - `main`, if you want to suggest a bug fix for the current version released in production.
    - `beta`, if you want to suggest a new feature.
