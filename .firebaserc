@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "sws-pocket"
-  }
+    "default": "sws-pocket",
+    "staging": "staging-sws-pocket",
+    "development": "dev-sws-pocket",
+    "production": "sws-pocket"
+  },
+  "targets": {}
 }
