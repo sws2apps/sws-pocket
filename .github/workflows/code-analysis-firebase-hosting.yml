@@ -22,7 +22,7 @@ jobs:
 
     steps:
     - name: Checkout repository for code analysis
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
@@ -44,7 +44,7 @@ jobs:
     
     steps:
       - name: Checkout for release preparation
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
