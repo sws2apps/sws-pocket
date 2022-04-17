@@ -20,7 +20,7 @@
     "recoil": "^0.7.0",
     "source-map-explorer": "^2.5.2",
     "use-pwa2": "^0.2.0",
-    "workbox-cli": "^6.5.2"
+    "workbox-cli": "^6.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
