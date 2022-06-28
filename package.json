@@ -8,7 +8,7 @@
     "@fontsource/roboto": "^4.5.7",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.87",
-    "@mui/material": "^5.8.5",
+    "@mui/material": "^5.8.6",
     "@mui/styles": "^5.8.6",
     "cross-env": "^7.0.3",
     "dateformat": "^5.0.3",
