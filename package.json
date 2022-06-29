@@ -1,7 +1,7 @@
 {
   "name": "sws-pocket",
   "private": true,
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "scripts": {
     "dev": "vite",
     "build": "vite build && workbox generateSW workbox.config.js",
