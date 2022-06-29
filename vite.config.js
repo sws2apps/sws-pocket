@@ -7,7 +7,13 @@ export default defineConfig({
 	define: {
 		VITE_APP_VERSION: JSON.stringify(process.env.npm_package_version),
 	},
+	build: {
+		chunkSizeWarningLimit: 1500,
+	},
 	server: {
 		port: 4000,
+	},
+	preview: {
+		port: 5000,
 	},
 });

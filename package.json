@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && workbox generateSW workbox-config.js",
+    "build": "vite build && workbox generateSW workbox.config.js",
     "preview": "vite preview"
   },
   "dependencies": {
