@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "alpha-sws-pocket",
+    "beta": "beta-sws-pocket",
+    "production": "sws-pocket",
+    "alpha": "alpha-sws-pocket"
+  },
+  "targets": {}
+}
