@@ -10,7 +10,7 @@ jobs:
     name: Build and Deploy to Development
     if: ${{ github.repository == 'sws2apps/sws-pocket' && github.ref == 'refs/heads/alpha' }}
     environment:
-      name: Development
+      name: Alpha.env
       url: https://alpha-sws-pocket.web.app
     runs-on: ubuntu-latest
 
