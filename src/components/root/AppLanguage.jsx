@@ -95,7 +95,10 @@ const AppLanguage = (props) => {
 				>
 					<TranslateIcon />
 					{largeView && (
-						<Typography sx={{ marginLeft: '5px', fontSize: '14px' }}>
+						<Typography
+							data-testid='app-language-dropdownText'
+							sx={{ marginLeft: '5px', fontSize: '14px' }}
+						>
 							{t('language')}
 						</Typography>
 					)}
@@ -108,6 +111,7 @@ const AppLanguage = (props) => {
 				open={isMenuOpen}
 				onClose={handleClose}
 				sx={{ padding: 0 }}
+				data-testid='app-language-menus'
 				MenuListProps={{
 					'aria-labelledby': 'basic-button',
 				}}
@@ -117,6 +121,7 @@ const AppLanguage = (props) => {
 						key={lang.code}
 						onClick={handleLangChange}
 						sx={{ padding: 0 }}
+						data-testid={`app-language-${lang.code}`}
 					>
 						<ListItemText data-code={lang.code}>
 							<Typography sx={{ padding: '6px 16px' }}>{lang.name}</Typography>

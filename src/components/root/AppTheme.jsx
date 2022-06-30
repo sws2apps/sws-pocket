@@ -8,9 +8,12 @@ const AppTheme = () => {
 	const [isLight, setIsLight] = useRecoilState(isLightThemeState);
 
 	return (
-		<IconButton onClick={() => setIsLight(!isLight)}>
-			{isLight && <Brightness4Icon />}
-			{!isLight && <Brightness7Icon />}
+		<IconButton
+			data-testid='app-theme-switcher'
+			onClick={() => setIsLight(!isLight)}
+		>
+			{isLight && <Brightness4Icon data-testid='app-light-icon' />}
+			{!isLight && <Brightness7Icon data-testid='app-dark-icon' />}
 		</IconButton>
 	);
 };

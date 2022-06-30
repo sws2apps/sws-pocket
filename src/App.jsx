@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import InternetChecker from './components/root/InternetChecker';
 import Startup from './components/startup/Startup';
-import { isAppLoadState, isLightThemeState } from './states/app';
+import { appLangState, isAppLoadState, isLightThemeState } from './states/app';
 
 // lazy pages import
 const Home = lazy(() => import('./pages/Home'));
@@ -31,6 +31,7 @@ const App = ({ updatePwa }) => {
 
 	const isLight = useRecoilValue(isLightThemeState);
 	const isAppLoad = useRecoilValue(isAppLoadState);
+	const appLang = useRecoilValue(appLangState);
 
 	const [browserSupported, setBrowserSupported] = useState(true);
 	const [activeTheme, setActiveTheme] = useState(lightTheme);
@@ -64,7 +65,7 @@ const App = ({ updatePwa }) => {
 	return (
 		<ThemeProvider theme={activeTheme}>
 			<CssBaseline />
-			<Box>
+			<Box data-testid={`app-root-language-${appLang}`}>
 				<InternetChecker />
 				<ApplicationLifeCycle
 					enabledInstall={enabledInstall}
