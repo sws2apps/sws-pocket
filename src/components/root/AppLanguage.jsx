@@ -78,10 +78,7 @@ const AppLanguage = (props) => {
 
 	return (
 		<>
-			<Tooltip
-				data-testid='app-language-tooltip'
-				title={largeView ? '' : t('language')}
-			>
+			<Tooltip title={largeView ? '' : t('language')}>
 				<IconButton
 					data-testid='app-language-dropdown'
 					color='inherit'
