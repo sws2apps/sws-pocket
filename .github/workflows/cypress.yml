@@ -1,8 +1,6 @@
 name: Cypress QA
 
-on:
-  push:
-    branches: [alpha]
+on: [push]
 
 permissions: read-all
 
