@@ -7,7 +7,7 @@
     "id": "/",
     "name": "SWS Pocket",
     "short_name": "SWS Pocket",
-    "description": "Application to view the meeting schedule and send monthly field report",
+    "description": "Application to view the meeting schedule and send monthly field report for Jehovah’s Witnesses",
     "icons": [
         {
             "src": "/img/icon-192x192.png",
