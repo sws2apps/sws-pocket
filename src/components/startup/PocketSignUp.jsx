@@ -9,13 +9,15 @@ import Typography from '@mui/material/Typography';
 import AppLanguage from '../root/AppLanguage';
 import { isOnlineState, visitorIDState } from '../../states/app';
 import AppTheme from '../root/AppTheme';
+import { themeOptionsState } from '../../states/theme';
 
-const PocketSignUp = ({ isLight, setIsLight }) => {
+const PocketSignUp = () => {
 	const { t } = useTranslation();
 
 	const [visitorID, setVisitorID] = useRecoilState(visitorIDState);
 
 	const isOnline = useRecoilValue(isOnlineState);
+	const themeOptions = useRecoilValue(themeOptionsState);
 
 	const [verifyCode, setVerifyCode] = useState('');
 
@@ -114,7 +116,9 @@ const PocketSignUp = ({ isLight, setIsLight }) => {
 							alt='App logo'
 							className={'appLogoStartup'}
 						/>
-						<Typography sx={{ marginTop: '5px' }}>SWS Pocket</Typography>
+						<Typography sx={{ marginTop: '5px', fontWeight: 'bold' }}>
+							SWS Pocket
+						</Typography>
 					</Box>
 					<Box sx={{ margin: '10px' }}>
 						<Typography align='center' sx={{ fontSize: '14px' }}>
@@ -161,7 +165,7 @@ const PocketSignUp = ({ isLight, setIsLight }) => {
 							borderTop: '1px outset',
 							fontSize: '12px',
 							fontWeight: 'bold',
-							color: '#707B7C',
+							color: themeOptions.textNotImportant,
 							paddingTop: '2px',
 						}}
 					>
