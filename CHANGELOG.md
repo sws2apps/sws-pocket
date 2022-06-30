@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-06-30)
+
+
+### Features
+
+* **app:** create object to store theme options ([4a768ac](https://github.com/sws2apps/sws-pocket/commit/4a768ace2042b8fae58ccaf85c7012262b8dbd88))
+
 # [1.0.0-alpha.3](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-06-29)
 
 
