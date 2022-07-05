@@ -5,7 +5,7 @@ module.exports = defineConfig({
 	video: false,
 
 	e2e: {
-		baseUrl: 'http://localhost:5000',
+		baseUrl: 'http://localhost:4000',
 		requestTimeout: 50000,
 	},
 });
