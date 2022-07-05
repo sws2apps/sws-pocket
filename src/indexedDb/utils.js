@@ -1,4 +1,5 @@
 import Dexie from 'dexie';
+import appDb from './appDb';
 
 export const isDbExist = async () => {
 	try {
@@ -7,4 +8,12 @@ export const isDbExist = async () => {
 	} catch (err) {
 		throw new Error(err);
 	}
+};
+
+export const initAppDb = async () => {
+	await appDb.open();
+};
+
+export const deleteAppDb = async () => {
+	await Dexie.delete('sws_pocket');
 };

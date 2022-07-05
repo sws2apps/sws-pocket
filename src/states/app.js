@@ -32,7 +32,7 @@ export const appLangState = atom({
 
 export const isOnlineState = atom({
 	key: 'isOnline',
-	default: false,
+	default: window.navigator.onLine,
 });
 
 export const visitorIDState = atom({
@@ -42,5 +42,25 @@ export const visitorIDState = atom({
 
 export const isLightThemeState = atom({
 	key: 'isLightTheme',
+	default: localStorage.getItem('theme') === 'dark' ? false : true || true,
+});
+
+export const apiHostState = atom({
+	key: 'apiHost',
+	default: '',
+});
+
+export const appStageState = atom({
+	key: 'appStage',
+	default: '',
+});
+
+export const isAboutOpenState = atom({
+	key: 'isAboutOpen',
+	default: false,
+});
+
+export const isRefreshScheduleOpenState = atom({
+	key: 'isRefreshScheduleOpen',
 	default: true,
 });

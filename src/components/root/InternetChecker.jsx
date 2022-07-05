@@ -6,7 +6,6 @@ const InternetChecker = () => {
 	const setIsOnline = useSetRecoilState(isOnlineState);
 
 	useEffect(() => {
-		setIsOnline(window.navigator.onLine);
 		window.addEventListener('online', (e) => {
 			setIsOnline(true);
 		});

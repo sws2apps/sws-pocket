@@ -1,17 +1,27 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import usePwa2 from 'use-pwa2/dist/index.js';
 import ApplicationLifeCycle from './components/root/ApplicationLifeCycle';
+import AppNotification from './components/root/AppNotification';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import InternetChecker from './components/root/InternetChecker';
+import Layout from './components/root/Layout';
 import Startup from './components/startup/Startup';
-import { appLangState, isAppLoadState, isLightThemeState } from './states/app';
+import {
+	apiHostState,
+	appLangState,
+	appStageState,
+	isAppLoadState,
+	isLightThemeState,
+} from './states/app';
+import { appSnackOpenState } from './states/notification';
 
 // lazy pages import
-const Home = lazy(() => import('./pages/Home'));
+const Assignments = lazy(() => import('./pages/Assignments'));
+const Schedule = lazy(() => import('./pages/Schedule'));
 
 // creating theme
 const lightTheme = createTheme({
@@ -32,9 +42,43 @@ const App = ({ updatePwa }) => {
 	const isLight = useRecoilValue(isLightThemeState);
 	const isAppLoad = useRecoilValue(isAppLoadState);
 	const appLang = useRecoilValue(appLangState);
+	const appSnackOpen = useRecoilValue(appSnackOpenState);
 
 	const [browserSupported, setBrowserSupported] = useState(true);
 	const [activeTheme, setActiveTheme] = useState(lightTheme);
+
+	const setApiHost = useSetRecoilState(apiHostState);
+	const setAppStage = useSetRecoilState(appStageState);
+
+	useEffect(() => {
+		if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+			setApiHost('http://localhost:8000/');
+			setAppStage('local');
+		} else {
+			const appUrl = window.location.hostname;
+			if (appUrl === 'localhost') {
+				setApiHost('http://localhost:8000/');
+				setAppStage('local');
+			} else if (
+				appUrl === 'alpha-sws-pocket.web.app' ||
+				appUrl === 'alpha-sws-pocket.firebaseapp.com'
+			) {
+				setApiHost('https://dev-sws2apps.herokuapp.com/');
+				setAppStage('ALPHA Release');
+			} else if (
+				appUrl === 'beta-sws-pocket.web.app' ||
+				appUrl === 'beta-sws-pocket.firebaseapp.com'
+			) {
+				setApiHost('https://staging-sws2apps.herokuapp.com/');
+				setAppStage('BETA Release');
+			} else if (
+				appUrl === 'sws-pocket.web.app' ||
+				appUrl === 'sws-pocket.firebaseapp.com'
+			) {
+				setApiHost('https://dev-sws2apps.herokuapp.com/');
+			}
+		}
+	}, [setApiHost, setAppStage]);
 
 	useEffect(() => {
 		if (isLight) {
@@ -71,13 +115,17 @@ const App = ({ updatePwa }) => {
 					enabledInstall={enabledInstall}
 					updatePwa={updatePwa}
 				/>
+				{appSnackOpen && <AppNotification />}
 				{isAppLoad && <Startup />}
 				{!isAppLoad && (
 					<Suspense fallback={<div></div>}>
 						<HashRouter>
-							<Routes>
-								<Route path='/' element={<Home />} />
-							</Routes>
+							<Layout>
+								<Routes>
+									<Route path='/' element={<Schedule />} />
+									<Route path='/assignments' element={<Assignments />} />
+								</Routes>
+							</Layout>
 						</HashRouter>
 					</Suspense>
 				)}

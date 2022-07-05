@@ -14,9 +14,8 @@ import { blue } from '@mui/material/colors';
 import { appLangState } from '../../states/app';
 import { langList } from '../../locales/langList';
 
-const AppLanguage = (props) => {
+const AppLanguage = ({ isStartup }) => {
 	const { t, i18n } = useTranslation();
-	const { isStartup } = props;
 
 	const [appLang, setAppLang] = useRecoilState(appLangState);
 
@@ -90,10 +89,11 @@ const AppLanguage = (props) => {
 							borderRadius: 0,
 							backgroundColor: 'rgba(23, 32, 42, .3)',
 						},
+						marginRight: isStartup ? '' : '10px',
 					}}
 					onClick={handleClick}
 				>
-					<TranslateIcon />
+					<TranslateIcon sx={{ fontSize: isStartup ? null : '25px' }} />
 					{largeView && (
 						<Typography
 							data-testid='app-language-dropdownText'
