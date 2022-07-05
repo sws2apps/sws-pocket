@@ -1,10 +1,10 @@
-import { useSetRecoilState } from 'recoil';
+// import { useSetRecoilState } from 'recoil';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { isRefreshScheduleOpenState } from '../../states/app';
+// import { isRefreshScheduleOpenState } from '../../states/app';
 
 const ScheduleUpdater = () => {
-	const setOpen = useSetRecoilState(isRefreshScheduleOpenState);
+	// const setOpen = useSetRecoilState(isRefreshScheduleOpenState);
 
 	return (
 		<Box
