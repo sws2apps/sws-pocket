@@ -1,3 +1,17 @@
+# [1.0.0-alpha.5](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-07-06)
+
+
+### Bug Fixes
+
+* **vite:** update config to fix process not defined error after build ([5f6d339](https://github.com/sws2apps/sws-pocket/commit/5f6d3394de834d1b0d2581ab1dbd1621c49411a5))
+
+
+### Features
+
+* **app:** update for keeping app theme in localStorage ([2635a81](https://github.com/sws2apps/sws-pocket/commit/2635a817db80ffbe6ba50ea415a6e32221bd4c1f))
+* **deps:** bump i18next from 21.8.11 to 21.8.12 ([49e27c8](https://github.com/sws2apps/sws-pocket/commit/49e27c87737c280d1c8edf04324fa2da1cabce4f))
+* **deps:** bump react-i18next from 11.17.3 to 11.17.4 ([6c8f6ce](https://github.com/sws2apps/sws-pocket/commit/6c8f6ceef554f903add0e39d4109bce8735bac8c))
+
 # [1.0.0-alpha.4](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-06-30)
 
 
