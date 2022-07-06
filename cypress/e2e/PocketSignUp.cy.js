@@ -2,10 +2,14 @@ describe('Testing PocketSignUp Componet', () => {
 	before(() => {
 		cy.visit('/');
 
-		cy.intercept('https://tls-use1.fpapi.io/').as('getVisitorID1');
-		cy.intercept('https://api.fpjs.io/?ci=js/3.6.6').as('getVisitorID2');
+		cy.intercept('GET', '**/api/sws-pocket/validate-me', {
+			statusCode: 403,
+			body: {
+				message: 'SETUP_FIRST',
+			},
+		}).as('validateUser');
 
-		cy.wait(['@getVisitorID1', '@getVisitorID2']);
+		cy.wait('@validateUser');
 	});
 
 	it('Focused verification code input field on load', () => {

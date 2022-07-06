@@ -1,6 +1,15 @@
 describe('Testing AppTheme Component', () => {
 	before(() => {
 		cy.visit('/');
+
+		cy.intercept('GET', '**/api/sws-pocket/validate-me', {
+			statusCode: 403,
+			body: {
+				message: 'SETUP_FIRST',
+			},
+		}).as('validateUser');
+
+		cy.wait('@validateUser');
 	});
 
 	it('Can toggle between light and dark mode', () => {

@@ -1,25 +1,43 @@
-import { useEffect, useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useEffect, useRef, useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
-import FingerprintJS from '@fingerprintjs/fingerprintjs-pro';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
+import Layout from './Layout';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import AppLanguage from '../root/AppLanguage';
-import { isOnlineState, visitorIDState } from '../../states/app';
-import AppTheme from '../root/AppTheme';
-import { themeOptionsState } from '../../states/theme';
+import {
+	apiHostState,
+	isAppLoadState,
+	isOnlineState,
+	visitorIDState,
+} from '../../states/app';
+import {
+	appMessageState,
+	appSeverityState,
+	appSnackOpenState,
+} from '../../states/notification';
+import { initAppDb } from '../../indexedDb/utils';
+import { dbUpdateSettings } from '../../indexedDb/appSettings';
+import { updateAssignmentType } from '../../indexedDb/updater';
 
 const PocketSignUp = () => {
+	const abortCont = useRef();
+
 	const { t } = useTranslation();
 
-	const [visitorID, setVisitorID] = useRecoilState(visitorIDState);
+	const setAppSnackOpen = useSetRecoilState(appSnackOpenState);
+	const setAppSeverity = useSetRecoilState(appSeverityState);
+	const setAppMessage = useSetRecoilState(appMessageState);
+	const setIsAppLoad = useSetRecoilState(isAppLoadState);
 
 	const isOnline = useRecoilValue(isOnlineState);
-	const themeOptions = useRecoilValue(themeOptionsState);
+	const apiHost = useRecoilValue(apiHostState);
+	const visitorID = useRecoilValue(visitorIDState);
 
 	const [verifyCode, setVerifyCode] = useState('');
+	const [isProcessing, setIsProcessing] = useState(false);
 
 	const handleVerifyCodeChange = (value) => {
 		if (value.length > 10) {
@@ -29,151 +47,116 @@ const PocketSignUp = () => {
 		setVerifyCode(value.toUpperCase());
 	};
 
-	useEffect(() => {
-		// get visitor ID and check if there is an active connection
-		const getUserID = async () => {
-			const fpPromise = FingerprintJS.load({
-				apiKey: 'XwmESck7zm6PZAfspXbs',
-			});
+	const handleSignUp = async () => {
+		try {
+			abortCont.current = new AbortController();
 
-			let visitorId = '';
+			if (apiHost !== '') {
+				setIsProcessing(true);
 
-			do {
-				const fp = await fpPromise;
-				const result = await fp.get();
-				visitorId = result.visitorId;
-			} while (visitorId.length === 0);
+				const res = await fetch(`${apiHost}api/sws-pocket/signup`, {
+					signal: abortCont.current.signal,
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ otp_code: verifyCode, visitor_id: visitorID }),
+				});
 
-			setVisitorID(visitorId);
-		};
+				const data = await res.json();
 
-		if (isOnline) {
-			getUserID();
+				if (res.status === 200) {
+					await initAppDb();
+					await dbUpdateSettings(data);
+
+					await updateAssignmentType();
+
+					setIsProcessing(false);
+					setIsAppLoad(false);
+					return;
+				}
+
+				setIsProcessing(false);
+				setAppMessage(data.message);
+				setAppSeverity('warning');
+				setAppSnackOpen(true);
+			}
+		} catch (err) {
+			if (!abortCont.current.signal.aborted) {
+				setIsProcessing(false);
+				setAppMessage(err.message);
+				setAppSeverity('error');
+				setAppSnackOpen(true);
+			}
 		}
-	}, [setVisitorID, isOnline]);
+	};
+
+	useEffect(() => {
+		return () => {
+			if (abortCont.current) {
+				abortCont.current.abort();
+			}
+		};
+	}, [abortCont]);
 
 	return (
-		<Box data-testid='pocket-sign-up'>
-			<Box
-				sx={{
-					position: 'absolute',
-					right: 10,
-					display: 'flex',
-				}}
-			>
-				<Box sx={{ marginRight: '20px' }}>
-					<AppTheme />
-				</Box>
-				<AppLanguage isStartup />
-			</Box>
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'center',
-					justifyContent: 'center',
-					minHeight: {
-						xs: 'auto',
-						sm: '90vh',
-					},
-					marginTop: {
-						xs: '5px',
-						sm: '',
-					},
-				}}
-			>
+		<Layout>
+			<Box sx={{ margin: '10px' }}>
+				<Typography align='center' sx={{ fontSize: '14px' }}>
+					{t('welcomeSetup')}
+				</Typography>
 				<Box
 					sx={{
-						margin: 'auto',
-						border: {
-							xs: 'none',
-							sm: '2px solid #BFC9CA',
-						},
-						width: {
-							xs: '90%',
-							sm: '400px',
-						},
 						display: 'flex',
 						justifyContent: 'center',
-						padding: '10px',
-						borderRadius: '10px',
-						flexDirection: 'column',
-						marginTop: {
-							xs: '50px',
-							sm: '',
-						},
+						marginTop: '15px',
 					}}
 				>
-					<Box
+					<TextField
+						id='txt-verification-code'
+						variant='outlined'
+						size='small'
+						autoComplete='off'
+						required
+						autoFocus
+						value={verifyCode}
 						sx={{
-							display: 'flex',
-							flexDirection: 'column',
-							alignItems: 'center',
+							width: '200px',
+							'.MuiInputBase-input': {
+								fontSize: '20px',
+								textAlign: 'center',
+							},
 						}}
-					>
-						<img
-							src='img/appLogo.png'
-							alt='App logo'
-							className={'appLogoStartup'}
-						/>
-						<Typography sx={{ marginTop: '5px', fontWeight: 'bold' }}>
-							SWS Pocket
-						</Typography>
-					</Box>
-					<Box sx={{ margin: '10px' }}>
-						<Typography align='center' sx={{ fontSize: '14px' }}>
-							{t('welcomeSetup')}
-						</Typography>
-						<Box
-							sx={{
-								display: 'flex',
-								justifyContent: 'center',
-								marginTop: '15px',
-							}}
-						>
-							<TextField
-								id='txt-verification-code'
-								variant='outlined'
-								size='small'
-								autoComplete='off'
-								required
-								autoFocus
-								value={verifyCode}
-								sx={{
-									width: '200px',
-									'.MuiInputBase-input': {
-										fontSize: '20px',
-										textAlign: 'center',
-									},
-								}}
-								onChange={(e) => handleVerifyCodeChange(e.target.value)}
-							/>
-						</Box>
-					</Box>
-					<Box sx={{ display: 'flex', justifyContent: 'center' }}>
-						<Button
-							data-testid='btn-sign-in'
-							variant='contained'
-							disabled={!isOnline || visitorID === ''}
-						>
-							{t('signIn')}
-						</Button>
-					</Box>
-					<Typography
-						sx={{
-							marginTop: '10px',
-							borderTop: '1px outset',
-							fontSize: '12px',
-							fontWeight: 'bold',
-							color: themeOptions.textNotImportant,
-							paddingTop: '2px',
+						InputProps={{
+							readOnly: isProcessing,
 						}}
-					>
-						{`v${VITE_APP_VERSION}`}
-					</Typography>
+						onChange={(e) => handleVerifyCodeChange(e.target.value)}
+					/>
 				</Box>
 			</Box>
-		</Box>
+			<Box sx={{ display: 'flex', justifyContent: 'center' }}>
+				{isProcessing && (
+					<CircularProgress
+						color='secondary'
+						size={40}
+						disableShrink={true}
+						sx={{
+							margin: '10px auto',
+						}}
+					/>
+				)}
+				{!isProcessing && (
+					<Button
+						data-testid='btn-sign-in'
+						variant='contained'
+						disabled={!isOnline || visitorID === ''}
+						onClick={handleSignUp}
+					>
+						{t('signIn')}
+					</Button>
+				)}
+			</Box>
+		</Layout>
 	);
 };
 

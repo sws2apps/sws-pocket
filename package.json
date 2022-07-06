@@ -2,10 +2,21 @@
   "name": "sws-pocket",
   "private": true,
   "version": "1.0.0-alpha.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sws2apps/sws-pocket.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build && workbox generateSW workbox.config.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "cypress run"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -14,26 +25,43 @@
     "@fontsource/roboto": "^4.5.7",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.6",
-    "@sws2apps/react-sw-helper": "^1.2.0",
+    "@sws2apps/react-sw-helper": "^1.0.0-beta.3",
     "dexie": "^3.2.2",
     "i18next": "^21.8.12",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^11.17.4",
     "react-router-dom": "^6.3.0",
     "recoil": "^0.7.4",
     "recoil-outside": "^0.1.1",
     "use-pwa2": "^0.2.0",
+    "vite-plugin-package-version": "^1.0.2",
     "workbox-cli": "^6.5.3"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^1.3.0",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "@vitejs/plugin-react": "^1.3.2",
     "cypress": "^10.3.0",
-    "vite": "^2.9.9"
+    "eslint": "^8.19.0",
+    "eslint-config-react-app": "^7.0.1",
+    "serve": "^13.0.2",
+    "vite": "^2.9.13",
+    "vite-plugin-eslint": "^1.6.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

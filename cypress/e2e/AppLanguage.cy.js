@@ -2,6 +2,15 @@ describe('Testing AppLanguage Component', () => {
 	describe('With larger device in width', () => {
 		before(() => {
 			cy.visit('/');
+
+			cy.intercept('GET', '**/api/sws-pocket/validate-me', {
+				statusCode: 403,
+				body: {
+					message: 'SETUP_FIRST',
+				},
+			}).as('validateUser');
+
+			cy.wait('@validateUser');
 		});
 
 		it('Tooltip text for language switcher should not exist', () => {
@@ -25,6 +34,15 @@ describe('Testing AppLanguage Component', () => {
 	describe('With smaller device in width', () => {
 		before(() => {
 			cy.visit('/');
+
+			cy.intercept('GET', '**/api/sws-pocket/validate-me', {
+				statusCode: 403,
+				body: {
+					message: 'SETUP_FIRST',
+				},
+			}).as('validateUser');
+
+			cy.wait('@validateUser');
 		});
 
 		beforeEach(() => {
