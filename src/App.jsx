@@ -51,7 +51,7 @@ const App = ({ updatePwa }) => {
 	const setAppStage = useSetRecoilState(appStageState);
 
 	useEffect(() => {
-		if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+		if (import.meta.env.DEV) {
 			setApiHost('http://localhost:8000/');
 			setAppStage('local');
 		} else {
