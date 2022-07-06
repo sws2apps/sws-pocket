@@ -23,9 +23,9 @@ const Startup = () => {
 	const [isSetup, setIsSetup] = useRecoilState(isSetupState);
 	const [startupProgress, setStartupProgress] =
 		useRecoilState(startupProgressState);
-	const [visitorID, setVisitorID] = useRecoilState(visitorIDState);
 
 	const setIsAppLoad = useSetRecoilState(isAppLoadState);
+	const setVisitorID = useSetRecoilState(visitorIDState);
 
 	const isOnline = useRecoilValue(isOnlineState);
 	const apiHost = useRecoilValue(apiHostState);

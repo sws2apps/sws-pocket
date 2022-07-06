@@ -37,7 +37,7 @@ const darkTheme = createTheme({
 });
 
 const App = ({ updatePwa }) => {
-	const { enabledInstall, installPwa, isLoading } = usePwa2();
+	const { enabledInstall } = usePwa2();
 
 	const isLight = useRecoilValue(isLightThemeState);
 	const isAppLoad = useRecoilValue(isAppLoadState);

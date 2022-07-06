@@ -14,14 +14,18 @@ const AppReload = ({ enableInternet }) => {
 	const isOnline = useRecoilValue(isOnlineState);
 
 	useEffect(() => {
-		if (isOnline) window.location.reload();
+		if (isOnline) {
+			setTimeout(() => {
+				window.location.reload();
+			}, [10000]);
+		}
 	}, [isOnline]);
 
 	useEffect(() => {
 		if (!enableInternet) {
 			setTimeout(() => {
 				window.location.reload();
-			}, [20000]);
+			}, [10000]);
 		}
 	}, [enableInternet]);
 
