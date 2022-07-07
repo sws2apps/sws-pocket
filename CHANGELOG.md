@@ -1,3 +1,10 @@
+# [1.0.0-alpha.6](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-07-07)
+
+
+### Features
+
+* **deps:** bump @sws2apps/react-sw-helper from 1.0.0-beta.3 to 1.3.0 ([5109635](https://github.com/sws2apps/sws-pocket/commit/5109635a098ab55d878a680c2933010e90c7b88f))
+
 # [1.0.0-alpha.5](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-07-06)
 
 
