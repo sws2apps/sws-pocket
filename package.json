@@ -50,8 +50,8 @@
     "eslint": "^8.19.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-cypress": "^2.12.1",
-    "serve": "^13.0.2",
-    "vite": "^2.9.13",
+    "serve": "^13.0.4",
+    "vite": "^2.9.14",
     "vite-plugin-eslint": "^1.6.1"
   },
   "browserslist": {
