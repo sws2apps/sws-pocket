@@ -14,14 +14,24 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-import { mount } from 'cypress/react'
+import { mount } from 'cypress/react';
 
-Cypress.Commands.add('mount', mount)
+// loading roboto fonts and css
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '../../src/global.css';
+
+// loading i18n
+import '../../src/i18n';
+
+Cypress.Commands.add('mount', mount);
 
 // Example use:
 // cy.mount(<MyComponent />)

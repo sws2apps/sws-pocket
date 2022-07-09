@@ -8,4 +8,11 @@ module.exports = defineConfig({
 		baseUrl: 'http://localhost:4000',
 		requestTimeout: 50000,
 	},
+
+	component: {
+		devServer: {
+			framework: 'react',
+			bundler: 'vite',
+		},
+	},
 });

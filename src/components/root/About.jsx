@@ -26,6 +26,7 @@ const About = () => {
 		>
 			<DialogContent sx={{ padding: '10px' }}>
 				<Box
+					data-testid='modal-about'
 					sx={{
 						display: 'flex',
 						flexDirection: 'column',
@@ -41,7 +42,7 @@ const About = () => {
 					>
 						SWS Pocket
 					</Typography>
-					<Typography variant='body1'>
+					<Typography variant='body1' data-testid='app-version'>
 						{import.meta.env.PACKAGE_VERSION}
 					</Typography>
 				</Box>
@@ -89,7 +90,11 @@ const About = () => {
 							Check this project on GitHub if you want to help us improve it.
 						</Typography>
 					</Box>
-					<Typography variant='body2' sx={{ marginTop: '15px' }}>
+					<Typography
+						data-testid='copyright-year'
+						variant='body2'
+						sx={{ marginTop: '15px' }}
+					>
 						Copyright © {currentYear} | SWS Pocket [sws2apps]
 					</Typography>
 				</Box>
