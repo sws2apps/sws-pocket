@@ -3,11 +3,10 @@ import About from './About';
 import ApplicationBar from './AppBar';
 import Box from '@mui/material/Box';
 import ScheduleUpdater from './ScheduleUpdater';
-import { isAboutOpenState, isRefreshScheduleOpenState } from '../../states/app';
+import { isAboutOpenState } from '../../states/app';
 
 const Layout = ({ children }) => {
 	const isOpenAbout = useRecoilValue(isAboutOpenState);
-	const isOpenRefresh = useRecoilValue(isRefreshScheduleOpenState);
 
 	return (
 		<Box>
@@ -15,7 +14,7 @@ const Layout = ({ children }) => {
 
 			<ApplicationBar />
 			<Box sx={{ marginTop: '60px' }}>
-				{isOpenRefresh && <ScheduleUpdater />}
+				<ScheduleUpdater />
 
 				<Box sx={{ padding: '0 10px 20px 10px' }}>{children}</Box>
 			</Box>

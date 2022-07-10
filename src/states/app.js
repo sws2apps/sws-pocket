@@ -25,11 +25,6 @@ export const showReloadState = atom({
 	default: false,
 });
 
-export const appLangState = atom({
-	key: 'appLang',
-	default: 'E',
-});
-
 export const isOnlineState = atom({
 	key: 'isOnline',
 	default: window.navigator.onLine,
@@ -62,5 +57,5 @@ export const isAboutOpenState = atom({
 
 export const isRefreshScheduleOpenState = atom({
 	key: 'isRefreshScheduleOpen',
-	default: true,
+	default: false,
 });

@@ -20,7 +20,6 @@ import {
 } from '../../states/notification';
 import { initAppDb } from '../../indexedDb/utils';
 import { dbUpdateSettings } from '../../indexedDb/appSettings';
-import { updateAssignmentType } from '../../indexedDb/updater';
 
 const PocketSignUp = () => {
 	const abortCont = useRef();
@@ -68,8 +67,6 @@ const PocketSignUp = () => {
 				if (res.status === 200) {
 					await initAppDb();
 					await dbUpdateSettings(data);
-
-					await updateAssignmentType();
 
 					setIsProcessing(false);
 					setIsAppLoad(false);

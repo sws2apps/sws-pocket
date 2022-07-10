@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
 import { getI18n, useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -11,16 +10,13 @@ import Tooltip from '@mui/material/Tooltip';
 import TranslateIcon from '@mui/icons-material/Translate';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
-import { appLangState } from '../../states/app';
 import { langList } from '../../locales/langList';
 
 const AppLanguage = ({ isStartup }) => {
 	const { t, i18n } = useTranslation();
 
-	const [appLang, setAppLang] = useRecoilState(appLangState);
-
 	const [anchorEl, setAnchorEl] = useState(null);
-	const [appLangLocal, setAppLangLocal] = useState(appLang);
+	const [appLangLocal, setAppLangLocal] = useState('E');
 	const [userChange, setUserChange] = useState(false);
 
 	const blueColor = blue[500];
@@ -56,8 +52,6 @@ const AppLanguage = ({ isStartup }) => {
 					getI18n().getDataByLanguage(appLangLocal).translation['languageISO'];
 				document.documentElement.setAttribute('lang', isoLang);
 
-				setAppLang(appLangLocal);
-
 				localStorage.setItem('app_lang', appLangLocal);
 				setUserChange(false);
 			} else {
@@ -67,13 +61,11 @@ const AppLanguage = ({ isStartup }) => {
 				const isoLang =
 					getI18n().getDataByLanguage(appLang).translation['languageISO'];
 				document.documentElement.setAttribute('lang', isoLang);
-
-				setAppLang(appLang);
 			}
 		};
 
 		updateLang();
-	}, [appLangLocal, i18n, setAppLang, userChange]);
+	}, [appLangLocal, i18n, userChange]);
 
 	return (
 		<>

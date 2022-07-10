@@ -12,7 +12,6 @@ import Layout from './components/root/Layout';
 import Startup from './components/startup/Startup';
 import {
 	apiHostState,
-	appLangState,
 	appStageState,
 	isAppLoadState,
 	isLightThemeState,
@@ -41,7 +40,6 @@ const App = ({ updatePwa }) => {
 
 	const isLight = useRecoilValue(isLightThemeState);
 	const isAppLoad = useRecoilValue(isAppLoadState);
-	const appLang = useRecoilValue(appLangState);
 	const appSnackOpen = useRecoilValue(appSnackOpenState);
 
 	const [browserSupported, setBrowserSupported] = useState(true);
@@ -109,7 +107,7 @@ const App = ({ updatePwa }) => {
 	return (
 		<ThemeProvider theme={activeTheme}>
 			<CssBaseline />
-			<Box data-testid={`app-root-language-${appLang}`}>
+			<Box>
 				<InternetChecker />
 				<ApplicationLifeCycle
 					enabledInstall={enabledInstall}

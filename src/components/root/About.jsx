@@ -53,6 +53,7 @@ const About = () => {
 							marginTop: '10px',
 							marginBottom: '15px',
 						}}
+						data-testid='about-description'
 					>
 						{t('appDescription')}
 					</Typography>
@@ -72,6 +73,7 @@ const About = () => {
 							href='https://github.com/sws2apps/sws-pocket'
 							target='_blank'
 							rel='noopener'
+							data-testid='github-link'
 						>
 							<svg height='32' viewBox='0 0 16 16' width='32'>
 								<path
