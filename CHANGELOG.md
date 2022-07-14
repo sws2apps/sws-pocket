@@ -1,3 +1,11 @@
+# [1.0.0-alpha.8](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-07-14)
+
+
+### Features
+
+* **deps:** bump @mui/material from 5.8.7 to 5.9.0 ([1ca4446](https://github.com/sws2apps/sws-pocket/commit/1ca4446c87cb984b1f17da2a36101f5356fcaf84))
+* **deps:** bump react-i18next from 11.18.0 to 11.18.1 ([e52a11a](https://github.com/sws2apps/sws-pocket/commit/e52a11ac1cbafa363ceae4332fc31a37e95efe9d))
+
 # [1.0.0-alpha.7](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-07-12)
 
 
