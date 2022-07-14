@@ -1,3 +1,10 @@
+# [1.0.0-alpha.9](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2022-07-14)
+
+
+### Features
+
+* **deps:** bump i18next from 21.8.13 to 21.8.14 ([81f8886](https://github.com/sws2apps/sws-pocket/commit/81f8886887e545393eff61cce9704400ebd071ab))
+
 # [1.0.0-alpha.8](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-07-14)
 
 
