@@ -1,7 +1,7 @@
 {
   "name": "sws-pocket",
   "private": true,
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.10",
   "repository": {
     "type": "git",
     "url": "https://github.com/sws2apps/sws-pocket.git"
@@ -25,14 +25,14 @@
     "@fingerprintjs/fingerprintjs-pro": "^3.6.3",
     "@fontsource/roboto": "^4.5.7",
     "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.8.6",
-    "@sws2apps/react-sw-helper": "^1.3.0",
+    "@mui/material": "^5.9.1",
+    "@sws2apps/react-sw-helper": "^1.3.1",
     "date-fns": "^2.28.0",
     "dexie": "^3.2.2",
-    "i18next": "^21.8.12",
+    "i18next": "^21.8.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^11.17.4",
+    "react-i18next": "^11.18.1",
     "react-router-dom": "^6.3.0",
     "recoil": "^0.7.4",
     "recoil-outside": "^0.1.1",
@@ -47,13 +47,13 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@vitejs/plugin-react": "^1.3.2",
-    "cypress": "^10.3.0",
-    "eslint": "^8.19.0",
+    "cypress": "^10.3.1",
+    "eslint": "^8.20.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-cypress": "^2.12.1",
-    "serve": "^13.0.4",
+    "serve": "^14.0.1",
     "vite": "^2.9.14",
-    "vite-plugin-eslint": "^1.6.1"
+    "vite-plugin-eslint": "^1.7.0"
   },
   "browserslist": {
     "production": [
