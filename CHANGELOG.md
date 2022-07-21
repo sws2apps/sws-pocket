@@ -1,3 +1,10 @@
+# [1.0.0-alpha.10](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-07-21)
+
+
+### Features
+
+* **deps:** bump @mui/material from 5.9.0 to 5.9.1 ([8e6a132](https://github.com/sws2apps/sws-pocket/commit/8e6a132caaa31a859ab2febec5d7c5d84a883edb))
+
 # [1.0.0-alpha.9](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2022-07-14)
 
 
