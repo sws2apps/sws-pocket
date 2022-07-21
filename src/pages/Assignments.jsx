@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import MyAssignmentItem from '../components/reusable/MyAssignmentItem';
 import { themeOptionsState } from '../states/theme';
+import { myAssignmentsState } from '../states/schedule';
 
 const Assignments = () => {
 	const theme = useTheme();
@@ -14,6 +15,7 @@ const Assignments = () => {
 	const { t } = useTranslation();
 
 	const themeOptions = useRecoilValue(themeOptionsState);
+	const myItems = useRecoilValue(myAssignmentsState);
 
 	const upMd = useMediaQuery(theme.breakpoints.up('md'), {
 		noSsr: true,
@@ -33,6 +35,7 @@ const Assignments = () => {
 						borderBottom: `1px solid ${themeOptions.borderPrimary}`,
 						fontSize: '18px',
 						marginBottom: '10px',
+						fontWeight: 'bold',
 					}}
 				>
 					{t('navAssignments')}
@@ -42,7 +45,13 @@ const Assignments = () => {
 				</Typography>
 			</Box>
 			<Box sx={{ marginTop: '10px' }}>
-				<MyAssignmentItem />
+				{myItems.length > 0 &&
+					myItems.map((assignment) => (
+						<MyAssignmentItem
+							key={`${assignment.weekOf}-${assignment.person_name}`}
+							assignment={assignment}
+						/>
+					))}
 			</Box>
 		</Box>
 	);

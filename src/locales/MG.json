@@ -32,5 +32,7 @@
     "treasuresPart": "HARENA AVY AO AMIN’NY TENIN’ANDRIAMANITRA",
     "fieldMinistryPart": "FAMPIOFANANA AMIN’NY FANOMPOANA",
     "livingPart": "NY FIAINANTSIKA KRISTIANINA",
-    "myAssignmentsDesc": "Jereo eto ambany ny anjaranao manaraka, sy ny anjaran’ny olon-kafa azonareo jerena koa"
+    "myAssignmentsDesc": "Jereo eto ambany ny anjaranao manaraka, sy ny anjaran’ny olon-kafa azonareo jerena koa",
+    "shortDateFormat": "dd/MM/yyyy",
+    "partOnBehalf": "Anjara ataon’i: "
 }

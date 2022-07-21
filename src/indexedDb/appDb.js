@@ -9,6 +9,10 @@ appDb.version(1).stores({
 	cong_sourceMaterial:
 		'++source_id, students, midweek_otherParts, weekend_talk, weekend_otherParts',
 });
+appDb.version(2).stores({
+	pocket_settings:
+		'&id, cong_number, cong_name, username, pocket_members, pocket_local_id',
+});
 
 appDb.on('populate', () => {
 	// initialization of appSettings

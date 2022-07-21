@@ -32,5 +32,7 @@
     "treasuresPart": "TREASURES FROM GOD’S WORD",
     "fieldMinistryPart": "APPLY YOURSELF TO THE FIELD MINISTRY",
     "livingPart": "LIVING AS CHRISTIANS",
-    "myAssignmentsDesc": "Check below the part for your next assignments, and for any other students that you have access to"
+    "myAssignmentsDesc": "Check below the part for your next assignments, and for any other students that you have access to",
+    "shortDateFormat": "M/d/yyyy",
+    "partOnBehalf": "Presented by: "
 }

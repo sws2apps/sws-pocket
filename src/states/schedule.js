@@ -1,5 +1,7 @@
-import { getI18n } from 'react-i18next';
 import { atom, selector } from 'recoil';
+import { getI18n } from 'react-i18next';
+import { langList } from '../locales/langList';
+import { dbGetAppSettings } from '../indexedDb/appSettings';
 
 export const scheduleDataState = atom({
 	key: 'scheduleData',
@@ -58,5 +60,57 @@ export const scheduleLocalState = selector({
 		}
 
 		return schedule;
+	},
+});
+
+export const myAssignmentsState = selector({
+	key: 'myAssignments',
+	get: async ({ get }) => {
+		const { pocket_local_id, pocket_members } = await dbGetAppSettings();
+		const schedules = get(scheduleLocalState);
+
+		let myItems = [];
+		for (let a = 0; a < schedules.length; a++) {
+			const schedule = schedules[a];
+
+			const classList = ['A', 'B'];
+			const assignmentCn = [1, 2, 3, 4];
+
+			// check bible reading
+			classList.forEach((classItem) => {
+				const assFldName = `bRead_stu_${classItem}`;
+				const assFldDispName = `bRead_stu_${classItem}_dispName`;
+				const fldValue = schedule[assFldName];
+				const fldDispNameValue = schedule[assFldDispName];
+
+				let obj = {};
+				obj.weekOf = schedule.weekOf;
+				obj.ass_type_name = {};
+
+				langList.forEach((lang) => {
+					obj.ass_type_name[lang.code] = getI18n().getDataByLanguage(
+						lang.code
+					).translation['bibleReading'];
+				});
+
+				obj.person_name = fldValue;
+				obj.person_dispName = fldDispNameValue;
+				obj.ass_source = schedule.bibleReading_src;
+
+				if (fldValue === pocket_local_id) {
+					obj.behalf = false;
+					myItems.push(obj);
+				} else if (
+					pocket_members.some((member) => member.person_uid === fldValue)
+				) {
+					obj.behalf = true;
+					myItems.push(obj);
+				}
+
+				obj = {};
+			});
+		}
+
+		return myItems;
 	},
 });
