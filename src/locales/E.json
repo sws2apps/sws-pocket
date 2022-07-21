@@ -34,5 +34,7 @@
     "livingPart": "LIVING AS CHRISTIANS",
     "myAssignmentsDesc": "Check below the part for your next assignments, and for any other students that you have access to",
     "shortDateFormat": "M/d/yyyy",
-    "partOnBehalf": "Presented by: "
+    "partOnBehalf": "Presented by: ",
+    "assistant": "Assistant",
+    "student": "Student"
 }

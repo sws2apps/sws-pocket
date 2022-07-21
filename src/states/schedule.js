@@ -81,12 +81,12 @@ export const myAssignmentsState = selector({
 				const classList = ['A', 'B'];
 				const assignmentCn = [1, 2, 3, 4];
 
-				// check bible reading
 				classList.forEach((classItem) => {
-					const assFldName = `bRead_stu_${classItem}`;
-					const assFldDispName = `bRead_stu_${classItem}_dispName`;
-					const fldValue = schedule[assFldName];
-					const fldDispNameValue = schedule[assFldDispName];
+					// check bible reading
+					let stuFldName = `bRead_stu_${classItem}`;
+					let stuFldDispName = `bRead_stu_${classItem}_dispName`;
+					let fldValue = schedule[stuFldName];
+					let fldDispNameValue = schedule[stuFldDispName];
 
 					let obj = {};
 					obj.weekOf = schedule.weekOf;
@@ -113,6 +113,74 @@ export const myAssignmentsState = selector({
 					}
 
 					obj = {};
+
+					// AYF assignments
+					assignmentCn.forEach((index) => {
+						stuFldName = `ass${index}_stu_${classItem}`;
+						stuFldDispName = `ass${index}_stu_${classItem}_dispName`;
+						fldValue = schedule[stuFldName];
+						fldDispNameValue = schedule[stuFldDispName];
+						let assFldName = `ass${index}_ass_${classItem}`;
+						let assFldDispName = `ass${index}_ass_${classItem}_dispName`;
+						let fldAssValue = schedule[assFldName];
+						let fldAssDispNameValue = schedule[assFldDispName];
+						let srcFldName = `ass${index}_src`;
+						let fldSrcValue = schedule[srcFldName];
+						let typeFldName = `ass${index}_type_name`;
+						let fldTypeValue = schedule[typeFldName];
+
+						// student
+						obj.weekOf = schedule.weekOf;
+						obj.ass_source = fldSrcValue;
+						obj.ass_type_name = fldTypeValue;
+						obj.person_name = fldValue;
+						obj.person_dispName = fldDispNameValue;
+						obj.assistant_name = fldAssValue;
+						obj.assistant_dispName = fldAssDispNameValue;
+						obj.isAssistant = false;
+
+						if (fldValue === pocket_local_id) {
+							obj.behalf = false;
+							myItems.push(obj);
+						} else if (
+							pocket_members.some((member) => member.person_uid === fldValue)
+						) {
+							obj.behalf = true;
+							myItems.push(obj);
+						}
+						obj = {};
+
+						// assistant
+						obj.weekOf = schedule.weekOf;
+						obj.ass_source = fldSrcValue;
+						obj.ass_type_name = fldTypeValue;
+						obj.person_name = fldValue;
+						obj.person_dispName = fldDispNameValue;
+						obj.assistant_name = fldAssValue;
+						obj.assistant_dispName = fldAssDispNameValue;
+
+						let assTypeName = {};
+						for (const [key, value] of Object.entries(fldTypeValue)) {
+							assTypeName[key] = `${value} (${
+								getI18n().getDataByLanguage(key).translation['assistant']
+							})`;
+						}
+
+						obj.isAssistant = true;
+						obj.ass_type_name = assTypeName;
+
+						if (fldAssValue === pocket_local_id) {
+							obj.behalf = false;
+							myItems.push(obj);
+						} else if (
+							pocket_members.some((member) => member.person_uid === fldAssValue)
+						) {
+							obj.behalf = true;
+							myItems.push(obj);
+						}
+
+						obj = {};
+					});
 				});
 			}
 		}

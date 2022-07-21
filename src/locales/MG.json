@@ -34,5 +34,7 @@
     "livingPart": "NY FIAINANTSIKA KRISTIANINA",
     "myAssignmentsDesc": "Jereo eto ambany ny anjaranao manaraka, sy ny anjaran’ny olon-kafa azonareo jerena koa",
     "shortDateFormat": "dd/MM/yyyy",
-    "partOnBehalf": "Anjara ataon’i: "
+    "partOnBehalf": "Anjara ataon’i: ",
+    "assistant": "Mpanampy",
+    "student": "Mpitarika"
 }

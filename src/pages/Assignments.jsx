@@ -46,9 +46,9 @@ const Assignments = () => {
 			</Box>
 			<Box sx={{ marginTop: '10px' }}>
 				{myItems.length > 0 &&
-					myItems.map((assignment) => (
+					myItems.map((assignment, index) => (
 						<MyAssignmentItem
-							key={`${assignment.weekOf}-${assignment.person_name}`}
+							key={`${assignment.weekOf}-${index}`}
 							assignment={assignment}
 						/>
 					))}

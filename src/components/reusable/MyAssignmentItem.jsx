@@ -8,8 +8,15 @@ import Typography from '@mui/material/Box';
 const MyAssignmentItem = ({ assignment }) => {
 	const { t, i18n } = useTranslation();
 
-	const { ass_source, ass_type_name, behalf, person_dispName, weekOf } =
-		assignment;
+	const {
+		ass_source,
+		ass_type_name,
+		assistant_dispName,
+		behalf,
+		isAssistant,
+		person_dispName,
+		weekOf,
+	} = assignment;
 	const appLang = i18n.language;
 
 	const [weekDateFormatted, setWeekDateFormatted] = useState('');
@@ -35,27 +42,42 @@ const MyAssignmentItem = ({ assignment }) => {
 				marginBottom: '15px',
 			}}
 		>
-			<Box sx={{ display: 'flex', alignItems: 'center' }}>
-				<CalendarMonthIcon
-					sx={{ fontSize: '50px', color: `${behalf ? 'blue' : 'green'}` }}
-				/>
+			<Box
+				sx={{
+					display: 'flex',
+					alignItems: 'center',
+					padding: '0 10px',
+					justifyContent: 'space-between',
+				}}
+			>
 				<Box>
 					<Typography sx={{ fontWeight: 'bold' }}>{assTypeName}</Typography>
 					<Typography sx={{ fontSize: '14px', fontWeight: 'bold' }}>
 						{weekDateFormatted}
 					</Typography>
 				</Box>
+				<CalendarMonthIcon
+					sx={{ fontSize: '50px', color: `${behalf ? 'blue' : 'green'}` }}
+				/>
 			</Box>
-			<Box sx={{ padding: '10px 10px 10px 50px' }}>
+			<Box sx={{ padding: '10px' }}>
 				{behalf && (
 					<Typography>
 						<Typography component='span' sx={{ fontWeight: 'bold' }}>
 							{t('partOnBehalf')}
 						</Typography>
-						{person_dispName}
+						{isAssistant ? assistant_dispName : person_dispName}
 					</Typography>
 				)}
-				<Typography>{assSrc}</Typography>
+				{isAssistant !== undefined && (
+					<Typography>
+						<Typography component='span' sx={{ fontWeight: 'bold' }}>
+							{`${isAssistant ? t('student') : t('assistant')}: `}
+						</Typography>
+						{isAssistant ? person_dispName : assistant_dispName}
+					</Typography>
+				)}
+				<Typography sx={{ fontSize: '14px' }}>{assSrc}</Typography>
 			</Box>
 		</Box>
 	);
