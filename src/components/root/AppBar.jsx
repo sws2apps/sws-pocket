@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery, useTheme } from '@mui/material';
@@ -20,6 +20,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import SettingsIcon from '@mui/icons-material/Settings';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { themeOptionsState } from '../../states/theme';
@@ -60,6 +61,7 @@ const ApplicationBar = () => {
 	const theme = useTheme();
 	const { t } = useTranslation();
 	const location = useLocation();
+	const navigate = useNavigate();
 
 	const setIsAboutOpen = useSetRecoilState(isAboutOpenState);
 
@@ -102,6 +104,11 @@ const ApplicationBar = () => {
 		setAnchorEl(null);
 	};
 
+	const handleMyAccount = () => {
+		handleClose();
+		navigate('/account');
+	};
+
 	const handleAbout = () => {
 		handleClose();
 		setIsAboutOpen(true);
@@ -119,6 +126,8 @@ const ApplicationBar = () => {
 			setActiveLink(t('navAssignments'));
 			return;
 		}
+
+		setActiveLink('');
 	}, [t, location.pathname]);
 
 	useEffect(() => {
@@ -270,6 +279,12 @@ const ApplicationBar = () => {
 							open={Boolean(anchorEl)}
 							onClose={handleClose}
 						>
+							<MenuItem onClick={handleMyAccount}>
+								<ListItemIcon>
+									<SettingsIcon fontSize='medium' sx={{ color: '#EC7063' }} />
+								</ListItemIcon>
+								<ListItemText>{t('myAccount')}</ListItemText>
+							</MenuItem>
 							<MenuItem onClick={handleAbout}>
 								<ListItemIcon>
 									<InfoIcon fontSize='medium' sx={{ color: '#3498DB' }} />

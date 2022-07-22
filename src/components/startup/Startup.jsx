@@ -128,6 +128,9 @@ const Startup = () => {
 
 			// we are offline, fallback to offline database if exists
 			if (isDatabaseExist) {
+				await loadAppData();
+				setStartupProgress(100);
+				setIsAppLoad(false);
 				return;
 			}
 

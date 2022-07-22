@@ -36,5 +36,9 @@
     "shortDateFormat": "M/d/yyyy",
     "partOnBehalf": "Presented by: ",
     "assistant": "Assistant",
-    "student": "Student"
+    "student": "Student",
+    "myAccount": "My Account",
+    "myName": "My Name",
+    "viewScheduleOnBehalf": "Students schedule I have access to:",
+    "myAccountNote": "These information are managed by your congregation elders. If there is a need to make a change, please contact them."
 }
