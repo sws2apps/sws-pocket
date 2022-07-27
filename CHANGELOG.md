@@ -1,3 +1,11 @@
+# [1.0.0-alpha.11](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-27)
+
+
+### Features
+
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.6.3 to 3.6.4 ([c95241a](https://github.com/sws2apps/sws-pocket/commit/c95241a35c329271a63653d641f121e60ac98e92))
+* **deps:** bump @mui/material from 5.9.1 to 5.9.2 ([9a8c5db](https://github.com/sws2apps/sws-pocket/commit/9a8c5db94e2810105bd0426a9c58f5e9f9a19de1))
+
 # [1.0.0-alpha.10](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-07-21)
 
 
