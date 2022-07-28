@@ -36,7 +36,7 @@
     "recoil-outside": "^0.1.1",
     "use-pwa2": "^0.2.0",
     "vite-plugin-package-version": "^1.0.2",
-    "workbox-cli": "^6.5.3"
+    "workbox-cli": "^6.5.4"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
