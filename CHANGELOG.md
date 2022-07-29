@@ -1,3 +1,11 @@
+# [1.0.0-alpha.12](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2022-07-29)
+
+
+### Features
+
+* **deps:** bump react-i18next from 11.18.1 to 11.18.3 ([5fad571](https://github.com/sws2apps/sws-pocket/commit/5fad5719cd510dadbd3e351391413b8584bc702c))
+* **deps:** bump workbox-cli from 6.5.3 to 6.5.4 ([ed66e2d](https://github.com/sws2apps/sws-pocket/commit/ed66e2d300c98b7bb6eb91a52a11e57683c9eafa))
+
 # [1.0.0-alpha.11](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-27)
 
 
