@@ -24,7 +24,7 @@
     "@fingerprintjs/fingerprintjs-pro": "^3.7.0",
     "@fontsource/roboto": "^4.5.7",
     "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.9.2",
+    "@mui/material": "^5.9.3",
     "@sws2apps/react-sw-helper": "^1.4.0",
     "dexie": "^3.2.2",
     "i18next": "^21.8.16",
