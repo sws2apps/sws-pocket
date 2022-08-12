@@ -1,3 +1,30 @@
+# [1.0.0-alpha.13](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2022-08-02)
+
+
+### Features
+
+* **deps:** bump @emotion/react from 11.9.3 to 11.10.0 ([88c063a](https://github.com/sws2apps/sws-pocket/commit/88c063a22e604060773f062ae19254f6740ef6f2))
+* **deps:** bump @emotion/styled from 11.9.3 to 11.10.0 ([9b07368](https://github.com/sws2apps/sws-pocket/commit/9b07368fb214fb0b9cb4b78475597c1d049674b8))
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.6.4 to 3.7.0 ([79834e5](https://github.com/sws2apps/sws-pocket/commit/79834e5d896f60635239cfd5407875adb7bf04a4))
+* **deps:** bump @sws2apps/react-sw-helper from 1.3.1 to 1.4.0 ([b670204](https://github.com/sws2apps/sws-pocket/commit/b67020446587cb1c165a0d18bb69647326e3feb8))
+* **deps:** bump i18next from 21.8.14 to 21.8.16 ([1fc40bb](https://github.com/sws2apps/sws-pocket/commit/1fc40bb5d153c5193172997d3e8fc5a64ed3122b))
+
+# [1.0.0-alpha.12](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2022-07-29)
+
+
+### Features
+
+* **deps:** bump react-i18next from 11.18.1 to 11.18.3 ([5fad571](https://github.com/sws2apps/sws-pocket/commit/5fad5719cd510dadbd3e351391413b8584bc702c))
+* **deps:** bump workbox-cli from 6.5.3 to 6.5.4 ([ed66e2d](https://github.com/sws2apps/sws-pocket/commit/ed66e2d300c98b7bb6eb91a52a11e57683c9eafa))
+
+# [1.0.0-alpha.11](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-27)
+
+
+### Features
+
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.6.3 to 3.6.4 ([c95241a](https://github.com/sws2apps/sws-pocket/commit/c95241a35c329271a63653d641f121e60ac98e92))
+* **deps:** bump @mui/material from 5.9.1 to 5.9.2 ([9a8c5db](https://github.com/sws2apps/sws-pocket/commit/9a8c5db94e2810105bd0426a9c58f5e9f9a19de1))
+
 # [1.0.0-alpha.10](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-07-21)
 
 
