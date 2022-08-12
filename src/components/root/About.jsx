@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
+import TelegramIcon from '@mui/icons-material/Telegram';
 import Typography from '@mui/material/Typography';
 import { isAboutOpenState } from '../../states/app';
 
@@ -92,13 +94,24 @@ const About = () => {
 							Check this project on GitHub if you want to help us improve it.
 						</Typography>
 					</Box>
-					<Typography
-						data-testid='copyright-year'
-						variant='body2'
-						sx={{ marginTop: '15px' }}
+					<Box
+						sx={{
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'space-between',
+						}}
 					>
-						Copyright © {currentYear} | SWS Pocket [sws2apps]
-					</Typography>
+						<Typography
+							data-testid='copyright-year'
+							variant='body2'
+							sx={{ marginTop: '15px' }}
+						>
+							Copyright © {currentYear} | SWS Pocket [sws2apps]
+						</Typography>
+						<IconButton>
+							<TelegramIcon sx={{ color: 'blue' }} />
+						</IconButton>
+					</Box>
 				</Box>
 			</DialogContent>
 		</Dialog>
