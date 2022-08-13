@@ -8,7 +8,7 @@ export default defineConfig({
 	define: {
 		'process.env': process.env,
 	},
-	plugins: [react(), eslint({ exclude: 'node_modules'}), loadVersion()],
+	plugins: [react(), eslint({ exclude: '/node_modules/'}), loadVersion()],
 	build: {
 		chunkSizeWarningLimit: 1500,
 	},
