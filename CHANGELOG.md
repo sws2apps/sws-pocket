@@ -1,3 +1,15 @@
+# [1.0.0-alpha.14](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2022-08-12)
+
+
+### Features
+
+* **deps:** bump @fontsource/roboto from 4.5.7 to 4.5.8 ([b7a6484](https://github.com/sws2apps/sws-pocket/commit/b7a648463e6460307a2f7f188e0d4f4a172a56f7))
+* **deps:** bump @mui/material from 5.9.2 to 5.9.3 ([e4a86ce](https://github.com/sws2apps/sws-pocket/commit/e4a86cea2d8948aeaf803126c8bbc23a237bbade))
+* **deps:** bump @mui/material from 5.9.3 to 5.10.0 ([5b8b97f](https://github.com/sws2apps/sws-pocket/commit/5b8b97f8524b14dc2c51d92d004e59df284560a8))
+* **deps:** bump @sws2apps/react-sw-helper from 1.4.0 to 1.6.0 ([628e9b2](https://github.com/sws2apps/sws-pocket/commit/628e9b25c3739ad46aa33f65e6f6364aebcd51eb))
+* **deps:** bump i18next from 21.8.16 to 21.9.0 ([1220409](https://github.com/sws2apps/sws-pocket/commit/12204095ae2c041426cd21cd950c3e2a279a072b))
+* **deps:** bump recoil from 0.7.4 to 0.7.5 ([379db97](https://github.com/sws2apps/sws-pocket/commit/379db97d742c4cbdb62d64e2aa93bbe21db09680))
+
 # [1.0.0-alpha.13](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2022-08-02)
 
 
