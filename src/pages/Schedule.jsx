@@ -115,75 +115,87 @@ const Schedule = () => {
 		try {
 			setIsLoading(true);
 			const appLang = i18n.language;
-			const schedule = schedules.find((data) => data.weekOf === currentWeek);
 
-			let result = new Date(currentWeek);
-			result.setDate(result.getDate() - 7);
-			let previousWeek = format(result, 'MM/dd/yyyy');
-			let hasPrevious = schedules.find((data) => data.weekOf === previousWeek)
-				? true
-				: false;
-			if (!hasPrevious) {
+			if (schedules) {
+				const schedule = schedules.find((data) => data.weekOf === currentWeek);
+
+				let result = new Date(currentWeek);
 				result.setDate(result.getDate() - 7);
-				previousWeek = format(result, 'MM/dd/yyyy');
-				hasPrevious = schedules.find((data) => data.weekOf === previousWeek)
+				let previousWeek = format(result, 'MM/dd/yyyy');
+				let hasPrevious = schedules.find((data) => data.weekOf === previousWeek)
 					? true
 					: false;
-			}
-			setDisablePrevious(!hasPrevious);
-			setPreviousWeek(previousWeek);
+				if (!hasPrevious) {
+					result.setDate(result.getDate() - 7);
+					previousWeek = format(result, 'MM/dd/yyyy');
+					hasPrevious = schedules.find((data) => data.weekOf === previousWeek)
+						? true
+						: false;
+				}
+				setDisablePrevious(!hasPrevious);
+				setPreviousWeek(previousWeek);
 
-			result = new Date(currentWeek);
-			result.setDate(result.getDate() + 7);
-			let nextWeek = format(result, 'MM/dd/yyyy');
-			let hasNext = schedules.find((data) => data.weekOf === nextWeek)
-				? true
-				: false;
-			if (!hasNext) {
+				result = new Date(currentWeek);
 				result.setDate(result.getDate() + 7);
-				nextWeek = format(result, 'MM/dd/yyyy');
-				hasNext = schedules.find((data) => data.weekOf === nextWeek)
+				let nextWeek = format(result, 'MM/dd/yyyy');
+				let hasNext = schedules.find((data) => data.weekOf === nextWeek)
 					? true
 					: false;
-			}
-			setDisableNext(!hasNext);
-			setNextWeek(nextWeek);
+				if (!hasNext) {
+					result.setDate(result.getDate() + 7);
+					nextWeek = format(result, 'MM/dd/yyyy');
+					hasNext = schedules.find((data) => data.weekOf === nextWeek)
+						? true
+						: false;
+				}
+				setDisableNext(!hasNext);
+				setNextWeek(nextWeek);
 
-			const dFormat = await formatWeekName(schedule.weekOf);
-			setCurrentWeekDate(dFormat);
-			setBibleReadingSrc(schedule.bibleReading_src[appLang]);
-			setStuBReadA(schedule.bRead_stu_A_dispName);
-			setStuBReadB(schedule.bRead_stu_B_dispName);
-			setAss1TypeName(schedule.ass1_type_name[appLang]);
-			setAss1Src(schedule.ass1_src[appLang]);
-			setAss1Time(schedule.ass1_time);
-			setStu1A(schedule.ass1_stu_A_dispName);
-			setAss1A(schedule.ass1_ass_A_dispName);
-			setStu1B(schedule.ass1_stu_B_dispName);
-			setAss1B(schedule.ass1_ass_B_dispName);
-			setAss2TypeName(schedule.ass2_type_name[appLang]);
-			setAss2Src(schedule.ass2_src[appLang]);
-			setAss2Time(schedule.ass2_time);
-			setStu2A(schedule.ass2_stu_A_dispName);
-			setAss2A(schedule.ass2_ass_A_dispName);
-			setStu2B(schedule.ass2_stu_B_dispName);
-			setAss2B(schedule.ass2_ass_B_dispName);
-			setAss3TypeName(schedule.ass3_type_name[appLang]);
-			setAss3Src(schedule.ass3_src[appLang]);
-			setAss3Time(schedule.ass3_time);
-			setStu3A(schedule.ass3_stu_A_dispName);
-			setAss3A(schedule.ass3_ass_A_dispName);
-			setStu3B(schedule.ass3_stu_B_dispName);
-			setAss3B(schedule.ass3_ass_B_dispName);
-			setAss4TypeName(schedule.ass4_type_name[appLang]);
-			setAss4Src(schedule.ass4_src[appLang]);
-			setAss4Time(schedule.ass4_time);
-			setStu4A(schedule.ass4_stu_A_dispName);
-			setAss4A(schedule.ass4_ass_A_dispName);
-			setStu4B(schedule.ass4_stu_B_dispName);
-			setAss4B(schedule.ass4_ass_B_dispName);
+				if (schedule) {
+					const dFormat = await formatWeekName(schedule.weekOf);
+					setCurrentWeekDate(dFormat);
+					setBibleReadingSrc(schedule.bibleReading_src[appLang]);
+					setStuBReadA(schedule.bRead_stu_A_dispName);
+					setStuBReadB(schedule.bRead_stu_B_dispName);
+					setAss1TypeName(schedule.ass1_type_name[appLang]);
+					setAss1Src(schedule.ass1_src[appLang]);
+					setAss1Time(schedule.ass1_time);
+					setStu1A(schedule.ass1_stu_A_dispName);
+					setAss1A(schedule.ass1_ass_A_dispName);
+					setStu1B(schedule.ass1_stu_B_dispName);
+					setAss1B(schedule.ass1_ass_B_dispName);
+					setAss2TypeName(schedule.ass2_type_name[appLang]);
+					setAss2Src(schedule.ass2_src[appLang]);
+					setAss2Time(schedule.ass2_time);
+					setStu2A(schedule.ass2_stu_A_dispName);
+					setAss2A(schedule.ass2_ass_A_dispName);
+					setStu2B(schedule.ass2_stu_B_dispName);
+					setAss2B(schedule.ass2_ass_B_dispName);
+					setAss3TypeName(schedule.ass3_type_name[appLang]);
+					setAss3Src(schedule.ass3_src[appLang]);
+					setAss3Time(schedule.ass3_time);
+					setStu3A(schedule.ass3_stu_A_dispName);
+					setAss3A(schedule.ass3_ass_A_dispName);
+					setStu3B(schedule.ass3_stu_B_dispName);
+					setAss3B(schedule.ass3_ass_B_dispName);
+					setAss4TypeName(schedule.ass4_type_name[appLang] || '');
+					setAss4Src(schedule.ass4_src[appLang]) || '';
+					setAss4Time(schedule.ass4_time);
+					setStu4A(schedule.ass4_stu_A_dispName);
+					setAss4A(schedule.ass4_ass_A_dispName);
+					setStu4B(schedule.ass4_stu_B_dispName);
+					setAss4B(schedule.ass4_ass_B_dispName);
+					setIsLoading(false);
+					return;
+				}
+
+				setIsLoading(false);
+				return;
+			}
+
 			setIsLoading(false);
-		} catch {
+		} catch (err) {
+			console.log(err);
 			setAppMessage(t('scheduleLoadError'));
 			setAppSeverity('warning');
 			setAppSnackOpen(true);

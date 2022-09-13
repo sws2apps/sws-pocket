@@ -19,47 +19,49 @@ export const scheduleLocalState = selector({
 		const schedules = get(scheduleDataState);
 		const sources = get(sourceDataState);
 
-		let schedule = [];
-		// loop through all schedules to build weekly schedule
-		const { students } = schedules;
-		if (students) {
-			for (let a = 0; a < students.length; a++) {
-				const schedules = students[a].schedules;
-				for (let b = 0; b < schedules.length; b++) {
-					schedule.push(schedules[b]);
-				}
-			}
-		}
-
-		// loop through all sources to build weekly schedule
-		const srcStudents = sources.students;
-		if (srcStudents) {
-			for (let a = 0; a < srcStudents.length; a++) {
-				const src = srcStudents[a].sources;
-				for (let b = 0; b < src.length; b++) {
-					const weekData = src[b];
-
-					let obj = {};
-					obj = { ...weekData };
-
-					// find existing week in schedule
-					const found = schedule.find(
-						(week) => week.weekOf === weekData.weekOf
-					);
-
-					if (found) {
-						obj = { ...obj, ...found };
-						schedule = [
-							...schedule.filter((week) => week.weekOf !== weekData.weekOf),
-						];
+		if (schedules && sources) {
+			let schedule = [];
+			// loop through all schedules to build weekly schedule
+			const { students } = schedules;
+			if (students) {
+				for (let a = 0; a < students.length; a++) {
+					const schedules = students[a].schedules;
+					for (let b = 0; b < schedules.length; b++) {
+						schedule.push(schedules[b]);
 					}
-
-					schedule.push(obj);
 				}
 			}
-		}
 
-		return schedule;
+			// loop through all sources to build weekly schedule
+			const srcStudents = sources.students;
+			if (srcStudents) {
+				for (let a = 0; a < srcStudents.length; a++) {
+					const src = srcStudents[a].sources;
+					for (let b = 0; b < src.length; b++) {
+						const weekData = src[b];
+
+						let obj = {};
+						obj = { ...weekData };
+
+						// find existing week in schedule
+						const found = schedule.find(
+							(week) => week.weekOf === weekData.weekOf
+						);
+
+						if (found) {
+							obj = { ...obj, ...found };
+							schedule = [
+								...schedule.filter((week) => week.weekOf !== weekData.weekOf),
+							];
+						}
+
+						schedule.push(obj);
+					}
+				}
+			}
+
+			return schedule;
+		}
 	},
 });
 
@@ -69,7 +71,13 @@ export const myAssignmentsState = selector({
 		const { pocket_local_id, pocket_members } = await dbGetAppSettings();
 		const schedules = get(scheduleLocalState);
 
-		const todayDate = new Date();
+		const d = new Date();
+		const todayDate = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+		const dayValue = todayDate.getDay();
+		const diff = todayDate.getDate() - dayValue + (dayValue === 0 ? -6 : 1);
+		const currentWeekDate = new Date(todayDate.setDate(diff));
+
+		const msInDay = 24 * 60 * 60 * 1000;
 
 		let myItems = [];
 		for (let a = 0; a < schedules.length; a++) {
@@ -77,7 +85,9 @@ export const myAssignmentsState = selector({
 
 			const weekDate = new Date(schedule.weekOf);
 
-			if (weekDate >= todayDate) {
+			const dayDiff = Math.round((weekDate - currentWeekDate) / msInDay);
+
+			if (dayDiff >= 0) {
 				const classList = ['A', 'B'];
 				const assignmentCn = [1, 2, 3, 4];
 

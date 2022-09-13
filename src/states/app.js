@@ -59,3 +59,8 @@ export const isRefreshScheduleOpenState = atom({
 	key: 'isRefreshScheduleOpen',
 	default: false,
 });
+
+export const startRefreshScheduleState = atom({
+	key: 'startRefreshSchedule',
+	default: false,
+});

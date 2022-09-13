@@ -48,6 +48,13 @@ const PocketSignUp = () => {
 
 	const handleSignUp = async () => {
 		try {
+			if (verifyCode.length === 0) {
+				setAppMessage(t);
+				setAppSeverity('warning');
+				setAppSnackOpen(true);
+				return;
+			}
+
 			abortCont.current = new AbortController();
 
 			if (apiHost !== '') {
