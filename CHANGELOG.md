@@ -1,3 +1,33 @@
+# [1.0.0-alpha.15](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2022-09-13)
+
+
+### Bug Fixes
+
+* add exclude in eslint ([f5e8ad1](https://github.com/sws2apps/sws-pocket/commit/f5e8ad18346293f6b75a3b112fa8c675c5bc540c))
+* add include in vite config ([f5bf0f9](https://github.com/sws2apps/sws-pocket/commit/f5bf0f9fbdeeb55b2d1f7ed3fd3b08b58adde00a))
+* delete eslintignore ([2cb552b](https://github.com/sws2apps/sws-pocket/commit/2cb552b1002eeb99eb518650f2ccf783fb5476d9))
+* **schedule:** my assignments not generated correctly ([ea226ee](https://github.com/sws2apps/sws-pocket/commit/ea226ee876188182455d635d4cbecf32d17e17a8))
+* update vite config ([66ea336](https://github.com/sws2apps/sws-pocket/commit/66ea3361805cc7dacff31dcf47f72ade1e225b48))
+
+
+### Features
+
+* **deps:** bump @emotion/react from 11.10.0 to 11.10.4 ([733e9d6](https://github.com/sws2apps/sws-pocket/commit/733e9d69bc27d9a7fb736e80fd14ca42e0e59d7d))
+* **deps:** bump @emotion/styled from 11.10.0 to 11.10.4 ([6fdd47c](https://github.com/sws2apps/sws-pocket/commit/6fdd47cb84142334f1d3bce5431c71f11bc1f496))
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.7.0 to 3.7.1 ([1bd1fcb](https://github.com/sws2apps/sws-pocket/commit/1bd1fcb8d408d732cea290517b0ae482953486bb))
+* **deps:** bump @mui/icons-material from 5.10.2 to 5.10.3 ([75d057d](https://github.com/sws2apps/sws-pocket/commit/75d057ded7559d31cdd7091dd748a2808638df4f))
+* **deps:** bump @mui/icons-material from 5.8.4 to 5.10.2 ([f437a9b](https://github.com/sws2apps/sws-pocket/commit/f437a9bd498d3d5b0d87dc5fe89c7abd7d4e11df))
+* **deps:** bump @mui/material from 5.10.0 to 5.10.1 ([d04ab5e](https://github.com/sws2apps/sws-pocket/commit/d04ab5efb8b668699cfe8185aad946f0de8a71e4))
+* **deps:** bump @mui/material from 5.10.1 to 5.10.2 ([331dca3](https://github.com/sws2apps/sws-pocket/commit/331dca3fc21c98e4a04e3fdda4487bc0bc5926a8))
+* **deps:** bump @mui/material from 5.10.2 to 5.10.3 ([6951823](https://github.com/sws2apps/sws-pocket/commit/6951823b5aba39baed27deacf1842d6e13a3f551))
+* **deps:** bump @mui/material from 5.10.3 to 5.10.4 ([3d70ef9](https://github.com/sws2apps/sws-pocket/commit/3d70ef9063765331684812554890d966773c8f1b))
+* **deps:** bump @mui/material from 5.10.4 to 5.10.5 ([dc99596](https://github.com/sws2apps/sws-pocket/commit/dc99596c91e02502b5a10b8c0bccf14848dec2e2))
+* **deps:** bump @sws2apps/react-sw-helper from 1.6.0 to 1.7.0 ([f85ed99](https://github.com/sws2apps/sws-pocket/commit/f85ed99f7ee44ec5a1de6a43b0ecc8b8138c9157))
+* **deps:** bump i18next from 21.9.0 to 21.9.1 ([3254dd6](https://github.com/sws2apps/sws-pocket/commit/3254dd65248ac47aefd6b4dd86fd682698ca9d6c))
+* **deps:** bump react-i18next from 11.18.3 to 11.18.4 ([960c09f](https://github.com/sws2apps/sws-pocket/commit/960c09fad546fd78a0f238edabd26e54c583e3e2))
+* **deps:** bump react-i18next from 11.18.4 to 11.18.5 ([a236bc0](https://github.com/sws2apps/sws-pocket/commit/a236bc0e282b3c680a03964fa7c3d1c73bc8e81f))
+* **deps:** bump react-i18next from 11.18.5 to 11.18.6 ([75df59c](https://github.com/sws2apps/sws-pocket/commit/75df59cdaf45b0639b119adc2155b0b54191612e))
+
 # [1.0.0-alpha.14](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2022-08-12)
 
 
