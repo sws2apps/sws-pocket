@@ -13,9 +13,13 @@ import {
 	startupProgressState,
 	visitorIDState,
 } from '../../states/app';
-import { deleteAppDb, initAppDb, isDbExist } from '../../indexedDb/utils';
+import {
+	deleteAppDb,
+	initAppDb,
+	isDbExist,
+	loadAppData,
+} from '../../indexedDb/utils';
 import { dbUpdateSettings } from '../../indexedDb/appSettings';
-import { updateAssignmentType } from '../../indexedDb/updater';
 
 const Startup = () => {
 	const abortCont = useRef();
@@ -50,10 +54,10 @@ const Startup = () => {
 	}, []);
 
 	const handleInitApp = useCallback(async () => {
+		const isDatabaseExist = await isDbExist();
 		try {
 			abortCont.current = new AbortController();
 
-			const isDatabaseExist = await isDbExist();
 			setStartupProgress(10);
 
 			if (isOnline) {
@@ -79,12 +83,17 @@ const Startup = () => {
 					// create a new database
 					if (!isDatabaseExist) {
 						await initAppDb();
-						await dbUpdateSettings(data);
 						setStartupProgress(50);
 					}
 
-					// load and update database if applicable
-					await updateAssignmentType();
+					// update pocket settings
+					await dbUpdateSettings(data);
+					setStartupProgress(60);
+
+					// load app data
+					await loadAppData();
+					setStartupProgress(70);
+
 					setStartupProgress(100);
 
 					setIsAppLoad(false);
@@ -104,6 +113,14 @@ const Startup = () => {
 					return;
 				}
 
+				// fallback to offline before reloading
+				if (isDatabaseExist) {
+					await loadAppData();
+					setStartupProgress(100);
+					setIsAppLoad(false);
+					return;
+				}
+
 				// server warning message
 				setIsReload(true);
 				return;
@@ -111,6 +128,9 @@ const Startup = () => {
 
 			// we are offline, fallback to offline database if exists
 			if (isDatabaseExist) {
+				await loadAppData();
+				setStartupProgress(100);
+				setIsAppLoad(false);
 				return;
 			}
 
@@ -118,6 +138,14 @@ const Startup = () => {
 			setEnableInternet(true);
 			setIsReload(true);
 		} catch (err) {
+			// we are offline, fallback to offline database if exists
+			if (isDatabaseExist) {
+				await loadAppData();
+				setStartupProgress(100);
+				setIsAppLoad(false);
+				return;
+			}
+
 			setIsReload(true);
 		}
 	}, [

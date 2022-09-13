@@ -12,7 +12,6 @@ import Layout from './components/root/Layout';
 import Startup from './components/startup/Startup';
 import {
 	apiHostState,
-	appLangState,
 	appStageState,
 	isAppLoadState,
 	isLightThemeState,
@@ -21,6 +20,7 @@ import { appSnackOpenState } from './states/notification';
 
 // lazy pages import
 const Assignments = lazy(() => import('./pages/Assignments'));
+const MyAccount = lazy(() => import('./pages/MyAccount'));
 const Schedule = lazy(() => import('./pages/Schedule'));
 
 // creating theme
@@ -41,7 +41,6 @@ const App = ({ updatePwa }) => {
 
 	const isLight = useRecoilValue(isLightThemeState);
 	const isAppLoad = useRecoilValue(isAppLoadState);
-	const appLang = useRecoilValue(appLangState);
 	const appSnackOpen = useRecoilValue(appSnackOpenState);
 
 	const [browserSupported, setBrowserSupported] = useState(true);
@@ -109,7 +108,7 @@ const App = ({ updatePwa }) => {
 	return (
 		<ThemeProvider theme={activeTheme}>
 			<CssBaseline />
-			<Box data-testid={`app-root-language-${appLang}`}>
+			<Box>
 				<InternetChecker />
 				<ApplicationLifeCycle
 					enabledInstall={enabledInstall}
@@ -124,6 +123,7 @@ const App = ({ updatePwa }) => {
 								<Routes>
 									<Route path='/' element={<Schedule />} />
 									<Route path='/assignments' element={<Assignments />} />
+									<Route path='/account' element={<MyAccount />} />
 								</Routes>
 							</Layout>
 						</HashRouter>

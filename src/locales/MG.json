@@ -25,5 +25,21 @@
     "navSchedule": "Fandaharana",
     "navAssignments": "Anjarako",
     "about": "Mombamomba",
-    "appDescription": "Programa ahafahanao mijery ny fandaharana amin’ny fivoriana andavanandro sy faran’ny herinandro ho an’ny Vavolombelon’i Jehovah ny SWS Pocket."
+    "appDescription": "Programa ahafahanao mijery ny fandaharana amin’ny fivoriana andavanandro sy faran’ny herinandro ho an’ny Vavolombelon’i Jehovah ny SWS Pocket.",
+    "scheduleRefreshProgress": "Manavao fandaharana ...",
+    "scheduleLoadError": "Nisy olana teo am-panokafana ny fandaharana",
+    "midweekMeeting": "Fivoriana Andavanandro",
+    "treasuresPart": "HARENA AVY AO AMIN’NY TENIN’ANDRIAMANITRA",
+    "fieldMinistryPart": "FAMPIOFANANA AMIN’NY FANOMPOANA",
+    "livingPart": "NY FIAINANTSIKA KRISTIANINA",
+    "myAssignmentsDesc": "Jereo eto ambany ny anjaranao manaraka, sy ny anjaran’ny olon-kafa azonareo jerena koa",
+    "shortDateFormat": "dd/MM/yyyy",
+    "partOnBehalf": "Anjara ataon’i: ",
+    "assistant": "Mpanampy",
+    "student": "Mpitarika",
+    "myAccount": "Ny Kaontiko",
+    "myName": "Anarako",
+    "viewScheduleOnBehalf": "Anjaran’ny mpianatra azoko jerena:",
+    "myAccountNote": "Ny anti-panahy ao amin’ny fiangonanareo no mitahiry ireo fanazavana ireo. Ilazao izy ireo raha misy fanovana tokony hatao.",
+    "signupCodeRequired": "Ampidiro ny kaody fidirana nomen’ny anti-panahy anao"
 }

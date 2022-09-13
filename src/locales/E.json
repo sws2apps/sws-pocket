@@ -25,5 +25,21 @@
     "navSchedule": "Schedule",
     "navAssignments": "My Assignments",
     "about": "About",
-    "appDescription": "SWS Pocket is an application to view the midweek and weekend meeting schedule for Jehovah’s Witnesses."
+    "appDescription": "SWS Pocket is an application to view the midweek and weekend meeting schedule for Jehovah’s Witnesses.",
+    "scheduleRefreshProgress": "Updating schedules ...",
+    "scheduleLoadError": "There was an error when loading the schedule",
+    "midweekMeeting": "Midweek Meeting",
+    "treasuresPart": "TREASURES FROM GOD’S WORD",
+    "fieldMinistryPart": "APPLY YOURSELF TO THE FIELD MINISTRY",
+    "livingPart": "LIVING AS CHRISTIANS",
+    "myAssignmentsDesc": "Check below the part for your next assignments, and for any other students that you have access to",
+    "shortDateFormat": "M/d/yyyy",
+    "partOnBehalf": "Presented by: ",
+    "assistant": "Assistant",
+    "student": "Student",
+    "myAccount": "My Account",
+    "myName": "My Name",
+    "viewScheduleOnBehalf": "Students schedule I have access to:",
+    "myAccountNote": "These information are managed by your congregation elders. If there is a need to make a change, please contact them.",
+    "signupCodeRequired": "Enter the activation code you received from your elder"
 }

@@ -10,6 +10,7 @@ export const themeOptionsState = selector({
 			textNotImportant: isLight ? '#707B7C' : '#D0D3D4',
 			navBar: '#3f51b5 !important',
 			borderPrimary: isLight ? '#566573' : '#ECF0F1',
+			backgroundStudent: isLight ? 'lightblue' : '#CACFD2',
 		};
 	},
 });

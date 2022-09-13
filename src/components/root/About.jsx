@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { isAboutOpenState } from '../../states/app';
@@ -26,6 +27,7 @@ const About = () => {
 		>
 			<DialogContent sx={{ padding: '10px' }}>
 				<Box
+					data-testid='modal-about'
 					sx={{
 						display: 'flex',
 						flexDirection: 'column',
@@ -41,7 +43,7 @@ const About = () => {
 					>
 						SWS Pocket
 					</Typography>
-					<Typography variant='body1'>
+					<Typography variant='body1' data-testid='app-version'>
 						{import.meta.env.PACKAGE_VERSION}
 					</Typography>
 				</Box>
@@ -52,6 +54,7 @@ const About = () => {
 							marginTop: '10px',
 							marginBottom: '15px',
 						}}
+						data-testid='about-description'
 					>
 						{t('appDescription')}
 					</Typography>
@@ -71,6 +74,7 @@ const About = () => {
 							href='https://github.com/sws2apps/sws-pocket'
 							target='_blank'
 							rel='noopener'
+							data-testid='github-link'
 						>
 							<svg height='32' viewBox='0 0 16 16' width='32'>
 								<path
@@ -89,7 +93,11 @@ const About = () => {
 							Check this project on GitHub if you want to help us improve it.
 						</Typography>
 					</Box>
-					<Typography variant='body2' sx={{ marginTop: '15px' }}>
+					<Typography
+						data-testid='copyright-year'
+						variant='body2'
+						sx={{ marginTop: '15px' }}
+					>
 						Copyright © {currentYear} | SWS Pocket [sws2apps]
 					</Typography>
 				</Box>
