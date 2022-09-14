@@ -1,3 +1,10 @@
+# [1.0.0-alpha.16](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2022-09-14)
+
+
+### Features
+
+* **app:** update backend url from heroku to render ([8431946](https://github.com/sws2apps/sws-pocket/commit/8431946ff00fb9537d13402818fef3d7750c312c))
+
 # [1.0.0-alpha.15](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2022-09-13)
 
 
