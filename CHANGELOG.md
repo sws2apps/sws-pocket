@@ -1,3 +1,10 @@
+# [1.0.0-alpha.17](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.16...v1.0.0-alpha.17) (2022-09-14)
+
+
+### Bug Fixes
+
+* **firebase:** bring back data in font-src csp ([2bfe7d9](https://github.com/sws2apps/sws-pocket/commit/2bfe7d95b716e7847531e10f93994ac4feedd342))
+
 # [1.0.0-alpha.16](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2022-09-14)
 
 

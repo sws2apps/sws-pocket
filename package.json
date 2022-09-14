@@ -1,7 +1,7 @@
 {
   "name": "sws-pocket",
   "private": true,
-  "version": "1.0.0-alpha.16",
+  "version": "1.0.0-alpha.17",
   "repository": {
     "type": "git",
     "url": "https://github.com/sws2apps/sws-pocket.git"
