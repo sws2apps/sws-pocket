@@ -49,7 +49,7 @@ const PocketSignUp = () => {
 	const handleSignUp = async () => {
 		try {
 			if (verifyCode.length === 0) {
-				setAppMessage(t);
+				setAppMessage(t('signupCodeRequired'));
 				setAppSeverity('warning');
 				setAppSnackOpen(true);
 				return;
