@@ -62,19 +62,19 @@ const App = ({ updatePwa }) => {
 				appUrl === 'alpha-sws-pocket.web.app' ||
 				appUrl === 'alpha-sws-pocket.firebaseapp.com'
 			) {
-				setApiHost('https://dev-sws2apps.herokuapp.com/');
+				setApiHost('https://alpha-sws2apps-api.onrender.com/');
 				setAppStage('ALPHA Release');
 			} else if (
 				appUrl === 'beta-sws-pocket.web.app' ||
 				appUrl === 'beta-sws-pocket.firebaseapp.com'
 			) {
-				setApiHost('https://staging-sws2apps.herokuapp.com/');
+				setApiHost('https://beta-sws2apps-api.onrender.com/');
 				setAppStage('BETA Release');
 			} else if (
 				appUrl === 'sws-pocket.web.app' ||
 				appUrl === 'sws-pocket.firebaseapp.com'
 			) {
-				setApiHost('https://dev-sws2apps.herokuapp.com/');
+				setApiHost('https://sws2apps-api.onrender.com/');
 			}
 		}
 	}, [setApiHost, setAppStage]);
