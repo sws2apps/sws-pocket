@@ -1,3 +1,12 @@
+# [1.0.0-alpha.18](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.17...v1.0.0-alpha.18) (2022-09-19)
+
+
+### Features
+
+* **deps:** bump @sws2apps/react-sw-helper from 1.7.0 to 1.8.0 ([d0eb826](https://github.com/sws2apps/sws-pocket/commit/d0eb826518786aeed2cd6ed9623b70e6713ffa2d))
+* **deps:** bump date-fns from 2.28.0 to 2.29.3 ([55f9794](https://github.com/sws2apps/sws-pocket/commit/55f97941427425c3f401e1aac1d9cd46c357b9e9))
+* **deps:** bump react-router-dom from 6.3.0 to 6.4.0 ([8e170ce](https://github.com/sws2apps/sws-pocket/commit/8e170cecdba8bdeba31234bf8c3337b551274adc))
+
 # [1.0.0-alpha.17](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.16...v1.0.0-alpha.17) (2022-09-14)
 
 
