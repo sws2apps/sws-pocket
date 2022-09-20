@@ -19,8 +19,10 @@ export const scheduleLocalState = selector({
 		const schedules = get(scheduleDataState);
 		const sources = get(sourceDataState);
 
+		let schedule = [];
+
 		if (schedules && sources) {
-			let schedule = [];
+			
 			// loop through all schedules to build weekly schedule
 			const { students } = schedules;
 			if (students) {
@@ -59,9 +61,10 @@ export const scheduleLocalState = selector({
 					}
 				}
 			}
-
-			return schedule;
+			
 		}
+
+		return schedule;
 	},
 });
 
