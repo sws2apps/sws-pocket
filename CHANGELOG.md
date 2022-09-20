@@ -1,3 +1,17 @@
+# [1.0.0-alpha.19](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.18...v1.0.0-alpha.19) (2022-09-20)
+
+
+### Bug Fixes
+
+* **app:** fix an issue preventing the application to open on startup ([9fa6273](https://github.com/sws2apps/sws-pocket/commit/9fa6273f372503be21d2a3795560021d5dc66c0e))
+
+
+### Features
+
+* **deps:** bump @mui/icons-material from 5.10.3 to 5.10.6 ([32c6c4b](https://github.com/sws2apps/sws-pocket/commit/32c6c4b65a4d9a004893df52cdf3c50fb858d475))
+* **deps:** bump @mui/material from 5.10.5 to 5.10.6 ([ecd718f](https://github.com/sws2apps/sws-pocket/commit/ecd718f4d6442af12bba64c8e3961fbe4a01ef17))
+* **deps:** bump i18next from 21.9.1 to 21.9.2 ([87a6383](https://github.com/sws2apps/sws-pocket/commit/87a63836e6a09866692d3625d83ad82279cf0a99))
+
 # [1.0.0-alpha.18](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.17...v1.0.0-alpha.18) (2022-09-19)
 
 
