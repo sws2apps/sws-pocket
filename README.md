@@ -6,6 +6,8 @@
 SWS Pocket is a web application that will allow you to view your parts during midweek and weekend meetings. Also, the whole congregation meeting schedules are available for your reference. Based on your request, the elders may give additional permissions to view another students parts. Currently, it is still under its initial development phase. If you want to test it, please visit [https://alpha-sws-pocket.web.app](https://alpha-sws-pocket.web.app).
 
 ![sws_pocket_setup](https://user-images.githubusercontent.com/26148770/178287230-8f1d7ce6-334f-49aa-888e-6528b76b8962.png)
+![sws_pocket_home](https://user-images.githubusercontent.com/26148770/191229400-98819316-1a84-4c9e-afe0-bc4a0b356315.png)
+![sws_pocket_assignments](https://user-images.githubusercontent.com/26148770/191229386-765c650b-b42c-414a-bec1-b9a05136760a.png)
 
 ## Who should use SWS Pocket?
 
