@@ -1,3 +1,10 @@
+# [1.0.0-alpha.20](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.19...v1.0.0-alpha.20) (2022-09-24)
+
+
+### Features
+
+* **deps:** bump react-router-dom from 6.4.0 to 6.4.1 ([5d4ad91](https://github.com/sws2apps/sws-pocket/commit/5d4ad917bb0aa49b8bc6389bab1626e7034ed04e))
+
 # [1.0.0-alpha.19](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.18...v1.0.0-alpha.19) (2022-09-20)
 
 
