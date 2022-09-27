@@ -45,11 +45,6 @@ export const apiHostState = atom({
 	default: '',
 });
 
-export const appStageState = atom({
-	key: 'appStage',
-	default: '',
-});
-
 export const isAboutOpenState = atom({
 	key: 'isAboutOpen',
 	default: false,
