@@ -1,9 +1,10 @@
 # SWS Pocket
 
-![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/sws2apps/sws-pocket/alpha)
 [![sws-pocket](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/xvw6ii&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/xvw6ii/runs)
 
-SWS Pocket is a web application that will allow you to view your parts during midweek and weekend meetings. Also, the whole congregation meeting schedules are available for your reference. Based on your request, the elders may give additional permissions to view another students parts. Currently, it is still under its initial development phase. If you want to test it, please visit [https://alpha-sws-pocket.web.app](https://alpha-sws-pocket.web.app).
+SWS Pocket is a web application that will allow you to view your parts during midweek and weekend meetings. Also, the whole congregation meeting schedules are available for your reference. Based on your request, the elders may give additional permissions to view another students parts.
+
+![sws_pocket_home](https://user-images.githubusercontent.com/26148770/191229400-98819316-1a84-4c9e-afe0-bc4a0b356315.png)
 
 ## Who should use SWS Pocket?
 
