@@ -1,3 +1,10 @@
+# 1.0.0 (2022-09-27)
+
+
+### Features
+
+* **app:** initial live commit ([04eb6ff](https://github.com/sws2apps/sws-pocket/commit/04eb6ffcccbf20c07ec1d376f8b8e829ea03aab0))
+
 # [1.0.0-alpha.20](https://github.com/sws2apps/sws-pocket/compare/v1.0.0-alpha.19...v1.0.0-alpha.20) (2022-09-24)
 
 
