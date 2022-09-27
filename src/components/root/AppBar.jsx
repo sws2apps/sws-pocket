@@ -25,7 +25,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { themeOptionsState } from '../../states/theme';
 import { dbGetAppSettings } from '../../indexedDb/appSettings';
-import { appStageState, isAboutOpenState } from '../../states/app';
+import { isAboutOpenState } from '../../states/app';
 
 const drawerWidth = 240;
 
@@ -65,7 +65,6 @@ const ApplicationBar = () => {
 
 	const setIsAboutOpen = useSetRecoilState(isAboutOpenState);
 
-	const appStage = useRecoilValue(appStageState);
 	const themeOptions = useRecoilValue(themeOptionsState);
 
 	const [username, setUsername] = useState('');
@@ -207,24 +206,6 @@ const ApplicationBar = () => {
 						)}
 					</Box>
 					<Box sx={{ display: 'flex', alignItems: 'center' }}>
-						{appStage !== 'LIVE' && (
-							<Typography
-								sx={{
-									display: 'flex',
-									alignItems: 'center',
-									backgroundColor: '#F5EEF8',
-									padding: '2px 10px 2px 10px',
-									height: '25px',
-									color: '#EC7063',
-									borderRadius: '5px',
-									fontSize: '12px',
-									fontWeight: 'bold',
-									marginRight: '20px',
-								}}
-							>
-								{upLg ? appStage : appStage.substring(0, 1).toUpperCase()}
-							</Typography>
-						)}
 						<AppTheme override={true} />
 						<AppLanguage />
 						<IconButton
