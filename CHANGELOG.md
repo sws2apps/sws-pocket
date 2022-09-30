@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/sws2apps/sws-pocket/compare/v1.0.0...v1.0.1) (2022-09-27)
+
+
+### Bug Fixes
+
+* **app:** update backend url ([5903ac9](https://github.com/sws2apps/sws-pocket/commit/5903ac9cc22afce0ebfd77df6d864fde98249e8e))
+
 # 1.0.0 (2022-09-27)
 
 
