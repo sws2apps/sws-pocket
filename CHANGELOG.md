@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/sws2apps/sws-pocket/compare/v1.0.1...v1.0.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* **api:** update visitor_id field name in req.headers to visitorid ([66d0612](https://github.com/sws2apps/sws-pocket/commit/66d0612dabb870b090c745a904aa56af8ce3f8fd))
+
 ## [1.0.1](https://github.com/sws2apps/sws-pocket/compare/v1.0.0...v1.0.1) (2022-09-27)
 
 
