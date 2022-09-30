@@ -66,7 +66,7 @@ const PocketSignUp = () => {
 					headers: {
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify({ otp_code: verifyCode, visitor_id: visitorID }),
+					body: JSON.stringify({ otp_code: verifyCode, visitorid: visitorID }),
 				});
 
 				const data = await res.json();
