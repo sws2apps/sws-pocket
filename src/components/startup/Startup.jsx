@@ -69,7 +69,7 @@ const Startup = () => {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json',
-						visitor_id: visitorId,
+						visitorid: visitorId,
 					},
 				});
 				setStartupProgress(30);
