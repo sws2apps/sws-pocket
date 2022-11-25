@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
-import { useEffectOnce } from '../../hooks/useEffectOnce';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import IconButton from '@mui/material/IconButton';
@@ -15,6 +14,7 @@ const ScheduleUpdater = () => {
   const { t } = useTranslation();
 
   const [open, setOpen] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const setAppSnackOpen = useSetRecoilState(appSnackOpenState);
   const setAppSeverity = useSetRecoilState(appSeverityState);
@@ -24,14 +24,19 @@ const ScheduleUpdater = () => {
   const apiHost = useRecoilValue(apiHostState);
   const visitorID = useRecoilValue(visitorIDState);
 
-  useEffectOnce(() => {
+  const handleManualRefresh = () => {
+    setOpen((prev) => {
+      return !prev;
+    });
+  };
+
+  useEffect(() => {
     const abortCont = new AbortController();
 
     const refreshSchedule = async () => {
       try {
-        abortCont.current = new AbortController();
-        if (open && isOnline && apiHost !== '') {
-          setOpen(true);
+        if (isOnline && apiHost !== '') {
+          setIsLoading(true);
 
           const res = await fetch(`${apiHost}api/sws-pocket/schedule`, {
             signal: abortCont.signal,
@@ -46,21 +51,21 @@ const ScheduleUpdater = () => {
 
           if (res.status === 200) {
             await dbUpdateSchedule(data);
-            setOpen(false);
+            setIsLoading(false);
             return;
           }
 
-          setOpen(false);
           setAppMessage(data.message);
           setAppSeverity('warning');
           setAppSnackOpen(true);
+          setIsLoading(false);
         }
       } catch (err) {
-        if (abortCont.signal.aborted) {
-          setOpen(false);
+        if (!abortCont.signal.aborted) {
           setAppMessage(err.message);
           setAppSeverity('error');
           setAppSnackOpen(true);
+          setIsLoading(false);
         }
       }
     };
@@ -68,10 +73,9 @@ const ScheduleUpdater = () => {
     refreshSchedule();
 
     return () => {
-      console.log('unmount');
       abortCont.abort();
     };
-  }, [apiHost, isOnline, open, setAppMessage, setAppSeverity, setAppSnackOpen, setOpen, visitorID]);
+  }, [apiHost, isOnline, open, setAppMessage, setAppSeverity, setAppSnackOpen, visitorID]);
 
   return (
     <Box
@@ -84,14 +88,14 @@ const ScheduleUpdater = () => {
         height: '40px',
       }}
     >
-      {open && (
+      {isLoading && (
         <>
           <Typography sx={{ marginRight: '10px', fontSize: '12px' }}>{t('scheduleRefreshProgress')}</Typography>
           <CircularProgress disableShrink color='secondary' size={'20px'} />
         </>
       )}
-      {!open && (
-        <IconButton onClick={() => setOpen(true)}>
+      {!isLoading && (
+        <IconButton onClick={handleManualRefresh}>
           <RefreshIcon />
         </IconButton>
       )}
