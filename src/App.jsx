@@ -20,90 +20,91 @@ const Schedule = lazy(() => import('./pages/Schedule'));
 
 // creating theme
 const lightTheme = createTheme({
-	palette: {
-		mode: 'light',
-	},
+  palette: {
+    mode: 'light',
+  },
 });
 
 const darkTheme = createTheme({
-	palette: {
-		mode: 'dark',
-	},
+  palette: {
+    mode: 'dark',
+  },
 });
 
 const App = ({ updatePwa }) => {
-	const { enabledInstall } = usePwa2();
+  const { enabledInstall } = usePwa2();
 
-	const isLight = useRecoilValue(isLightThemeState);
-	const isAppLoad = useRecoilValue(isAppLoadState);
-	const appSnackOpen = useRecoilValue(appSnackOpenState);
+  const isLight = useRecoilValue(isLightThemeState);
+  const isAppLoad = useRecoilValue(isAppLoadState);
+  const appSnackOpen = useRecoilValue(appSnackOpenState);
 
-	const [browserSupported, setBrowserSupported] = useState(true);
-	const [activeTheme, setActiveTheme] = useState(lightTheme);
+  const [browserSupported, setBrowserSupported] = useState(true);
+  const [activeTheme, setActiveTheme] = useState(lightTheme);
 
-	const setApiHost = useSetRecoilState(apiHostState);
+  const setApiHost = useSetRecoilState(apiHostState);
 
-	useEffect(() => {
-		if (import.meta.env.DEV) {
-			setApiHost('http://localhost:8000/');
-		} else {
-			setApiHost('https://sws2apps-api.onrender.com/');
-		}
-	}, [setApiHost]);
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      if (import.meta.env.VITE_API_REMOTE_URL) {
+        setApiHost(import.meta.env.VITE_API_REMOTE_URL);
+      } else {
+        setApiHost('http://localhost:8000/');
+      }
+    } else {
+      setApiHost('https://sws2apps-api.onrender.com/');
+    }
+  }, [setApiHost]);
 
-	useEffect(() => {
-		if (isLight) {
-			setActiveTheme(lightTheme);
-		} else {
-			setActiveTheme(darkTheme);
-		}
-	}, [isLight]);
+  useEffect(() => {
+    if (isLight) {
+      setActiveTheme(lightTheme);
+    } else {
+      setActiveTheme(darkTheme);
+    }
+  }, [isLight]);
 
-	useEffect(() => {
-		if (!indexedDB) {
-			if ('serviceWorker' in navigator) {
-			} else {
-				setBrowserSupported(false);
-			}
-		}
-	}, []);
+  useEffect(() => {
+    if (!indexedDB) {
+      if ('serviceWorker' in navigator) {
+      } else {
+        setBrowserSupported(false);
+      }
+    }
+  }, []);
 
-	if (!browserSupported) {
-		return (
-			<div className='browser-not-supported'>
-				You seem to use an unsupported browser to use SWS Pocket. Make sure that
-				you browser is up to date, or try to use another browser.
-			</div>
-		);
-	}
+  if (!browserSupported) {
+    return (
+      <div className='browser-not-supported'>
+        You seem to use an unsupported browser to use SWS Pocket. Make sure that you browser is up to date, or try to
+        use another browser.
+      </div>
+    );
+  }
 
-	return (
-		<ThemeProvider theme={activeTheme}>
-			<CssBaseline />
-			<Box>
-				<InternetChecker />
-				<ApplicationLifeCycle
-					enabledInstall={enabledInstall}
-					updatePwa={updatePwa}
-				/>
-				{appSnackOpen && <AppNotification />}
-				{isAppLoad && <Startup />}
-				{!isAppLoad && (
-					<Suspense fallback={<div></div>}>
-						<HashRouter>
-							<Layout>
-								<Routes>
-									<Route path='/' element={<Schedule />} />
-									<Route path='/assignments' element={<Assignments />} />
-									<Route path='/account' element={<MyAccount />} />
-								</Routes>
-							</Layout>
-						</HashRouter>
-					</Suspense>
-				)}
-			</Box>
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={activeTheme}>
+      <CssBaseline />
+      <Box>
+        <InternetChecker />
+        <ApplicationLifeCycle enabledInstall={enabledInstall} updatePwa={updatePwa} />
+        {appSnackOpen && <AppNotification />}
+        {isAppLoad && <Startup />}
+        {!isAppLoad && (
+          <Suspense fallback={<div></div>}>
+            <HashRouter>
+              <Layout>
+                <Routes>
+                  <Route path='/' element={<Schedule />} />
+                  <Route path='/assignments' element={<Assignments />} />
+                  <Route path='/account' element={<MyAccount />} />
+                </Routes>
+              </Layout>
+            </HashRouter>
+          </Suspense>
+        )}
+      </Box>
+    </ThemeProvider>
+  );
 };
 
 export default App;
