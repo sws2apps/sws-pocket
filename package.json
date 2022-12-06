@@ -29,7 +29,7 @@
     "@sws2apps/react-sw-helper": "^1.9.0",
     "date-fns": "^2.29.3",
     "dexie": "^3.2.2",
-    "i18next": "^22.0.6",
+    "i18next": "^22.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.1.0",
