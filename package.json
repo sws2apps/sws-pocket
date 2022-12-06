@@ -52,7 +52,7 @@
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-cypress": "^2.12.1",
     "serve": "^14.1.2",
-    "vite": "^3.2.4",
+    "vite": "^3.2.5",
     "vite-plugin-eslint": "^1.8.1"
   },
   "browserslist": {
