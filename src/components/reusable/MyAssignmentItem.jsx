@@ -26,8 +26,8 @@ const MyAssignmentItem = ({ assignment }) => {
 	const getAssignmentInfo = useCallback(() => {
 		const fDate = format(new Date(weekOf), t('shortDateFormat'));
 		setWeekDateFormatted(fDate);
-		setAssTypeName(ass_type_name[appLang]);
-		setAssSrc(ass_source[appLang]);
+		setAssTypeName(ass_type_name ? ass_type_name[appLang] : '');
+		setAssSrc(ass_source ? ass_source[appLang] : '');
 	}, [appLang, ass_source, ass_type_name, t, weekOf]);
 
 	useEffect(() => {
