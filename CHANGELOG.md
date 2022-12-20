@@ -1,3 +1,59 @@
+# [1.1.0](https://github.com/sws2apps/sws-pocket/compare/v1.0.2...v1.1.0) (2022-12-20)
+
+
+### Bug Fixes
+
+* **app:** fix error on first setup ([b9dd6e2](https://github.com/sws2apps/sws-pocket/commit/b9dd6e2e086f404a00e41f03882e526c47aa1e5e))
+
+
+### Features
+
+* **deps:** bump @emotion/react from 11.10.4 to 11.10.5 ([611a6a8](https://github.com/sws2apps/sws-pocket/commit/611a6a829abfeaa8c958edf691ca2803cefba332))
+* **deps:** bump @emotion/styled from 11.10.4 to 11.10.5 ([fc7a2ee](https://github.com/sws2apps/sws-pocket/commit/fc7a2eedec09ccf56e0b88a96e4b23f3b02e2e4d))
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.7.1 to 3.8.0 ([1328fe9](https://github.com/sws2apps/sws-pocket/commit/1328fe9f4623aa131b2b7aa1c6c2270dd33336a2))
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.8.0 to 3.8.1 ([285de0f](https://github.com/sws2apps/sws-pocket/commit/285de0f72369eda55ced8e484f6af0ad900e9453))
+* **deps:** bump @mui/icons-material from 5.10.14 to 5.10.15 ([e412b35](https://github.com/sws2apps/sws-pocket/commit/e412b351fba51d799da22fe5f87cdd5198f710b5))
+* **deps:** bump @mui/icons-material from 5.10.15 to 5.10.16 ([906d02d](https://github.com/sws2apps/sws-pocket/commit/906d02d4282ba2360f8cc63a0f76efa508ee42c4))
+* **deps:** bump @mui/icons-material from 5.10.16 to 5.11.0 ([823ba8e](https://github.com/sws2apps/sws-pocket/commit/823ba8ead44bbe65ef125fa2eb8ee396fa561c3e))
+* **deps:** bump @mui/icons-material from 5.10.6 to 5.10.9 ([04fbe10](https://github.com/sws2apps/sws-pocket/commit/04fbe102782fa124aa233c1d8eacbf78b17f0958))
+* **deps:** bump @mui/icons-material from 5.10.9 to 5.10.14 ([f10af30](https://github.com/sws2apps/sws-pocket/commit/f10af30aee78fc059931a80be25c6c0cc204c27e))
+* **deps:** bump @mui/material from 5.10.10 to 5.10.11 ([8fbb2d2](https://github.com/sws2apps/sws-pocket/commit/8fbb2d225e8c056a516da83c56cd6a684e9e507c))
+* **deps:** bump @mui/material from 5.10.11 to 5.10.12 ([579290e](https://github.com/sws2apps/sws-pocket/commit/579290e611b766bf5d0306bbfe36d85b51539205))
+* **deps:** bump @mui/material from 5.10.12 to 5.10.13 ([9fba900](https://github.com/sws2apps/sws-pocket/commit/9fba900083c6fc7dcc42384a17cd7f3a9860a80a))
+* **deps:** bump @mui/material from 5.10.13 to 5.10.14 ([332f168](https://github.com/sws2apps/sws-pocket/commit/332f16871be54db3849a9eb4b4bdc095b967aaac))
+* **deps:** bump @mui/material from 5.10.14 to 5.10.15 ([ab502a5](https://github.com/sws2apps/sws-pocket/commit/ab502a5c8a0cdca00b2004afeb6f5d16dd9cacf6))
+* **deps:** bump @mui/material from 5.10.15 to 5.10.16 ([9cde394](https://github.com/sws2apps/sws-pocket/commit/9cde3941556a42c09560f453fc25aa7135af19bd))
+* **deps:** bump @mui/material from 5.10.16 to 5.10.17 ([e0f0403](https://github.com/sws2apps/sws-pocket/commit/e0f0403c60485263d12b8fe5554d7435fff5ef39))
+* **deps:** bump @mui/material from 5.10.17 to 5.11.0 ([9f4dbaf](https://github.com/sws2apps/sws-pocket/commit/9f4dbaf387f66038b0e38d1e06b30bef05191de5))
+* **deps:** bump @mui/material from 5.10.7 to 5.10.8 ([e3bf4fd](https://github.com/sws2apps/sws-pocket/commit/e3bf4fd75a3f889a462dd8005dfa324fc96a65f5))
+* **deps:** bump @mui/material from 5.10.8 to 5.10.9 ([b0094bd](https://github.com/sws2apps/sws-pocket/commit/b0094bdc5216cde9cd10b1e0b559172efd0607f3))
+* **deps:** bump @mui/material from 5.10.9 to 5.10.10 ([87e3cce](https://github.com/sws2apps/sws-pocket/commit/87e3cced3fb4d4fc01e22a248395a8716553cf4e))
+* **deps:** bump @mui/material from 5.11.0 to 5.11.1 ([2a95c48](https://github.com/sws2apps/sws-pocket/commit/2a95c48bd36dc955ba9f8a0a3348ad4638dc43b2))
+* **deps:** bump @sws2apps/react-sw-helper from 1.8.0 to 1.9.0 ([be9b5a7](https://github.com/sws2apps/sws-pocket/commit/be9b5a7b1125d6659f46dc3f03c6199d2991270e))
+* **deps:** bump i18next from 21.10.0 to 22.0.1 ([69f5b4d](https://github.com/sws2apps/sws-pocket/commit/69f5b4d6da3fa977ef8bbf409ba250f69fb86c70))
+* **deps:** bump i18next from 21.9.2 to 21.10.0 ([fda6ee8](https://github.com/sws2apps/sws-pocket/commit/fda6ee812d7fb555f2749cb6833ef438b82e662a))
+* **deps:** bump i18next from 22.0.1 to 22.0.2 ([cc249da](https://github.com/sws2apps/sws-pocket/commit/cc249daf178253df8d41e0a172f660bf94a8f063))
+* **deps:** bump i18next from 22.0.2 to 22.0.3 ([9527a62](https://github.com/sws2apps/sws-pocket/commit/9527a62b1ad29a1bba6275d244c87f28297d4745))
+* **deps:** bump i18next from 22.0.3 to 22.0.4 ([8e2c77e](https://github.com/sws2apps/sws-pocket/commit/8e2c77e584c9a0013ac89948a411552882182a95))
+* **deps:** bump i18next from 22.0.4 to 22.0.5 ([627fc14](https://github.com/sws2apps/sws-pocket/commit/627fc1439d757bab8191ac22313054cc898b70ae))
+* **deps:** bump i18next from 22.0.5 to 22.0.6 ([06be77d](https://github.com/sws2apps/sws-pocket/commit/06be77d8b253e1baf54dff6b39d2bb5523e6d024))
+* **deps:** bump i18next from 22.0.6 to 22.0.8 ([568773f](https://github.com/sws2apps/sws-pocket/commit/568773fa8c8213e6930a38dd1cbe0dc0a62fceae))
+* **deps:** bump i18next from 22.0.8 to 22.1.4 ([b5239a0](https://github.com/sws2apps/sws-pocket/commit/b5239a0266ed1745b5237c91224fc0bf3eed6f14))
+* **deps:** bump i18next from 22.1.4 to 22.1.5 ([4aef0c4](https://github.com/sws2apps/sws-pocket/commit/4aef0c4ae884575643503d30af415718ae7d1159))
+* **deps:** bump i18next from 22.1.5 to 22.4.3 ([f9107d2](https://github.com/sws2apps/sws-pocket/commit/f9107d211d116c206d65389c7f0c963daf98284f))
+* **deps:** bump i18next from 22.4.3 to 22.4.5 ([fa25bf6](https://github.com/sws2apps/sws-pocket/commit/fa25bf630105ae19814aafaff0fb90d4bfc521dc))
+* **deps:** bump i18next from 22.4.5 to 22.4.6 ([3977ebe](https://github.com/sws2apps/sws-pocket/commit/3977ebe9750db7b101b8fa299f6b686c4e434737))
+* **deps:** bump react-i18next from 11.18.6 to 12.0.0 ([e2e5dcc](https://github.com/sws2apps/sws-pocket/commit/e2e5dcc2de2a2c734c5dbc72536ff21f86edd481))
+* **deps:** bump react-i18next from 12.0.0 to 12.1.0 ([ab770bf](https://github.com/sws2apps/sws-pocket/commit/ab770bf7db4c9e2cdd1a7a96f8362d6d6e4a5f41))
+* **deps:** bump react-i18next from 12.1.0 to 12.1.1 ([d4c07ae](https://github.com/sws2apps/sws-pocket/commit/d4c07ae76cb55cc540783afc5daa67a5030017f7))
+* **deps:** bump react-router-dom from 6.4.1 to 6.4.2 ([5976edc](https://github.com/sws2apps/sws-pocket/commit/5976edcf0e0e80ff435ec167183286d4945e8ac2))
+* **deps:** bump react-router-dom from 6.4.2 to 6.4.3 ([c21b43c](https://github.com/sws2apps/sws-pocket/commit/c21b43ce0ee2355a399cd5d6c04ccae673f3399c))
+* **deps:** bump react-router-dom from 6.4.3 to 6.4.4 ([b2cba4f](https://github.com/sws2apps/sws-pocket/commit/b2cba4f328e5753efd402ba0db2b87da594556d0))
+* **deps:** bump react-router-dom from 6.4.4 to 6.4.5 ([ea01272](https://github.com/sws2apps/sws-pocket/commit/ea01272134238abc053ef13a54b9bbbffb73ba1d))
+* **deps:** bump react-router-dom from 6.4.5 to 6.5.0 ([a7bf06b](https://github.com/sws2apps/sws-pocket/commit/a7bf06b05e120ab8b1dc9eb16ff05f91635defa3))
+* **deps:** bump recoil from 0.7.5 to 0.7.6 ([7f71375](https://github.com/sws2apps/sws-pocket/commit/7f71375cec82235a8179c73b3a6f5ef667f2ebd9))
+* **schedules:** fetch on startup automatically ([dc42313](https://github.com/sws2apps/sws-pocket/commit/dc42313e18c8e8c337762a720ff5d2d961c11d11))
+
 ## [1.0.2](https://github.com/sws2apps/sws-pocket/compare/v1.0.1...v1.0.2) (2022-09-30)
 
 
