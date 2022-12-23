@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/sws2apps/sws-pocket/compare/v1.1.0...v1.2.0) (2022-12-23)
+
+
+### Features
+
+* **deps:** bump react-router-dom from 6.5.0 to 6.6.0 ([3c3a6a8](https://github.com/sws2apps/sws-pocket/commit/3c3a6a853b0dc20b2728b5569e7631593ceca4ce))
+* **deps:** bump react-router-dom from 6.6.0 to 6.6.1 ([e5d138d](https://github.com/sws2apps/sws-pocket/commit/e5d138df1d5961589a02314ee87344b9896407fe))
+* **schedules:** update to support new schedule format ([ee704be](https://github.com/sws2apps/sws-pocket/commit/ee704be5e6440c758a66b386bbed720c2bdacfb7))
+
 # [1.1.0](https://github.com/sws2apps/sws-pocket/compare/v1.0.2...v1.1.0) (2022-12-20)
 
 
