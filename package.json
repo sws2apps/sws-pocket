@@ -1,7 +1,7 @@
 {
   "name": "sws-pocket",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/sws2apps/sws-pocket.git"
@@ -25,7 +25,7 @@
     "@fingerprintjs/fingerprintjs-pro": "^3.8.1",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.1",
+    "@mui/material": "^5.11.2",
     "@sws2apps/react-sw-helper": "^1.9.0",
     "date-fns": "^2.29.3",
     "dexie": "^3.2.2",
