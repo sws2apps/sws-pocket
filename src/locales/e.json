@@ -67,5 +67,6 @@
   "closingPrayerMidweekMeeting": "Midweek Meeting Closing Prayer",
   "presentedBy": "Delivered by: ",
   "updateApp": "Update",
-  "cacheCompleted": "CPE can be used offline now"
+  "cacheCompleted": "CPE can be used offline now",
+  "noSchedules": "Please ask your congregation elders to publish the meeting schedule first"
 }

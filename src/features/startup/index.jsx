@@ -52,7 +52,6 @@ const Startup = () => {
           if (cong_role.includes('view_meeting_schedule')) {
             await loadApp();
             await dbUpdateUserSettings(data);
-
             setTimeout(() => {
               setIsAppLoad(false);
               setCongAccountConnected(true);
