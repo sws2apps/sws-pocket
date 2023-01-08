@@ -53,6 +53,10 @@ export const fetchNotifications = async () => {
     if (isOnline && apiHost !== '') {
       const res = await fetch(`${apiHost}api/users/announcement`, {
         method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          app: 'sws-pocket',
+        },
       });
 
       const data = await res.json();
