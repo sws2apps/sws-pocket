@@ -8,10 +8,10 @@ permissions: read-all
 jobs:
   dev_deploy:
     name: Build and Deploy to Production
-    if: ${{ github.repository == 'sws2apps/lmm-oa-sws' && github.ref == 'refs/heads/main' }}
+    if: ${{ github.repository == 'sws2apps/sws-pocket' && github.ref == 'refs/heads/main' }}
     environment:
       name: Prod.env
-      url: https://lmm-oa-sws.web.app
+      url: https://sws-pocket.web.app
     runs-on: ubuntu-latest
 
     permissions:
@@ -51,4 +51,4 @@ jobs:
         with:
           workloadIdentityProvider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
           serviceAccount: ${{ secrets.SERVICE_ACCOUNT }}
-          project: lmm-oa-sws
+          project: sws-pocket
