@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/sws2apps/sws-pocket/compare/v1.3.3...v1.4.0) (2023-01-08)
+
+
+### Features
+
+* **app:** migrate from browserRouter to hashRouter ([aba577b](https://github.com/sws2apps/sws-pocket/commit/aba577bf4153fb1c40e922f022355ae2c2e5f346))
+
 ## [1.3.3](https://github.com/sws2apps/sws-pocket/compare/v1.3.2...v1.3.3) (2023-01-08)
 
 
