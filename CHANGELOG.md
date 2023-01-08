@@ -1,3 +1,13 @@
+# [1.3.0](https://github.com/sws2apps/sws-pocket/compare/v1.2.0...v1.3.0) (2023-01-08)
+
+
+### Features
+
+* **app:** view all assignments for midweek meeting ([3b97b6f](https://github.com/sws2apps/sws-pocket/commit/3b97b6f718e975aca64f252872d404a7e6b48b0b))
+* **deps:** bump @mui/material from 5.11.1 to 5.11.2 ([986da81](https://github.com/sws2apps/sws-pocket/commit/986da8130190f30308f31f98c11e6d4d9441103e))
+* **deps:** bump @mui/material from 5.11.2 to 5.11.3 ([2048722](https://github.com/sws2apps/sws-pocket/commit/204872282ad474711957699f1a70a32fb0662542))
+* **deps:** bump i18next from 22.4.6 to 22.4.8 ([bd43290](https://github.com/sws2apps/sws-pocket/commit/bd432906984b84fd8df6c1d1ea774a657ed621f1))
+
 # [1.2.0](https://github.com/sws2apps/sws-pocket/compare/v1.1.0...v1.2.0) (2022-12-23)
 
 
