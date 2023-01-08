@@ -11,7 +11,6 @@ import {
   userIDState,
   visitorIDState,
 } from '../states/main';
-import { loadApp } from './app';
 
 const getProfile = async () => {
   const apiHost = await promiseGetRecoil(apiHostState);
