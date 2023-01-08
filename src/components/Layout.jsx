@@ -13,7 +13,7 @@ import { ScheduleAutoRefresh } from '../features/schedules';
 import Startup from '../features/startup';
 import NavBar from './NavBar';
 import { fetchNotifications } from '../utils/app';
-import { isAboutOpenState, isAppLoadState, isWhatsNewOpenState } from '../states/main';
+import { isAboutOpenState, isAppLoadState, isOnlineState, isWhatsNewOpenState } from '../states/main';
 
 const WaitingPage = () => {
   return (
@@ -41,6 +41,7 @@ const Layout = ({ updatePwa }) => {
   const isAppLoad = useRecoilValue(isAppLoadState);
   const isOpenAbout = useRecoilValue(isAboutOpenState);
   const isOpenWhatsNew = useRecoilValue(isWhatsNewOpenState);
+  const isOnline = useRecoilValue(isOnlineState);
 
   const checkPwaUpdate = () => {
     if ('serviceWorker' in navigator) {
@@ -52,12 +53,14 @@ const Layout = ({ updatePwa }) => {
   };
 
   useEffect(() => {
-    fetchNotifications();
+    if (isOnline) {
+      fetchNotifications();
+    }
 
     if (import.meta.env.PROD) {
       checkPwaUpdate();
     }
-  }, [location]);
+  }, [isOnline, location]);
 
   return (
     <RootModal>
