@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/sws2apps/sws-pocket/compare/v1.3.0...v1.3.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* **app:** add missing translations ([31d80ed](https://github.com/sws2apps/sws-pocket/commit/31d80edbd174370cfd786713b08da9a6aa275c2c))
+
 # [1.3.0](https://github.com/sws2apps/sws-pocket/compare/v1.2.0...v1.3.0) (2023-01-08)
 
 
