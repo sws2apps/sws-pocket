@@ -16,29 +16,33 @@ import appDb from '../indexedDb/appDb';
 import { scheduleDataState, sourceDataState } from '../states/schedule';
 
 export const loadApp = async () => {
-  const I18n = getI18n();
+  try {
+    const I18n = getI18n();
 
-  await initAppDb();
-  const app_lang = localStorage.getItem('app_lang') || 'e';
-  let { username, cong_number, cong_name, class_count, pocket_local_id, pocket_members, source_lang } =
-    await dbGetAppSettings();
+    await initAppDb();
+    const app_lang = localStorage.getItem('app_lang') || 'e';
+    let { username, cong_number, cong_name, class_count, pocket_local_id, pocket_members, source_lang } =
+      await dbGetAppSettings();
 
-  await promiseSetRecoil(usernameState, username || '');
-  await promiseSetRecoil(congNameState, cong_name || '');
-  await promiseSetRecoil(congNumberState, cong_number || '');
-  await promiseSetRecoil(classCountState, class_count || 1);
-  await promiseSetRecoil(appLangState, app_lang || 'e');
-  await promiseSetRecoil(sourceLangState, source_lang || 'e');
-  await promiseSetRecoil(pocketLocalIDState, pocket_local_id?.person_uid || '');
-  await promiseSetRecoil(pocketMembersState, pocket_members || []);
+    await promiseSetRecoil(usernameState, username || '');
+    await promiseSetRecoil(congNameState, cong_name || '');
+    await promiseSetRecoil(congNumberState, cong_number || '');
+    await promiseSetRecoil(classCountState, class_count || 1);
+    await promiseSetRecoil(appLangState, app_lang || 'e');
+    await promiseSetRecoil(sourceLangState, source_lang || 'e');
+    await promiseSetRecoil(pocketLocalIDState, pocket_local_id?.person_uid || '');
+    await promiseSetRecoil(pocketMembersState, pocket_members || []);
 
-  I18n.changeLanguage(app_lang);
+    I18n.changeLanguage(app_lang);
 
-  const schedules = await appDb.cong_schedule.toCollection().first();
-  await promiseSetRecoil(scheduleDataState, schedules);
+    const schedules = await appDb.cong_schedule.toCollection().first();
+    await promiseSetRecoil(scheduleDataState, schedules);
 
-  const sources = await appDb.cong_sourceMaterial.toCollection().first();
-  await promiseSetRecoil(sourceDataState, sources);
+    const sources = await appDb.cong_sourceMaterial.toCollection().first();
+    await promiseSetRecoil(sourceDataState, sources);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const fetchNotifications = async () => {
@@ -75,5 +79,27 @@ export const getErrorMessage = (msg) => {
       return t('internalError');
     default:
       return msg;
+  }
+};
+
+export const getAssignmentName = (assType) => {
+  if (assType === 101) {
+    return getI18n().t('initialCall');
+  }
+
+  if (assType === 102) {
+    return getI18n().t('returnVisit');
+  }
+
+  if (assType === 103) {
+    return getI18n().t('bibleStudy');
+  }
+
+  if (assType === 104) {
+    return getI18n().t('talk');
+  }
+
+  if (assType === 108) {
+    return getI18n().t('memorialInvite');
   }
 };

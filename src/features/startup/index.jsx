@@ -12,14 +12,13 @@ import {
   isSetupState,
   isUnauthorizedRoleState,
   isUserSignUpState,
-  needsInternetState,
   rootModalOpenState,
   visitorIDState,
 } from '../../states/main';
 import { apiPocketValidate } from '../../utils/api';
 import { dbUpdateUserSettings } from '../../indexedDb/dbAppSettings';
 import { congAccountConnectedState } from '../../states/congregation';
-import { deleteDb } from '../../indexedDb/dbUtility';
+import { deleteDb, isDbExist } from '../../indexedDb/dbUtility';
 
 const Startup = () => {
   const navigate = useNavigate();
@@ -28,7 +27,6 @@ const Startup = () => {
   const [isUserSignUp, setIsUserSignUp] = useRecoilState(isUserSignUpState);
 
   const setIsAppLoad = useSetRecoilState(isAppLoadState);
-  const setIsNeedInternet = useSetRecoilState(needsInternetState);
   const setIsUnauthorizedRole = useSetRecoilState(isUnauthorizedRoleState);
   const setCongAccountConnected = useSetRecoilState(congAccountConnectedState);
   const setModalOpen = useSetRecoilState(rootModalOpenState);
@@ -41,6 +39,7 @@ const Startup = () => {
     setModalOpen(true);
     await deleteDb();
     setModalOpen(false);
+    window.location.href = './';
   }, [setModalOpen]);
 
   useEffect(() => {
@@ -65,10 +64,23 @@ const Startup = () => {
             setIsUnauthorizedRole(true);
           }
         } else {
-          await handleDisapproved();
+          const isExist = await isDbExist('sws_pocket');
+          if (isExist) {
+            await handleDisapproved();
+            return;
+          }
+
           setIsSetup(true);
-          setIsNeedInternet(false);
           setIsUserSignUp(true);
+        }
+      }
+
+      if (!isOnline) {
+        const isExist = await isDbExist('sws_pocket');
+        if (isExist) {
+          await loadApp();
+          setIsAppLoad(false);
+          navigate('/meeting-schedule');
         }
       }
     };
@@ -80,7 +92,6 @@ const Startup = () => {
     navigate,
     setCongAccountConnected,
     setIsAppLoad,
-    setIsNeedInternet,
     setIsSetup,
     setIsUserSignUp,
     setIsUnauthorizedRole,
@@ -93,6 +104,7 @@ const Startup = () => {
         <>
           {isUserSignUp && <SignUp />}
           {isUnauthorizedRole && <UnauthorizedRole />}
+          {}
         </>
       )}
       {!isSetup && (
