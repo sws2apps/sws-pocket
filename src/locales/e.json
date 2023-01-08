@@ -65,5 +65,7 @@
   "cbsConductor": "Congregation Bible Study - Conductor",
   "cbsReader": "Congregation Bible Study - Reader",
   "closingPrayerMidweekMeeting": "Midweek Meeting Closing Prayer",
-  "presentedBy": "Delivered by: "
+  "presentedBy": "Delivered by: ",
+  "updateApp": "Update",
+  "cacheCompleted": "CPE can be used offline now"
 }
