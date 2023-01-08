@@ -1,22 +1,22 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import translationE from './locales/E.json';
-import translationMG from './locales/MG.json';
+import translationE from './locales/e.json';
+import translationMG from './locales/mg.json';
 
 const resources = {
-	E: {
+	e: {
 		translation: translationE,
 	},
-	MG: {
+	mg: {
 		translation: translationMG,
 	},
 };
 
 i18n.use(initReactI18next).init({
 	resources,
-	lng: 'E',
-	fallbackLng: 'E',
+	lng: 'e',
+	fallbackLng: 'e',
 
 	keySeparator: true,
 

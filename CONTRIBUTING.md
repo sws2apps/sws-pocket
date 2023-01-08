@@ -1,22 +1,16 @@
 # How to Contribute
 
-SWS Pocket is one of the applications developped by the [Scheduling Workbox System (SWS)](https://github.com/sws2apps) team. But we are also more than happy to receive support from those who are very intersted to assist us. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
+This module is part of the CPE application, developped by the [Scheduling Workbox System (SWS)](https://github.com/sws2apps) team. But we are also more than happy to receive support from those who are very intersted to assist us. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
 
 Please make sure that you have read the [code of conduct](https://github.com/sws2apps/sws-pocket/blob/main/CODE_OF_CONDUCT.md) before continuing.
 
 ## Semantic Versioning
 
-SWS Pocket follows semantic versioning. We release patch versions for bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. Every significant change is documented in the [changelog](https://github.com/sws2apps/sws-pocket/blob/main/CHANGELOG.md) file.
+This module follows semantic versioning. We release patch versions for bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. Every significant change is documented in the [changelog](https://github.com/sws2apps/sws-pocket/blob/main/CHANGELOG.md) file.
 
 ## Branch Organization
 
-We used three different branches to make production, beta and alpha releases of SWS Pocket:
-
-| branch | whats for                                                                         |
-| :----- | :-------------------------------------------------------------------------------- |
-| main   | production release: bug fix for the current version will be queued in this branch |
-| beta   | beta release, new feature will be queued in this branch                           |
-| alpha  | alpha release, breaking change will be queued in this branch                      |
+We use only the `main` branch. But flags are used to test new features.
 
 ## Bugs
 
@@ -30,7 +24,7 @@ Please do not report security bugs in the public issues; go through the process 
 
 ## Proposing a Change
 
-If you intend to add new features or suggest major changes to SWS Pocket, check first that your idea is not yet in our tracking issues list. If not, we recommend creating a new [discussion first](https://github.com/sws2apps/sws-pocket/discussions/categories/ideas). This lets us reach an agreement on your proposal before you put significant effort into it. After it has been approved, please create [new issue](https://github.com/sws2apps/sws-pocket/issues), and choose the correct template.
+If you intend to add new features or suggest major changes to this module, check first that your idea is not yet in our tracking issues list. If not, we recommend creating a new [discussion first](https://github.com/sws2apps/sws-pocket/discussions/categories/ideas). This lets us reach an agreement on your proposal before you put significant effort into it. After it has been approved, please create [new issue](https://github.com/sws2apps/sws-pocket/issues), and choose the correct template.
 
 If you’re only fixing a bug, it’s fine to submit a pull request right away but we still recommend to file an issue detailing what you’re fixing. This is helpful in case we don’t accept that specific fix but want to keep track of the issue.
 
@@ -40,7 +34,12 @@ If you’re only fixing a bug, it’s fine to submit a pull request right away b
 - You will be working on one item at a time.
 - If you do not have it yet, fork the repository. Clone it if you will work locally.
 - If you have already forked and clone the repository, make sure that it is in sync with the upstream repository ([Syncing a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)).
+- Add VITE_FINGERPRINT_API_CLIENT_KEY as Environment Variable. This is for Fingerprint Pro Public API Key. To create this value, navigate to the [application](https://dashboard.fingerprint.com/) where you have already created the Secret API Key. In the left side navigation, click on API Keys > Create Key > Public API Key.
 - Run `npm i` to install the needed dependencies
+
+### Local Backend Server
+
+The API backend project is also needed before running this project. The instructions on how to setup this API locally can be found [here](https://github.com/sws2apps/sws2apps-api/blob/main/CONTRIBUTING.md).
 
 ## Sending a Pull Request (PR)
 
@@ -48,7 +47,7 @@ We are monitoring for pull requests. We will review your pull request and either
 
 **Before submitting a PR**, please make sure the following is done:
 
-- Run `npm start`, and test if the changes you are proposing are working correctly.
+- Run `npm dev`, and test if the changes you are proposing are working correctly.
 - Run `npm build`, to check if the application build correctly.
 
 **When commiting your changes**, we recommend the following command to be run:

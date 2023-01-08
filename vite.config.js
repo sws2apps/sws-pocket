@@ -5,18 +5,15 @@ import { loadVersion } from '@sws2apps/vite-plugin-package-version';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  define: {
-    'process.env': process.env,
-  },
-  plugins: [react(), eslint({ include: '/.(jsx|js)$/' }), loadVersion()],
-  build: {
-    chunkSizeWarningLimit: 1500,
-  },
+  plugins: [react(), eslint(), loadVersion()],
   server: {
-    port: 4000,
+    port: 4080,
     host: true,
   },
   preview: {
-    port: 4000,
+    port: 4080,
+  },
+  build: {
+    chunkSizeWarningLimit: 2000,
   },
 });
