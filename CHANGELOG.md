@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/sws2apps/sws-pocket/compare/v1.3.1...v1.3.2) (2023-01-08)
+
+
+### Bug Fixes
+
+* **app:** fix an issue where the application stuck at startup ([84edc03](https://github.com/sws2apps/sws-pocket/commit/84edc03b762d5b45088d7de134bafb044f3f06d7))
+
 ## [1.3.1](https://github.com/sws2apps/sws-pocket/compare/v1.3.0...v1.3.1) (2023-01-08)
 
 
