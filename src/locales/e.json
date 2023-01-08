@@ -68,5 +68,6 @@
   "presentedBy": "Delivered by: ",
   "updateApp": "Update",
   "cacheCompleted": "CPE can be used offline now",
-  "noSchedules": "Please ask your congregation elders to publish the meeting schedule first"
+  "noSchedules": "Please ask your congregation elders to publish the meeting schedule first",
+  "newVersion": "A new version of CPE is available"
 }
