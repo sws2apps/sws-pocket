@@ -1,6 +1,7 @@
 import { promiseGetRecoil, promiseSetRecoil } from 'recoil-outside';
 import { dbUpdateAppSettings } from '../indexedDb/dbAppSettings';
 import { dbUpdateSchedule } from '../indexedDb/dbSchedule';
+import { isDbExist } from '../indexedDb/dbUtility';
 import { classCountState } from '../states/congregation';
 import {
   apiHostState,
@@ -10,6 +11,7 @@ import {
   userIDState,
   visitorIDState,
 } from '../states/main';
+import { loadApp } from './app';
 
 const getProfile = async () => {
   const apiHost = await promiseGetRecoil(apiHostState);
@@ -122,10 +124,14 @@ export const apiFetchSchedule = async () => {
     });
 
     const { cong_schedule, cong_sourceMaterial, class_count, source_lang } = await res.json();
-    await dbUpdateAppSettings({ class_count, source_lang });
-    await dbUpdateSchedule({ cong_schedule, cong_sourceMaterial });
-    await promiseSetRecoil(classCountState, class_count);
-    await promiseSetRecoil(sourceLangState, source_lang);
+
+    const isExist = await isDbExist('sws_pocket');
+    if (isExist) {
+      await dbUpdateAppSettings({ class_count, source_lang });
+      await dbUpdateSchedule({ cong_schedule, cong_sourceMaterial });
+      await promiseSetRecoil(classCountState, class_count);
+      await promiseSetRecoil(sourceLangState, source_lang);
+    }
   }
 
   await promiseSetRecoil(rootModalOpenState, false);
