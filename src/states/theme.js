@@ -1,16 +1,20 @@
 import { selector } from 'recoil';
-import { isLightThemeState } from './app';
+import { isLightThemeState } from './main';
 
 export const themeOptionsState = selector({
-	key: 'themeOptions',
-	get: ({ get }) => {
-		const isLight = get(isLightThemeState);
+  key: 'themeOptions',
+  get: ({ get }) => {
+    const isLight = get(isLightThemeState);
 
-		return {
-			textNotImportant: isLight ? '#707B7C' : '#D0D3D4',
-			navBar: '#3f51b5 !important',
-			borderPrimary: isLight ? '#566573' : '#ECF0F1',
-			backgroundStudent: isLight ? 'lightblue' : '#CACFD2',
-		};
-	},
+    return {
+      mainColor: '#3f51b5 !important',
+      textNotImportant: isLight ? '#707B7C' : '#D0D3D4',
+      reportIconColor: isLight ? '#CB4335' : '#FDFEFE',
+      redNoteBg: isLight ? '#F5B7B1' : '#E74C3C',
+      whatsNewBg: isLight ? '#AEB6BF' : '#2C3E50',
+      whatsNewBgSecondary: isLight ? '#F4F6F6' : '#1C2833',
+      btnProgress: isLight ? '#212F3D' : '#FBFCFC',
+      searchBg: isLight ? 'black' : 'white',
+    };
+  },
 });

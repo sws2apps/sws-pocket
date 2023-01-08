@@ -1,22 +1,21 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { lazy, useEffect, useState } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import usePwa2 from 'use-pwa2/dist/index.js';
-import ApplicationLifeCycle from './components/root/ApplicationLifeCycle';
-import AppNotification from './components/root/AppNotification';
-import Box from '@mui/material/Box';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import FingerprintJS from '@fingerprintjs/fingerprintjs-pro';
 import CssBaseline from '@mui/material/CssBaseline';
-import InternetChecker from './components/root/InternetChecker';
-import Layout from './components/root/Layout';
-import Startup from './components/startup/Startup';
-import { apiHostState, isAppLoadState, isLightThemeState } from './states/app';
+import { apiHostState, isLightThemeState, isOnlineState, visitorIDState } from './states/main';
+import { InternetChecker } from './features/internetChecker';
 import { appSnackOpenState } from './states/notification';
+import DashboardMenu from './pages/DashboardMenu';
+import NotificationWrapper from './features/notificationWrapper';
+import Layout from './components/Layout';
+import ErrorBoundary from './components/ErrorBoundary';
 
-// lazy pages import
-const Assignments = lazy(() => import('./pages/Assignments'));
-const MyAccount = lazy(() => import('./pages/MyAccount'));
-const Schedule = lazy(() => import('./pages/Schedule'));
+// lazy loading
+const UserSettings = lazy(() => import('./pages/UserSettings'));
+const WeeklyAssignments = lazy(() => import('./pages/WeeklyAssignments'));
 
 // creating theme
 const lightTheme = createTheme({
@@ -31,20 +30,67 @@ const darkTheme = createTheme({
   },
 });
 
+const queryClient = new QueryClient();
+
 const App = ({ updatePwa }) => {
-  const { enabledInstall } = usePwa2();
-
-  const isLight = useRecoilValue(isLightThemeState);
-  const isAppLoad = useRecoilValue(isAppLoadState);
-  const appSnackOpen = useRecoilValue(appSnackOpenState);
-
-  const [browserSupported, setBrowserSupported] = useState(true);
-  const [activeTheme, setActiveTheme] = useState(lightTheme);
-
+  const setVisitorID = useSetRecoilState(visitorIDState);
   const setApiHost = useSetRecoilState(apiHostState);
 
+  const isOnline = useRecoilValue(isOnlineState);
+  const isLight = useRecoilValue(isLightThemeState);
+  const appSnackOpen = useRecoilValue(appSnackOpenState);
+
+  const [activeTheme, setActiveTheme] = useState(darkTheme);
+
+  const router = createBrowserRouter([
+    {
+      element: <Layout updatePwa={updatePwa} />,
+      errorElement: <ErrorBoundary />,
+      children: [
+        { index: true, element: <DashboardMenu /> },
+        { path: '/meeting-schedule', element: <WeeklyAssignments /> },
+        { path: '/user-settings', element: <UserSettings /> },
+      ],
+    },
+  ]);
+
   useEffect(() => {
-    if (import.meta.env.DEV) {
+    if (isLight) {
+      setActiveTheme(lightTheme);
+    } else {
+      setActiveTheme(darkTheme);
+    }
+  }, [isLight]);
+
+  useEffect(() => {
+    // get visitor ID and check if there is an active connection
+    const getUserID = async () => {
+      const fpPromise = FingerprintJS.load({
+        apiKey: 'XwmESck7zm6PZAfspXbs',
+      });
+
+      let visitorId = '';
+
+      do {
+        const fp = await fpPromise;
+        const result = await fp.get();
+        visitorId = result.visitorId;
+      } while (visitorId.length === 0);
+
+      setVisitorID(visitorId);
+    };
+
+    if (isOnline) {
+      getUserID();
+    }
+  }, [setVisitorID, isOnline]);
+
+  useEffect(() => {
+    if (
+      !process.env.NODE_ENV ||
+      process.env.NODE_ENV === 'development' ||
+      window.location.host.indexOf('localhost') !== -1
+    ) {
       if (import.meta.env.VITE_API_REMOTE_URL) {
         setApiHost(import.meta.env.VITE_API_REMOTE_URL);
       } else {
@@ -56,54 +102,28 @@ const App = ({ updatePwa }) => {
   }, [setApiHost]);
 
   useEffect(() => {
-    if (isLight) {
-      setActiveTheme(lightTheme);
-    } else {
-      setActiveTheme(darkTheme);
-    }
-  }, [isLight]);
-
-  useEffect(() => {
     if (!indexedDB) {
-      if ('serviceWorker' in navigator) {
-      } else {
-        setBrowserSupported(false);
+      if (!('serviceWorker' in navigator)) {
+        return (
+          <div className="browser-not-supported">
+            You seem to use an unsupported browser to use CPE. Make sure that you browser is up to date, or try to use
+            another browser.
+          </div>
+        );
       }
     }
   }, []);
 
-  if (!browserSupported) {
-    return (
-      <div className='browser-not-supported'>
-        You seem to use an unsupported browser to use SWS Pocket. Make sure that you browser is up to date, or try to
-        use another browser.
-      </div>
-    );
-  }
-
   return (
-    <ThemeProvider theme={activeTheme}>
-      <CssBaseline />
-      <Box>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={activeTheme}>
+        <CssBaseline />
         <InternetChecker />
-        <ApplicationLifeCycle enabledInstall={enabledInstall} updatePwa={updatePwa} />
-        {appSnackOpen && <AppNotification />}
-        {isAppLoad && <Startup />}
-        {!isAppLoad && (
-          <Suspense fallback={<div></div>}>
-            <HashRouter>
-              <Layout>
-                <Routes>
-                  <Route path='/' element={<Schedule />} />
-                  <Route path='/assignments' element={<Assignments />} />
-                  <Route path='/account' element={<MyAccount />} />
-                </Routes>
-              </Layout>
-            </HashRouter>
-          </Suspense>
-        )}
-      </Box>
-    </ThemeProvider>
+        {appSnackOpen && <NotificationWrapper />}
+
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 };
 
