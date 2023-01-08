@@ -24,3 +24,5 @@ replit.nix
 *.njsproj
 *.sln
 *.sw?
+
+.env

@@ -66,7 +66,7 @@ const App = ({ updatePwa }) => {
     // get visitor ID and check if there is an active connection
     const getUserID = async () => {
       const fpPromise = FingerprintJS.load({
-        apiKey: 'XwmESck7zm6PZAfspXbs',
+        apiKey: import.meta.env.VITE_FINGERPRINT_API_CLIENT_KEY,
       });
 
       let visitorId = '';
