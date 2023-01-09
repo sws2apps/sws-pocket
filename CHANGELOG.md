@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/sws2apps/sws-pocket/compare/v1.4.0...v1.4.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* **app:** update for new api endpoint ([a217ccd](https://github.com/sws2apps/sws-pocket/commit/a217ccdd45d1fde1b9935868da55c1373f7f36a8))
+
 # [1.4.0](https://github.com/sws2apps/sws-pocket/compare/v1.3.3...v1.4.0) (2023-01-08)
 
 
