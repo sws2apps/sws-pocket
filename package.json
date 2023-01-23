@@ -29,7 +29,7 @@
     "@tanstack/react-query": "^4.22.0",
     "date-fns": "^2.29.3",
     "dateformat": "^5.0.3",
-    "dexie": "^3.2.2",
+    "dexie": "^3.2.3",
     "i18next": "^22.4.9",
     "interweave": "^13.0.0",
     "react": "^18.2.0",
