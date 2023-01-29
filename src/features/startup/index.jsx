@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import SignUp from './SignUp';
 import UnauthorizedRole from './UnauthorizedRole';
-import { loadApp } from '../../utils/app';
+import { getCurrentWeekDate, loadApp } from '../../utils/app';
 import {
   isAppLoadState,
   isOnlineState,
@@ -52,10 +52,12 @@ const Startup = () => {
           if (cong_role.includes('view_meeting_schedule')) {
             await loadApp();
             await dbUpdateUserSettings(data);
-            setTimeout(() => {
+            setTimeout(async () => {
               setIsAppLoad(false);
               setCongAccountConnected(true);
-              navigate('/meeting-schedule');
+              let weekDate = await getCurrentWeekDate();
+              weekDate = weekDate.replaceAll('/', '-');
+              navigate(`/meeting-schedule/${weekDate}`);
             }, [1000]);
           } else {
             setIsSetup(true);

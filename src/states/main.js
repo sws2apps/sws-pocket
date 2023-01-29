@@ -38,7 +38,7 @@ export const isLoginOpenState = atom({
 
 export const appLangState = atom({
   key: 'appLang',
-  default: localStorage.getItem('app_lang') || 'E',
+  default: localStorage.getItem('app_lang') || 'e',
 });
 
 export const uidUserState = atom({

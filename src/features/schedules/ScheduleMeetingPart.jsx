@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const MeetingPartHeader = ({ className, text }) => {
+const ScheduleMeetingPart = ({ type, part }) => {
   return (
     <Box
       sx={{
@@ -12,11 +12,11 @@ const MeetingPartHeader = ({ className, text }) => {
         color: 'white',
         margin: '20px 0',
       }}
-      className={className}
+      className={type}
     >
-      <Typography variant="h6">{text}</Typography>
+      <Typography variant="h6">{part}</Typography>
     </Box>
   );
 };
 
-export default MeetingPartHeader;
+export default ScheduleMeetingPart;

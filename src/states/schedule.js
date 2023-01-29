@@ -128,7 +128,6 @@ export const myAssignmentsState = selector({
 
           let isFound = false;
           let isBehalf = false;
-
           if (fldValue === local_id) {
             isFound = true;
           }
@@ -237,13 +236,18 @@ export const myAssignmentsState = selector({
             if (fld.startsWith('lc_part')) {
               const lcIndex = fld.slice(-1);
               const fldSource = `lcPart${lcIndex}_src`;
+              const fldSourceOverride = `lcPart${lcIndex}_src_override`;
               const fldTime = `lcPart${lcIndex}_time`;
+              const fldTimeOverride = `lcPart${lcIndex}_time_override`;
               const fldContent = `lcPart${lcIndex}_content`;
+              const fldContentOverride = `lcPart${lcIndex}_content_override`;
 
               obj.assignmentName = getI18n().t('lcPart');
-              obj.assignmentTime = schedule[fldTime];
-              obj.assignmentSource = schedule[fldSource];
-              obj.assignmentContent = schedule[fldContent];
+              obj.assignmentTime = schedule[fldTimeOverride] ? schedule[fldTimeOverride] : schedule[fldTime];
+              obj.assignmentSource = schedule[fldSourceOverride] ? schedule[fldSourceOverride] : schedule[fldSource];
+              obj.assignmentContent = schedule[fldContentOverride]
+                ? schedule[fldContentOverride]
+                : schedule[fldContent];
             }
 
             // CBS Conductor History
