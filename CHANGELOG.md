@@ -1,3 +1,33 @@
+# [1.5.0](https://github.com/sws2apps/sws-pocket/compare/v1.4.1...v1.5.0) (2023-01-23)
+
+
+### Features
+
+* **deps:** bump @mui/lab from 5.0.0-alpha.114 to 5.0.0-alpha.115 ([fd4c4f6](https://github.com/sws2apps/sws-pocket/commit/fd4c4f63d64d12f6e23939f29302a179ddf38546))
+* **deps:** bump @mui/lab from 5.0.0-alpha.115 to 5.0.0-alpha.116 ([a9362a9](https://github.com/sws2apps/sws-pocket/commit/a9362a97a391903ce9832bc8b9c2365a5ed174ed))
+* **deps:** bump @mui/material from 5.11.3 to 5.11.4 ([eee949e](https://github.com/sws2apps/sws-pocket/commit/eee949e767d801f072540bee600ae21d2f2196cf))
+* **deps:** bump @mui/material from 5.11.4 to 5.11.5 ([88ea0b1](https://github.com/sws2apps/sws-pocket/commit/88ea0b1ef5b8e6de2beada421748efa471770070))
+* **deps:** bump @tanstack/react-query from 4.20.9 to 4.22.0 ([988cba3](https://github.com/sws2apps/sws-pocket/commit/988cba3b420f8257d8d10ba7ef3277d7c151afc3))
+* **deps:** bump @tanstack/react-query from 4.22.0 to 4.22.4 ([5bf530a](https://github.com/sws2apps/sws-pocket/commit/5bf530ac420a58f21b00608b002062929390f6c7))
+* **deps:** bump dexie from 3.2.2 to 3.2.3 ([cf537be](https://github.com/sws2apps/sws-pocket/commit/cf537befd583202daaea0b601c016bd2a34c8fb8))
+* **deps:** bump i18next from 22.4.8 to 22.4.9 ([17b33aa](https://github.com/sws2apps/sws-pocket/commit/17b33aa264a3d7ae1234145792e005c0c862bff6))
+* **deps:** bump react-router-dom from 6.6.1 to 6.6.2 ([e104234](https://github.com/sws2apps/sws-pocket/commit/e1042341a7f34951cb4969215a05f16f42f35695))
+* **deps:** bump react-router-dom from 6.6.2 to 6.7.0 ([0629157](https://github.com/sws2apps/sws-pocket/commit/0629157d4dbf8210a79b806dd95e910e22b2c91c))
+
+## [1.4.1](https://github.com/sws2apps/sws-pocket/compare/v1.4.0...v1.4.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* **app:** update for new api endpoint ([a217ccd](https://github.com/sws2apps/sws-pocket/commit/a217ccdd45d1fde1b9935868da55c1373f7f36a8))
+
+# [1.4.0](https://github.com/sws2apps/sws-pocket/compare/v1.3.3...v1.4.0) (2023-01-08)
+
+
+### Features
+
+* **app:** migrate from browserRouter to hashRouter ([aba577b](https://github.com/sws2apps/sws-pocket/commit/aba577bf4153fb1c40e922f022355ae2c2e5f346))
+
 ## [1.3.3](https://github.com/sws2apps/sws-pocket/compare/v1.3.2...v1.3.3) (2023-01-08)
 
 
