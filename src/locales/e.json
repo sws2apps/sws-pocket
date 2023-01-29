@@ -17,6 +17,7 @@
   "sessionsDesc": "Here is the list of devices that have logged into your account. Revoke any sessions that you do not recognize.",
   "deviceRemoved": "Device removed successfully",
   "sessionRevoke": "Revoke",
+  "shortDateFormat": "mm/dd/yyyy",
   "shortDateTimeFormat": "mm/dd/yyyy HH:MM",
   "myUserProfile": "My User Account",
   "meetingSchedule": "Meeting Schedule",

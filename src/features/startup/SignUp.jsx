@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
@@ -23,8 +22,6 @@ import { dbUpdateUserSettings } from '../../indexedDb/dbAppSettings';
 import { congAccountConnectedState } from '../../states/congregation';
 
 const SignUp = () => {
-  const navigate = useNavigate();
-
   const { t } = useTranslation();
 
   const setIsSetup = useSetRecoilState(isSetupState);
@@ -59,12 +56,10 @@ const SignUp = () => {
         if (cong_role.includes('view_meeting_schedule')) {
           await loadApp();
           await dbUpdateUserSettings(data);
-
           setIsSetup(false);
-          setTimeout(() => {
+          setTimeout(async () => {
             setIsAppLoad(false);
             setCongAccountConnected(true);
-            navigate('/meeting-schedule');
           }, [1000]);
         } else {
           setIsSignUp(false);

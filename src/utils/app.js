@@ -1,5 +1,6 @@
 import { promiseGetRecoil, promiseSetRecoil } from 'recoil-outside';
 import { getI18n } from 'react-i18next';
+import { format } from 'date-fns';
 import { initAppDb } from '../indexedDb/dbUtility';
 import { dbSaveNotifications } from '../indexedDb/dbNotifications';
 import { apiHostState, appLangState, isOnlineState, sourceLangState } from '../states/main';
@@ -13,7 +14,7 @@ import {
   usernameState,
 } from '../states/congregation';
 import appDb from '../indexedDb/appDb';
-import { scheduleDataState, sourceDataState } from '../states/schedule';
+import { scheduleDataState, scheduleLocalState, sourceDataState } from '../states/schedule';
 
 export const loadApp = async () => {
   try {
@@ -106,4 +107,26 @@ export const getAssignmentName = (assType) => {
   if (assType === 108) {
     return getI18n().t('memorialInvite');
   }
+};
+
+export const getCurrentWeekDate = async () => {
+  const schedules = await promiseGetRecoil(scheduleLocalState);
+  const today = new Date();
+  const day = today.getDay();
+  const diff = today.getDate() - day + (day === 0 ? -6 : 1);
+  let monDay = new Date(today.setDate(diff));
+
+  let currentWeek = format(monDay, 'MM/dd/yyyy');
+  let isExist = false;
+  do {
+    const fDate = format(monDay, 'MM/dd/yyyy');
+    const schedule = schedules.find((data) => data.weekOf === fDate);
+    if (schedule) {
+      currentWeek = fDate;
+      isExist = true;
+    }
+    monDay.setDate(monDay.getDate() + 7);
+  } while (isExist === false);
+
+  return currentWeek;
 };

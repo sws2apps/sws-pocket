@@ -17,6 +17,7 @@
   "sessionsDesc": "Hitanao eto ambany ny lisitry ny fitaovana rehetra afaka miditra amin’ny kaontinao avy hatrany. Azonao esorina avy hatrany ireo izay tsy fantatrao rehetra.",
   "deviceRemoved": "Niala soa aman-tsara ilay fitaovana",
   "sessionRevoke": "Esorina",
+  "shortDateFormat": "dd/mm/yyyy",
   "shortDateTimeFormat": "dd/mm/yyyy h:MM TT",
   "myUserProfile": "Ny Kaontiko",
   "meetingSchedule": "Fandaharam-pivoriana",
