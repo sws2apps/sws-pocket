@@ -26,7 +26,7 @@
     "@mui/lab": "^5.0.0-alpha.117",
     "@mui/material": "^5.11.6",
     "@sws2apps/react-sw-helper": "^1.9.0",
-    "@tanstack/react-query": "^4.23.0",
+    "@tanstack/react-query": "^4.24.4",
     "date-fns": "^2.29.3",
     "dateformat": "^5.0.3",
     "dexie": "^3.2.3",
