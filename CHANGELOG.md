@@ -1,3 +1,14 @@
+# [1.6.0](https://github.com/sws2apps/sws-pocket/compare/v1.5.0...v1.6.0) (2023-01-29)
+
+
+### Features
+
+* **app:** update to support meeting part override ([992afab](https://github.com/sws2apps/sws-pocket/commit/992afabb395f4fdcbbe5c658efcc053f2ae6817f))
+* **deps:** bump @mui/lab from 5.0.0-alpha.116 to 5.0.0-alpha.117 ([3f309be](https://github.com/sws2apps/sws-pocket/commit/3f309be609387c607a795dd82277afba960e3c17))
+* **deps:** bump @mui/material from 5.11.5 to 5.11.6 ([f15e42b](https://github.com/sws2apps/sws-pocket/commit/f15e42b99e92e8fd8ef4eaca72164488dda0ae0b))
+* **deps:** bump @tanstack/react-query from 4.22.4 to 4.23.0 ([03790d9](https://github.com/sws2apps/sws-pocket/commit/03790d9cd97e21e27ecd2d718634a5b82274b41f))
+* **deps:** bump react-router-dom from 6.7.0 to 6.8.0 ([1cba0b3](https://github.com/sws2apps/sws-pocket/commit/1cba0b3aaa7bc018ec234b80b101e050a7635e5d))
+
 # [1.5.0](https://github.com/sws2apps/sws-pocket/compare/v1.4.1...v1.5.0) (2023-01-23)
 
 
