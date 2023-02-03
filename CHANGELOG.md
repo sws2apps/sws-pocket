@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/sws2apps/sws-pocket/compare/v1.6.0...v1.6.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* **schedules:** fix issue where single override is not working ([a128448](https://github.com/sws2apps/sws-pocket/commit/a12844893fd7f76f6b4afaed098cd68197e93ec2))
+
 # [1.6.0](https://github.com/sws2apps/sws-pocket/compare/v1.5.0...v1.6.0) (2023-01-29)
 
 
