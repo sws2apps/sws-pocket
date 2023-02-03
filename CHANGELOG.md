@@ -1,3 +1,17 @@
+# [1.7.0](https://github.com/sws2apps/sws-pocket/compare/v1.6.1...v1.7.0) (2023-02-03)
+
+
+### Bug Fixes
+
+* **startup:** fix app freeze on startup when there is no schedule ([ef8b1e8](https://github.com/sws2apps/sws-pocket/commit/ef8b1e876343dbff5125dceced10f79cce3fb0ba))
+
+
+### Features
+
+* **deps:** bump @mui/lab from 5.0.0-alpha.117 to 5.0.0-alpha.118 ([2c3b466](https://github.com/sws2apps/sws-pocket/commit/2c3b466b38c66759ad628bef5a900075c233fd5c))
+* **deps:** bump @mui/material from 5.11.6 to 5.11.7 ([86bcd15](https://github.com/sws2apps/sws-pocket/commit/86bcd155e2bab7996ee933c099650bd604bb5462))
+* **deps:** bump @tanstack/react-query from 4.23.0 to 4.24.4 ([986fba6](https://github.com/sws2apps/sws-pocket/commit/986fba6100741d05bd567af53a101884a55eedbb))
+
 ## [1.6.1](https://github.com/sws2apps/sws-pocket/compare/v1.6.0...v1.6.1) (2023-01-30)
 
 
