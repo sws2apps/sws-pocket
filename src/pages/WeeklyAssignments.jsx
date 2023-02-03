@@ -37,6 +37,7 @@ const WeeklyAssignments = () => {
   const [nextWeek, setNextWeek] = useState('');
   const [disablePrevious, setDisablePrevious] = useState(false);
   const [disableNext, setDisableNext] = useState(false);
+  const [noSchedule, setNoSchedule] = useState(true);
 
   const handleOpenMyAssignment = () => {
     setMyAssignmentsOpen(true);
@@ -60,42 +61,50 @@ const WeeklyAssignments = () => {
 
   useEffect(() => {
     const loadCurrentWeekData = async () => {
-      const week = weekToFormat.replaceAll('-', '/');
-      const currentWeek = new Date(week);
+      if (schedules.length > 0) {
+        const week = weekToFormat.replaceAll('-', '/');
+        const currentWeek = new Date(week);
 
-      let result = new Date(currentWeek);
-      result.setDate(result.getDate() - 7);
-      let previousWeek = dateFormat(result, 'mm/dd/yyyy');
-
-      let hasPrevious = schedules.find((data) => data.weekOf === previousWeek) ? true : false;
-
-      if (!hasPrevious) {
+        let result = new Date(currentWeek);
         result.setDate(result.getDate() - 7);
-        previousWeek = dateFormat(result, 'mm/dd/yyyy');
-        hasPrevious = schedules.find((data) => data.weekOf === previousWeek) ? true : false;
-      }
-      setDisablePrevious(!hasPrevious);
-      setPreviousWeek(result);
+        let previousWeek = dateFormat(result, 'mm/dd/yyyy');
 
-      result = new Date(currentWeek);
-      result.setDate(result.getDate() + 7);
-      let nextWeek = dateFormat(result, 'mm/dd/yyyy');
+        let hasPrevious = schedules.find((data) => data.weekOf === previousWeek) ? true : false;
 
-      let hasNext = schedules.find((data) => data.weekOf === nextWeek) ? true : false;
-      if (!hasNext) {
+        if (!hasPrevious) {
+          result.setDate(result.getDate() - 7);
+          previousWeek = dateFormat(result, 'mm/dd/yyyy');
+          hasPrevious = schedules.find((data) => data.weekOf === previousWeek) ? true : false;
+        }
+        setDisablePrevious(!hasPrevious);
+        setPreviousWeek(result);
+
+        result = new Date(currentWeek);
         result.setDate(result.getDate() + 7);
-        nextWeek = dateFormat(result, 'mm/dd/yyyy');
-        hasNext = schedules.find((data) => data.weekOf === nextWeek) ? true : false;
+        let nextWeek = dateFormat(result, 'mm/dd/yyyy');
+
+        let hasNext = schedules.find((data) => data.weekOf === nextWeek) ? true : false;
+        if (!hasNext) {
+          result.setDate(result.getDate() + 7);
+          nextWeek = dateFormat(result, 'mm/dd/yyyy');
+          hasNext = schedules.find((data) => data.weekOf === nextWeek) ? true : false;
+        }
+        setDisableNext(!hasNext);
+        setNextWeek(result);
+
+        const weekValue = dateFormat(currentWeek, 'mm/dd/yyyy');
+        const weekValueFormatted = dateFormat(currentWeek, shortDateFormat);
+        setFCurrentWeek(weekValueFormatted);
+
+        const scheduleData = schedules.find((data) => data.weekOf === weekValue);
+        if (scheduleData) {
+          setNoMeeting(scheduleData.noMeeting);
+          setNoSchedule(false);
+        }
+
+        if (!scheduleData) setNoSchedule(true);
       }
-      setDisableNext(!hasNext);
-      setNextWeek(result);
 
-      const weekValue = dateFormat(currentWeek, 'mm/dd/yyyy');
-      const weekValueFormatted = dateFormat(currentWeek, shortDateFormat);
-      setFCurrentWeek(weekValueFormatted);
-
-      const scheduleData = schedules.find((data) => data.weekOf === weekValue);
-      setNoMeeting(scheduleData.noMeeting);
       setIsLoading(false);
     };
     setIsLoading(true);
@@ -190,7 +199,23 @@ const WeeklyAssignments = () => {
                   </Typography>
                 </Container>
               )}
-              {!noMeeting && <ScheduleAssignment />}
+              {noSchedule && (
+                <Container
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: '60vh',
+                  }}
+                >
+                  <NoMeetingRoomIcon color="error" sx={{ fontSize: '150px' }} />
+                  <Typography variant="body1" align="center">
+                    {t('noSchedule')}
+                  </Typography>
+                </Container>
+              )}
+              {!noSchedule && !noMeeting && <ScheduleAssignment />}
             </>
           )}
         </>

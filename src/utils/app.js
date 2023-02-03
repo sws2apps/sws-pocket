@@ -118,15 +118,18 @@ export const getCurrentWeekDate = async () => {
 
   let currentWeek = format(monDay, 'MM/dd/yyyy');
   let isExist = false;
-  do {
-    const fDate = format(monDay, 'MM/dd/yyyy');
-    const schedule = schedules.find((data) => data.weekOf === fDate);
-    if (schedule) {
-      currentWeek = fDate;
-      isExist = true;
-    }
-    monDay.setDate(monDay.getDate() + 7);
-  } while (isExist === false);
+
+  if (schedules.length > 0) {
+    do {
+      const fDate = format(monDay, 'MM/dd/yyyy');
+      const schedule = schedules.find((data) => data.weekOf === fDate);
+      if (schedule) {
+        currentWeek = fDate;
+        isExist = true;
+      }
+      monDay.setDate(monDay.getDate() + 7);
+    } while (isExist === false);
+  }
 
   return currentWeek;
 };

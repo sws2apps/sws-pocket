@@ -138,23 +138,23 @@ const ScheduleAssignment = ({ edit }) => {
       if (!schedule.lcCount_override) setLcCount(schedule.lcCount);
       if (schedule.lcPart1_time_override) {
         setLcPart1Time(schedule.lcPart1_time_override);
-        setLcPart1Src(schedule.lcPart1_src_override);
-        setLcPart1Content(schedule.lcPart1_content_override);
+        setLcPart1Src(schedule.lcPart1_src_override ? schedule.lcPart1_src_override[lang] : '');
+        setLcPart1Content(schedule.lcPart1_content_override ? schedule.lcPart1_content_override[lang] : '');
       }
       if (!schedule.lcPart1_time_override) {
         setLcPart1Time(schedule.lcPart1_time);
-        setLcPart1Src(schedule.lcPart1_src);
-        setLcPart1Content(schedule.lcPart1_content);
+        setLcPart1Src(schedule.lcPart1_src ? schedule.lcPart1_src[lang] : '');
+        setLcPart1Content(schedule.lcPart1_content ? schedule.lcPart1_content[lang] : '');
       }
       if (schedule.lcPart2_time_override) {
         setLcPart2Time(schedule.lcPart2_time_override);
-        setLcPart2Src(schedule.lcPart2_src_override);
-        setLcPart2Content(schedule.lcPart2_content_override);
+        setLcPart2Src(schedule.lcPart2_src_override ? schedule.lcPart2_src_override[lang] : '');
+        setLcPart2Content(schedule.lcPart2_content_override ? schedule.lcPart2_content_override[lang] : '');
       }
       if (!schedule.lcPart2_time_override) {
         setLcPart2Time(schedule.lcPart2_time);
-        setLcPart2Src(schedule.lcPart2_src);
-        setLcPart2Content(schedule.lcPart2_content);
+        setLcPart2Src(schedule.lcPart2_src ? schedule.lcPart2_src[lang] : '');
+        setLcPart2Content(schedule.lcPart2_content ? schedule.lcPart2_content[lang] : '');
       }
       setLcPart1(schedule.lc_part1_dispName);
       setLcPart2(schedule.lc_part2_dispName);
