@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
@@ -17,11 +18,12 @@ import {
 } from '../../states/main';
 import { appMessageState, appSeverityState, appSnackOpenState } from '../../states/notification';
 import { apiPocketSignUp } from '../../utils/api';
-import { getErrorMessage, loadApp } from '../../utils/app';
+import { getCurrentWeekDate, getErrorMessage, loadApp } from '../../utils/app';
 import { dbUpdateUserSettings } from '../../indexedDb/dbAppSettings';
 import { congAccountConnectedState } from '../../states/congregation';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const setIsSetup = useSetRecoilState(isSetupState);
@@ -60,6 +62,9 @@ const SignUp = () => {
           setTimeout(async () => {
             setIsAppLoad(false);
             setCongAccountConnected(true);
+            let weekDate = await getCurrentWeekDate();
+            weekDate = weekDate.replaceAll('/', '-');
+            navigate(`/meeting-schedule/${weekDate}`);
           }, [1000]);
         } else {
           setIsSignUp(false);
