@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/sws2apps/sws-pocket/compare/v1.7.0...v1.8.0) (2023-02-08)
+
+
+### Features
+
+* **app:** add support for new assignment type format ([316af08](https://github.com/sws2apps/sws-pocket/commit/316af085c20a8beaad7cee3f79c8c56a098f1681))
+* **deps:** bump @sws2apps/react-sw-helper from 1.9.0 to 1.10.0 ([23126ec](https://github.com/sws2apps/sws-pocket/commit/23126ec99c5f699cf071f1c38bede174ff92b775))
+* **deps:** bump react-i18next from 12.1.4 to 12.1.5 ([a67cdbb](https://github.com/sws2apps/sws-pocket/commit/a67cdbb58e3812385bf62e27fa999b01ef4d1390))
+
 # [1.7.0](https://github.com/sws2apps/sws-pocket/compare/v1.6.1...v1.7.0) (2023-02-03)
 
 
