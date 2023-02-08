@@ -15,13 +15,19 @@ import {
 } from '../states/congregation';
 import appDb from '../indexedDb/appDb';
 import { scheduleDataState, scheduleLocalState, sourceDataState } from '../states/schedule';
+import { langList } from '../locales/langList';
 
 export const loadApp = async () => {
   try {
     const I18n = getI18n();
 
     await initAppDb();
-    const app_lang = localStorage.getItem('app_lang') || 'e';
+
+    // validate lang
+    const tempLang = localStorage.getItem('app_lang') || 'e';
+    const app_lang = langList.find((lang) => lang.code === tempLang)?.code || 'e';
+    localStorage.setItem('app_lang', app_lang);
+
     let { username, cong_number, cong_name, class_count, pocket_local_id, pocket_members, source_lang } =
       await dbGetAppSettings();
 
@@ -88,11 +94,11 @@ export const getErrorMessage = (msg) => {
 };
 
 export const getAssignmentName = (assType) => {
-  if (assType === 101) {
+  if (assType === 101 || (assType >= 140 && assType < 170)) {
     return getI18n().t('initialCall');
   }
 
-  if (assType === 102) {
+  if (assType === 102 || (assType >= 170 && assType < 200)) {
     return getI18n().t('returnVisit');
   }
 
