@@ -330,3 +330,8 @@ export const needsInternetState = atom({
   key: 'needsInternet',
   default: false,
 });
+
+export const isFetchingScheduleState = atom({
+  key: 'isFetchingSchedule',
+  default: true,
+});

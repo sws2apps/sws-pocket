@@ -8,6 +8,7 @@ import UnauthorizedRole from './UnauthorizedRole';
 import { getCurrentWeekDate, loadApp } from '../../utils/app';
 import {
   isAppLoadState,
+  isFetchingScheduleState,
   isOnlineState,
   isSetupState,
   isUnauthorizedRoleState,
@@ -34,6 +35,7 @@ const Startup = () => {
   const isUnauthorizedRole = useRecoilValue(isUnauthorizedRoleState);
   const isOnline = useRecoilValue(isOnlineState);
   const visitorID = useRecoilValue(visitorIDState);
+  const isFetchingSchedule = useRecoilValue(isFetchingScheduleState);
 
   const handleDisapproved = useCallback(async () => {
     setModalOpen(true);
@@ -53,11 +55,7 @@ const Startup = () => {
             await loadApp();
             await dbUpdateUserSettings(data);
             setTimeout(async () => {
-              setIsAppLoad(false);
               setCongAccountConnected(true);
-              let weekDate = await getCurrentWeekDate();
-              weekDate = weekDate.replaceAll('/', '-');
-              navigate(`/meeting-schedule/${weekDate}`);
             }, [1000]);
           } else {
             setIsSetup(true);
@@ -98,6 +96,21 @@ const Startup = () => {
     setIsUnauthorizedRole,
     visitorID,
   ]);
+
+  useEffect(() => {
+    const openSchedule = async () => {
+      setIsAppLoad(false);
+      let weekDate = await getCurrentWeekDate();
+      weekDate = weekDate.replaceAll('/', '-');
+      navigate(`/meeting-schedule/${weekDate}`);
+    };
+
+    if (!isFetchingSchedule) {
+      setTimeout(() => {
+        openSchedule();
+      }, [2000]);
+    }
+  }, [isFetchingSchedule, navigate, setIsAppLoad]);
 
   return (
     <>

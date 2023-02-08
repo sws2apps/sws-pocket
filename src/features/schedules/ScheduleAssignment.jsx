@@ -98,7 +98,7 @@ const ScheduleAssignment = ({ edit }) => {
       setBibleReadingStudy(schedule.bibleReading_study);
       setStuBReadA(schedule.bRead_stu_A_dispName);
       setStuBReadB(schedule.bRead_stu_B_dispName);
-      setAss1Type(schedule.ass1_type);
+      setAss1Type(typeof schedule.ass1_type === 'object' ? schedule.ass1_type[lang] : schedule.ass1_type);
       setAss1TypeName(schedule.ass1_type_name ? schedule.ass1_type_name[lang] : '');
       setAss1Src(schedule.ass1_src ? schedule.ass1_src[lang] : '');
       setAss1Time(schedule.ass1_time);
@@ -107,7 +107,7 @@ const ScheduleAssignment = ({ edit }) => {
       setAss1A(schedule.ass1_ass_A_dispName);
       setStu1B(schedule.ass1_stu_B_dispName);
       setAss1B(schedule.ass1_ass_B_dispName);
-      setAss2Type(schedule.ass2_type);
+      setAss2Type(typeof schedule.ass2_type === 'object' ? schedule.ass2_type[lang] : schedule.ass2_type);
       setAss2TypeName(schedule.ass2_type_name ? schedule.ass2_type_name[lang] : '');
       setAss2Src(schedule.ass2_src ? schedule.ass2_src[lang] : '');
       setAss2Time(schedule.ass2_time);
@@ -116,7 +116,7 @@ const ScheduleAssignment = ({ edit }) => {
       setAss2A(schedule.ass2_ass_A_dispName);
       setStu2B(schedule.ass2_stu_B_dispName);
       setAss2B(schedule.ass2_ass_B_dispName);
-      setAss3Type(schedule.ass3_type);
+      setAss3Type(typeof schedule.ass3_type === 'object' ? schedule.ass3_type[lang] : schedule.ass3_type);
       setAss3TypeName(schedule.ass3_type_name ? schedule.ass3_type_name[lang] : '');
       setAss3Src(schedule.ass3_src ? schedule.ass3_src[lang] : '');
       setAss3Time(schedule.ass3_time);
@@ -125,7 +125,7 @@ const ScheduleAssignment = ({ edit }) => {
       setAss3A(schedule.ass3_ass_A_dispName);
       setStu3B(schedule.ass3_stu_B_dispName);
       setAss3B(schedule.ass3_ass_B_dispName);
-      setAss4Type(schedule.ass4_type);
+      setAss4Type(typeof schedule.ass4_type === 'object' ? schedule.ass4_type[lang] : schedule.ass4_type);
       setAss4TypeName(schedule.ass4_type_name ? schedule.ass4_type_name[lang] : '');
       setAss4Src(schedule.ass4_src ? schedule.ass4_src[lang] : '');
       setAss4Time(schedule.ass4_time);

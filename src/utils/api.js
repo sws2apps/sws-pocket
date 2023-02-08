@@ -5,6 +5,7 @@ import { isDbExist } from '../indexedDb/dbUtility';
 import { classCountState } from '../states/congregation';
 import {
   apiHostState,
+  isFetchingScheduleState,
   isOnlineState,
   rootModalOpenState,
   sourceLangState,
@@ -114,6 +115,7 @@ export const apiFetchSchedule = async () => {
   const { apiHost, isOnline, visitorID } = await getProfile();
 
   if (isOnline && apiHost !== '' && visitorID !== '') {
+    await promiseSetRecoil(isFetchingScheduleState, true);
     const res = await fetch(`${apiHost}api/sws-pocket/meeting-schedule`, {
       method: 'GET',
       headers: {
@@ -131,6 +133,8 @@ export const apiFetchSchedule = async () => {
       await promiseSetRecoil(classCountState, class_count);
       await promiseSetRecoil(sourceLangState, source_lang);
     }
+
+    await promiseSetRecoil(isFetchingScheduleState, false);
   }
 
   await promiseSetRecoil(rootModalOpenState, false);

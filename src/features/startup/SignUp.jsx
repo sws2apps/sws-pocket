@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import {
   isAppLoadState,
+  isFetchingScheduleState,
   isOnlineState,
   isSetupState,
   isUnauthorizedRoleState,
@@ -37,6 +38,7 @@ const SignUp = () => {
 
   const isOnline = useRecoilValue(isOnlineState);
   const visitorID = useRecoilValue(visitorIDState);
+  const isFetchingSchedule = useRecoilValue(isFetchingScheduleState);
 
   const [code, setCode] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
@@ -60,11 +62,7 @@ const SignUp = () => {
           await dbUpdateUserSettings(data);
           setIsSetup(false);
           setTimeout(async () => {
-            setIsAppLoad(false);
             setCongAccountConnected(true);
-            let weekDate = await getCurrentWeekDate();
-            weekDate = weekDate.replaceAll('/', '-');
-            navigate(`/meeting-schedule/${weekDate}`);
           }, [1000]);
         } else {
           setIsSignUp(false);
@@ -83,6 +81,21 @@ const SignUp = () => {
       setAppSnackOpen(true);
     }
   };
+
+  useEffect(() => {
+    const openSchedule = async () => {
+      setIsAppLoad(false);
+      let weekDate = await getCurrentWeekDate();
+      weekDate = weekDate.replaceAll('/', '-');
+      navigate(`/meeting-schedule/${weekDate}`);
+    };
+
+    if (!isFetchingSchedule) {
+      setTimeout(() => {
+        openSchedule();
+      }, [2000]);
+    }
+  }, [isFetchingSchedule, navigate, setIsAppLoad]);
 
   return (
     <Container sx={{ marginTop: '20px' }}>
