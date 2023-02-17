@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { isRefreshScheduleOpenState } from '../../states/schedule';
 
 const ScheduleDownloader = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const [open, setOpen] = useRecoilState(isRefreshScheduleOpenState);
 

@@ -20,6 +20,13 @@ appDb.version(5).stores({
   pocket_settings:
     '&id, class_count, cong_number, cong_name, cong_role, username, pocket_members, pocket_local_id, source_lang, user_id',
 });
+appDb.version(6).stores({
+  pocket_settings:
+    '&id, class_count, cong_number, cong_name, cong_role, username, pocket_members, pocket_local_id, source_lang, user_id, co_name, co_displayName',
+});
+appDb.version(7).stores({
+  announcements: '&announcement_id, title, body',
+});
 
 appDb.on('populate', () => {
   // initialization of appSettings

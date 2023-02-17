@@ -6,7 +6,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import Typography from '@mui/material/Typography';
 
 const UnauthorizedRole = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const handleRefresh = () => {
     window.location.reload();

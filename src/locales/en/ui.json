@@ -71,5 +71,10 @@
   "cacheCompleted": "CPE can be used offline now",
   "noSchedules": "Please ask your congregation elders to publish the meeting schedule first",
   "newVersion": "A new version of CPE is available",
-  "noSchedule": "There is no schedule for this week"
+  "noSchedule": "There is no schedule for this week",
+  "announcements": "What’s New",
+  "markAsRead": "Mark as read",
+  "expand": "Expand",
+  "collapse": "Collapse",
+  "coTalk": "Talk given by Circuit Overseer"
 }

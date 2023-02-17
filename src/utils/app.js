@@ -2,8 +2,7 @@ import { promiseGetRecoil, promiseSetRecoil } from 'recoil-outside';
 import { getI18n } from 'react-i18next';
 import { format } from 'date-fns';
 import { initAppDb } from '../indexedDb/dbUtility';
-import { dbSaveNotifications } from '../indexedDb/dbNotifications';
-import { apiHostState, appLangState, isOnlineState, sourceLangState } from '../states/main';
+import { appLangState, sourceLangState } from '../states/main';
 import { dbGetAppSettings } from '../indexedDb/dbAppSettings';
 import {
   classCountState,
@@ -15,7 +14,7 @@ import {
 } from '../states/congregation';
 import appDb from '../indexedDb/appDb';
 import { scheduleDataState, scheduleLocalState, sourceDataState } from '../states/schedule';
-import { langList } from '../locales/langList';
+import { LANGUAGE_LIST } from '../locales/langList';
 
 export const loadApp = async () => {
   try {
@@ -25,7 +24,7 @@ export const loadApp = async () => {
 
     // validate lang
     const tempLang = localStorage.getItem('app_lang') || 'e';
-    const app_lang = langList.find((lang) => lang.code === tempLang)?.code || 'e';
+    const app_lang = LANGUAGE_LIST.find((lang) => lang.code === tempLang)?.code || 'e';
     localStorage.setItem('app_lang', app_lang);
 
     let { username, cong_number, cong_name, class_count, pocket_local_id, pocket_members, source_lang } =
@@ -52,26 +51,6 @@ export const loadApp = async () => {
   }
 };
 
-export const fetchNotifications = async () => {
-  try {
-    const isOnline = await promiseGetRecoil(isOnlineState);
-    const apiHost = await promiseGetRecoil(apiHostState);
-
-    if (isOnline && apiHost !== '') {
-      const res = await fetch(`${apiHost}api/users/announcement`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          app: 'sws-pocket',
-        },
-      });
-
-      const data = await res.json();
-      await dbSaveNotifications(data);
-    }
-  } catch {}
-};
-
 export const formatDateForCompare = (date) => {
   return new Date(date);
 };
@@ -94,24 +73,26 @@ export const getErrorMessage = (msg) => {
 };
 
 export const getAssignmentName = (assType) => {
+  const { t } = getI18n();
+
   if (assType === 101 || (assType >= 140 && assType < 170)) {
-    return getI18n().t('initialCall');
+    return t('initialCall', { ns: 'ui' });
   }
 
   if (assType === 102 || (assType >= 170 && assType < 200)) {
-    return getI18n().t('returnVisit');
+    return t('returnVisit', { ns: 'ui' });
   }
 
   if (assType === 103) {
-    return getI18n().t('bibleStudy');
+    return t('bibleStudy', { ns: 'ui' });
   }
 
   if (assType === 104) {
-    return getI18n().t('talk');
+    return t('talk', { ns: 'ui' });
   }
 
   if (assType === 108) {
-    return getI18n().t('memorialInvite');
+    return t('memorialInvite', { ns: 'ui' });
   }
 };
 

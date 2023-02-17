@@ -1,38 +1,4 @@
-export const langList = [
-  {
-    code: 'e',
-    name: 'English',
-    months: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'Mey',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ],
-  },
-  {
-    code: 'mg',
-    name: 'Malagasy',
-    months: [
-      'Janoary',
-      'Febroary',
-      'Martsa',
-      'Aprily',
-      'May',
-      'Jona',
-      'Jolay',
-      'Aogositra',
-      'Septambra',
-      'Oktobra',
-      'Novambra',
-      'Desambra',
-    ],
-  },
+export const LANGUAGE_LIST = [
+  { code: 'e', locale: 'en', name: 'English' },
+  { code: 'mg', locale: 'mg-MG', name: 'Malagasy' },
 ];

@@ -70,6 +70,8 @@ export const scheduleLocalState = selector({
 export const myAssignmentsState = selector({
   key: 'myAssignments',
   get: async ({ get }) => {
+    const { t } = getI18n();
+
     const { pocket_local_id, pocket_members } = await dbGetAppSettings();
     const local_id = pocket_local_id.person_uid || '';
     const schedules = get(scheduleLocalState);
@@ -151,34 +153,34 @@ export const myAssignmentsState = selector({
 
             // Chairman History
             if (fld === 'chairmanMM_A') {
-              obj.assignmentName = getI18n().t('chairmanMidweekMeeting2');
+              obj.assignmentName = t('chairmanMidweekMeeting2', { ns: 'ui' });
             }
 
             // Aux Class Counselor History
             if (fld === 'chairmanMM_B') {
-              obj.assignmentName = getI18n().t('auxClassCounselor');
+              obj.assignmentName = t('auxClassCounselor', { ns: 'ui' });
             }
 
             // Opening Prayer
             if (fld === 'opening_prayer') {
-              obj.assignmentName = getI18n().t('openingPrayerMidweekMeeting');
+              obj.assignmentName = t('openingPrayerMidweekMeeting', { ns: 'ui' });
             }
 
             // TGW Talk 10 min. History
             if (fld === 'tgw_talk') {
-              obj.assignmentName = getI18n().t('tgwTalk');
+              obj.assignmentName = t('tgwTalk', { ns: 'ui' });
               obj.assignmentSource = schedule.tgwTalk_src;
             }
 
             // TGW Spiritual Gems History
             if (fld === 'tgw_gems') {
-              obj.assignmentName = getI18n().t('tgwGems2');
+              obj.assignmentName = t('tgwGems2', { ns: 'ui' });
             }
 
             //Bible Reading History
             if (fld.startsWith('bRead_stu_')) {
               const stuclass = fld.split('_')[2];
-              obj.assignmentName = getI18n().t('bibleReading');
+              obj.assignmentName = t('bibleReading', { ns: 'ui' });
               obj.class = stuclass;
               obj.studyPoint = schedule.bibleReading_study;
               obj.assignmentSource = schedule.bibleReading_src;
@@ -199,7 +201,11 @@ export const myAssignmentsState = selector({
               const assTime = schedule[timeFld];
               const assistantDispName = schedule[assistantFldDispName];
 
-              obj.assignmentName = `${getAssignmentName(assType)} - ${getI18n().t('student')}`;
+              obj.assignmentName = getAssignmentName(assType);
+              if (assType !== 104) {
+                obj.assignmentName += ` - ${t('student', { ns: 'ui' })}`;
+              }
+
               obj.assistantDispName = assistantDispName;
               obj.assignmentTime = assTime;
               obj.assignmentSource = assSource;
@@ -223,7 +229,7 @@ export const myAssignmentsState = selector({
               const studentDispName = schedule[studentFldDispName];
               const assType = schedule[weekFld];
 
-              obj.assignmentName = `${getAssignmentName(assType)} - ${getI18n().t('assistant')}`;
+              obj.assignmentName = `${getAssignmentName(assType)} - ${t('assistant', { ns: 'ui' })}`;
               obj.studentForAssistant = studentDispName;
               obj.assignmentTime = assTime;
               obj.assignmentSource = assSource;
@@ -242,7 +248,7 @@ export const myAssignmentsState = selector({
               const fldContent = `lcPart${lcIndex}_content`;
               const fldContentOverride = `lcPart${lcIndex}_content_override`;
 
-              obj.assignmentName = getI18n().t('lcPart');
+              obj.assignmentName = t('lcPart', { ns: 'ui' });
               obj.assignmentTime = schedule[fldTimeOverride] ? schedule[fldTimeOverride] : schedule[fldTime];
               obj.assignmentSource = schedule[fldSourceOverride] ? schedule[fldSourceOverride] : schedule[fldSource];
               obj.assignmentContent = schedule[fldContentOverride]
@@ -252,19 +258,19 @@ export const myAssignmentsState = selector({
 
             // CBS Conductor History
             if (fld === 'cbs_conductor') {
-              obj.assignmentName = getI18n().t('cbsConductor');
+              obj.assignmentName = t('cbsConductor', { ns: 'ui' });
               obj.assignmentSource = schedule.cbs_src;
             }
 
             // CBS Reader History
             if (fld === 'cbs_reader') {
-              obj.assignmentName = getI18n().t('cbsReader');
+              obj.assignmentName = t('cbsReader', { ns: 'ui' });
               obj.assignmentSource = schedule.cbs_src;
             }
 
             // Closing Prayer
             if (fld === 'closing_prayer') {
-              obj.assignmentName = getI18n().t('closingPrayerMidweekMeeting');
+              obj.assignmentName = t('closingPrayerMidweekMeeting', { ns: 'ui' });
             }
 
             obj.isBehalf = isBehalf;

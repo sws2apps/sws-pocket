@@ -1,26 +1,4 @@
-import { promiseGetRecoil, promiseSetRecoil } from 'recoil-outside';
-import { dbUpdateAppSettings } from '../indexedDb/dbAppSettings';
-import { dbUpdateSchedule } from '../indexedDb/dbSchedule';
-import { isDbExist } from '../indexedDb/dbUtility';
-import { classCountState } from '../states/congregation';
-import {
-  apiHostState,
-  isFetchingScheduleState,
-  isOnlineState,
-  rootModalOpenState,
-  sourceLangState,
-  userIDState,
-  visitorIDState,
-} from '../states/main';
-
-const getProfile = async () => {
-  const apiHost = await promiseGetRecoil(apiHostState);
-  const visitorID = await promiseGetRecoil(visitorIDState);
-  const userID = await promiseGetRecoil(userIDState);
-  const isOnline = await promiseGetRecoil(isOnlineState);
-
-  return { apiHost, isOnline, userID, visitorID };
-};
+import { getProfile } from './common';
 
 export const apiPocketSignUp = async (code) => {
   const { apiHost, visitorID } = await getProfile();
@@ -107,35 +85,4 @@ export const apiPocketDeviceDelete = async (pocket_visitorid) => {
   } catch (err) {
     throw new Error(err);
   }
-};
-
-export const apiFetchSchedule = async () => {
-  await promiseSetRecoil(rootModalOpenState, true);
-
-  const { apiHost, isOnline, visitorID } = await getProfile();
-
-  if (isOnline && apiHost !== '' && visitorID !== '') {
-    await promiseSetRecoil(isFetchingScheduleState, true);
-    const res = await fetch(`${apiHost}api/sws-pocket/meeting-schedule`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        visitorid: visitorID,
-      },
-    });
-
-    const { cong_schedule, cong_sourceMaterial, class_count, source_lang } = await res.json();
-
-    const isExist = await isDbExist('sws_pocket');
-    if (isExist) {
-      await dbUpdateAppSettings({ class_count, source_lang });
-      await dbUpdateSchedule({ cong_schedule, cong_sourceMaterial });
-      await promiseSetRecoil(classCountState, class_count);
-      await promiseSetRecoil(sourceLangState, source_lang);
-    }
-
-    await promiseSetRecoil(isFetchingScheduleState, false);
-  }
-
-  await promiseSetRecoil(rootModalOpenState, false);
 };

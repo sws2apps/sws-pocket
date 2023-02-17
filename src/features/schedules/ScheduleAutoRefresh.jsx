@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
+import { apiFetchSchedule } from '../../api/schedule';
 import { congAccountConnectedState } from '../../states/congregation';
-import { apiFetchSchedule } from '../../utils/api';
 
 const ScheduleAutoRefresh = () => {
   const congAccountConnected = useRecoilValue(congAccountConnectedState);

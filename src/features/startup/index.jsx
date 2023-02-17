@@ -16,10 +16,10 @@ import {
   rootModalOpenState,
   visitorIDState,
 } from '../../states/main';
-import { apiPocketValidate } from '../../utils/api';
 import { dbUpdateUserSettings } from '../../indexedDb/dbAppSettings';
 import { congAccountConnectedState } from '../../states/congregation';
 import { deleteDb, isDbExist } from '../../indexedDb/dbUtility';
+import { apiPocketValidate } from '../../api/auth';
 
 const Startup = () => {
   const navigate = useNavigate();

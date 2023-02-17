@@ -13,12 +13,12 @@ import Typography from '@mui/material/Typography';
 import { rootModalOpenState, visitorIDState } from '../../states/main';
 import { appMessageState, appSeverityState, appSnackOpenState } from '../../states/notification';
 import { getErrorMessage } from '../../utils/app';
-import { apiFetchPocketSessions, apiPocketDeviceDelete } from '../../utils/api';
+import { apiFetchPocketSessions, apiPocketDeviceDelete } from '../../api/auth';
 
 const UserSessionItem = ({ device }) => {
   const cancel = useRef();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const queryClient = useQueryClient();
 

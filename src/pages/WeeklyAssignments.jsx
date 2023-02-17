@@ -20,7 +20,7 @@ import { getCurrentWeekDate } from '../utils/app';
 import { scheduleLocalState } from '../states/schedule';
 
 const WeeklyAssignments = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const navigate = useNavigate();
   const { weekToFormat } = useParams();

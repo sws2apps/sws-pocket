@@ -9,11 +9,12 @@ import SingleAssignment from './SingleAssignment';
 import { classCountState } from '../../states/congregation';
 import { scheduleLocalState } from '../../states/schedule';
 import { sourceLangState } from '../../states/main';
+import { dbGetAppSettings } from '../../indexedDb/dbAppSettings';
 
 const ScheduleAssignment = ({ edit }) => {
   const { weekToFormat } = useParams();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const classCount = useRecoilValue(classCountState);
   const schedules = useRecoilValue(scheduleLocalState);
@@ -79,6 +80,8 @@ const ScheduleAssignment = ({ edit }) => {
   const [cbsReader, setCbsReader] = useState('');
   const [closingPrayer, setClosingPrayer] = useState('');
   const [weekType, setWeekType] = useState(1);
+  const [coTalkTitle, setCoTalkTitle] = useState('');
+  const [coName, setCoName] = useState('');
 
   const week = weekToFormat.replaceAll('-', '/');
 
@@ -163,6 +166,10 @@ const ScheduleAssignment = ({ edit }) => {
       setCbsReader(schedule.cbs_reader_dispName);
       setClosingPrayer(schedule.closing_prayer_dispName);
       setWeekType(schedule.week_type);
+      setCoTalkTitle(schedule.co_talk_title);
+
+      const settings = await dbGetAppSettings();
+      setCoName(settings.co_displayName || '');
     };
 
     if (week !== '') {
@@ -298,7 +305,7 @@ const ScheduleAssignment = ({ edit }) => {
         {/* LC1 */}
         <ScheduleRowAssignment
           personA={lcPart1}
-          source={`(${lcPart1Time} min.) ${lcPart1Src}`}
+          source={`${lcPart1Src} (${lcPart1Time} min.)`}
           lcPart={lcPart1Content}
         />
 
@@ -307,7 +314,7 @@ const ScheduleAssignment = ({ edit }) => {
           <ScheduleRowAssignment
             edit={edit}
             personA={lcPart2}
-            source={`(${lcPart2Time} min.) ${lcPart2Src}`}
+            source={`${lcPart2Src} (${lcPart2Time} min.)`}
             lcPart={lcPart2Content}
           />
         )}
@@ -321,6 +328,11 @@ const ScheduleAssignment = ({ edit }) => {
             source={t('cbs')}
             lcPart={cbsSrc}
           />
+        )}
+
+        {/* Talk CO */}
+        {weekType === 2 && (
+          <ScheduleRowAssignment source={`${t('coTalk')} (30 min.)`} lcPart={coTalkTitle} personA={coName} />
         )}
 
         {/* Closing Prayer */}

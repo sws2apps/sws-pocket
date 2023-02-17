@@ -11,10 +11,10 @@ import Tooltip from '@mui/material/Tooltip';
 import TranslateIcon from '@mui/icons-material/Translate';
 import Typography from '@mui/material/Typography';
 import { appLangState } from '../../states/main';
-import { langList } from '../../locales/langList';
+import { LANGUAGE_LIST } from '../../locales/langList';
 
 const AppLanguage = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('ui');
 
   const [appLang, setAppLang] = useRecoilState(appLangState);
 
@@ -49,7 +49,7 @@ const AppLanguage = () => {
       if (userChange) {
         await i18n.changeLanguage(appLangLocal);
 
-        const isoLang = getI18n().getDataByLanguage(appLangLocal).translation['iso'];
+        const isoLang = getI18n().getDataByLanguage(appLangLocal).ui['iso'];
         document.documentElement.setAttribute('lang', isoLang);
 
         setAppLang(appLangLocal);
@@ -60,7 +60,7 @@ const AppLanguage = () => {
         let appLang = localStorage.getItem('app_lang') || 'e';
         await i18n.changeLanguage(appLang);
 
-        const isoLang = getI18n().getDataByLanguage(appLang).translation['iso'];
+        const isoLang = getI18n().getDataByLanguage(appLang).ui['iso'];
         document.documentElement.setAttribute('lang', isoLang);
 
         setAppLang(appLang);
@@ -100,7 +100,7 @@ const AppLanguage = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        {langList.map((lang) => (
+        {LANGUAGE_LIST.map((lang) => (
           <MenuItem key={lang.code} onClick={handleLangChange} sx={{ padding: 0 }}>
             <ListItemText data-code={lang.code}>
               <Typography sx={{ padding: '6px 16px' }}>{lang.name}</Typography>

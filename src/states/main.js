@@ -1,5 +1,6 @@
 import { atom, selector } from 'recoil';
 import { getI18n } from 'react-i18next';
+import { LANGUAGE_LIST } from '../locales/langList';
 
 export const isLightThemeState = atom({
   key: 'isLightTheme',
@@ -57,18 +58,18 @@ export const monthNamesState = selector({
     const appLang = get(appLangState);
 
     let months = [];
-    months.push(getI18n().getDataByLanguage(appLang).translation['january']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['february']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['march']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['april']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['may']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['june']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['july']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['august']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['september']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['october']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['november']);
-    months.push(getI18n().getDataByLanguage(appLang).translation['december']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['january']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['february']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['march']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['april']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['may']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['june']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['july']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['august']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['september']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['october']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['november']);
+    months.push(getI18n().getDataByLanguage(appLang).ui['december']);
 
     return months;
   },
@@ -78,7 +79,7 @@ export const shortDateFormatState = selector({
   key: 'shortDateFormat',
   get: ({ get }) => {
     const appLang = get(appLangState);
-    const format = getI18n().getDataByLanguage(appLang).translation['shortDateFormat'];
+    const format = getI18n().getDataByLanguage(appLang).ui['shortDateFormat'];
     return format;
   },
 });
@@ -87,7 +88,7 @@ export const shortDatePickerFormatState = selector({
   key: 'shortDatePickerFormat',
   get: ({ get }) => {
     const appLang = get(appLangState);
-    const format = getI18n().getDataByLanguage(appLang).translation['shortDatePickerFormat'];
+    const format = getI18n().getDataByLanguage(appLang).ui['shortDatePickerFormat'];
     return format;
   },
 });
@@ -265,9 +266,24 @@ export const appNotificationsState = atom({
 export const countNotificationsState = selector({
   key: 'countNotifications',
   get: ({ get }) => {
-    const notifications = get(appNotificationsState);
-    const unread = notifications.filter((notification) => notification.isRead !== true);
-    return unread.length;
+    const announcements = get(appNotificationsState);
+    const appLang = get(appLangState);
+    const fldKey = LANGUAGE_LIST.find((language) => language.code === appLang)?.locale || 'en';
+
+    let count = 0;
+    for (const announcement of announcements) {
+      const findTitleIndex = announcement.title.findIndex((item) => item.language === fldKey);
+      let isRead = announcement.title[findTitleIndex].isRead;
+
+      if (isRead) {
+        const findBodyIndex = announcement.body.findIndex((item) => item.language === fldKey);
+        isRead = announcement.body[findBodyIndex].isRead;
+      }
+
+      if (!isRead) count++;
+    }
+
+    return count;
   },
 });
 

@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { rootModalOpenState } from '../states/main';
 
 const RootModal = ({ children }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const [open, setOpen] = useRecoilState(rootModalOpenState);
 
