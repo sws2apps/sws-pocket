@@ -71,5 +71,10 @@
   "cacheCompleted": "Afaka mampiasa ny CPE ianao izao na tsy misy internet aza",
   "noSchedules": "Ilazao aloha ny anti-panahy ao amin’ny fiangonanareo mba hizara ny fandaharam-pivoriana",
   "newVersion": "Misy version vaovao ny CPE",
-  "noSchedule": "Tsy misy fandaharana amin’io herinandro io"
+  "noSchedule": "Tsy misy fandaharana amin’io herinandro io",
+  "announcements": "Zava-baovao",
+  "markAsRead": "Voavaky",
+  "expand": "Aseho",
+  "collapse": "Afenina",
+  "coTalk": "Lahateny ataon’ny Mpiandraikitra ny Faritra"
 }
