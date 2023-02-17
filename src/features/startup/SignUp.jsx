@@ -18,14 +18,14 @@ import {
   visitorIDState,
 } from '../../states/main';
 import { appMessageState, appSeverityState, appSnackOpenState } from '../../states/notification';
-import { apiPocketSignUp } from '../../utils/api';
 import { getCurrentWeekDate, getErrorMessage, loadApp } from '../../utils/app';
 import { dbUpdateUserSettings } from '../../indexedDb/dbAppSettings';
 import { congAccountConnectedState } from '../../states/congregation';
+import { apiPocketSignUp } from '../../api/auth';
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const setIsSetup = useSetRecoilState(isSetupState);
   const setAppSnackOpen = useSetRecoilState(appSnackOpenState);

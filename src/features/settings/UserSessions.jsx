@@ -8,12 +8,12 @@ import Typography from '@mui/material/Typography';
 import UserSessionItem from './UserSessionItem';
 import { rootModalOpenState } from '../../states/main';
 import { appMessageState, appSeverityState, appSnackOpenState } from '../../states/notification';
-import { apiFetchPocketSessions } from '../../utils/api';
+import { apiFetchPocketSessions } from '../../api/auth';
 
 const UserSessions = () => {
   const cancel = useRef();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const { error, data, isLoading } = useQuery({
     queryKey: ['devices'],

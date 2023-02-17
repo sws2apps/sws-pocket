@@ -8,13 +8,13 @@ import ScheduleIcon from '@mui/icons-material/Schedule';
 import MenuCard from '../components/MenuCard';
 import { isMyAssignmentOpenState } from '../states/main';
 import { congAccountConnectedState } from '../states/congregation';
-import { apiFetchSchedule } from '../utils/api';
 import { getCurrentWeekDate } from '../utils/app';
+import { apiFetchSchedule } from '../api/schedule';
 
 const DashboardMenu = () => {
   const navigate = useNavigate();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const setMyAssignmentsOpen = useSetRecoilState(isMyAssignmentOpenState);
 

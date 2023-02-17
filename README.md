@@ -14,6 +14,10 @@ This module is designed for use by students of midweek meeting and publishers.
 
 CPE is a web application, and it is also PWA capable. All devices that have up to date browser, depending on which platform it is running can use this web application.
 
+## CPE Localization
+
+The translation process for CPE app is handled on [Crowdin](https://crowdin.com/project/cpe-pocket). To help with localization, please read the [TRANSLATION](./TRANSLATION.md) guide.
+
 ## May I contribute?
 
 Of course!!! We are more than happy to receive support from you, if you are very interested to help us. Please read our contribution workflow on how to do so.

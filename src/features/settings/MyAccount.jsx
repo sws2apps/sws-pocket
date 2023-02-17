@@ -12,7 +12,7 @@ const subtitles = {
 };
 
 const MyAccount = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   return (
     <Box>

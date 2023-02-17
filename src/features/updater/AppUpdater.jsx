@@ -5,7 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import { isPrecachedState, showReloadState } from '../../states/main';
 
 const AppUpdater = ({ enabledInstall, updatePwa }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const [isPrecached, setIsPrecached] = useRecoilState(isPrecachedState);
 

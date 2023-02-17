@@ -23,9 +23,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppLanguage from '../features/languageSwitcher';
 import ThemeSwitcher from '../features/themeSwitcher';
-import { WhatsNewContent } from '../features/whatsNew';
 import { themeOptionsState } from '../states/theme';
-import { countNotificationsState, isAboutOpenState, isAppLoadState, isOnlineState } from '../states/main';
+import {
+  countNotificationsState,
+  isAboutOpenState,
+  isAppLoadState,
+  isMyAssignmentOpenState,
+  isOnlineState,
+  isWhatsNewOpenState,
+} from '../states/main';
 import { congAccountConnectedState, congInfoFormattedState, usernameState } from '../states/congregation';
 
 const sharedStyles = {
@@ -53,11 +59,13 @@ const ElevationScroll = (props) => {
 const NavBar = (props) => {
   const { enabledInstall, isLoading, installPwa } = props;
 
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
   const navigate = useNavigate();
   const theme = useTheme();
 
   const setIsAboutOpen = useSetRecoilState(isAboutOpenState);
+  const setWhatsNewOpen = useSetRecoilState(isWhatsNewOpenState);
+  const setMyAssignmentOpen = useSetRecoilState(isMyAssignmentOpenState);
 
   const themeOptions = useRecoilValue(themeOptionsState);
   const cnNews = useRecoilValue(countNotificationsState);
@@ -75,18 +83,12 @@ const NavBar = (props) => {
   });
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const [anchorPopoverEl, setAnchorPopoverEl] = useState(null);
 
   const open = Boolean(anchorEl);
-  const openPopover = Boolean(anchorPopoverEl);
-  const id = openPopover ? 'notification-popover' : undefined;
 
   const handleWhatsNewClick = (event) => {
-    setAnchorPopoverEl(event.currentTarget);
-  };
-
-  const handleWhatsNewClose = () => {
-    setAnchorPopoverEl(null);
+    setMyAssignmentOpen(false);
+    setWhatsNewOpen(true);
   };
 
   const handleMenu = (e) => {
@@ -171,23 +173,11 @@ const NavBar = (props) => {
                 </IconButton>
               )}
 
-              <IconButton
-                color="inherit"
-                edge="start"
-                sx={sharedStyles.menuIcon}
-                aria-describedby={id}
-                onClick={handleWhatsNewClick}
-              >
+              <IconButton color="inherit" edge="start" sx={sharedStyles.menuIcon} onClick={handleWhatsNewClick}>
                 <Badge badgeContent={cnNews} color="error">
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
-              <WhatsNewContent
-                id={id}
-                open={openPopover}
-                anchorEl={anchorPopoverEl}
-                handleClose={handleWhatsNewClose}
-              />
 
               <ThemeSwitcher />
 

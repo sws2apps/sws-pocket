@@ -11,7 +11,7 @@ import MyAssignmentsList from './MyAssignmentsList';
 import { pocketLocalIDState } from '../../states/congregation';
 
 const MyAssignments = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('ui');
 
   const [drawerOpen, setDrawerOpen] = useRecoilState(isMyAssignmentOpenState);
 
