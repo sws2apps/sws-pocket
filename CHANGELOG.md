@@ -1,3 +1,33 @@
+# [1.9.0](https://github.com/sws2apps/sws-pocket/compare/v1.8.0...v1.9.0) (2023-02-17)
+
+
+### Features
+
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.8.1 to 3.8.2 ([55fecad](https://github.com/sws2apps/sws-pocket/commit/55fecaddb959caba8cf6f1bf26e037cff5a30626))
+* **deps:** bump @mui/icons-material from 5.11.0 to 5.11.9 ([bb41769](https://github.com/sws2apps/sws-pocket/commit/bb417695b981fb5f68350a52ae7c6975d70ecf44))
+* **deps:** bump @mui/lab from 5.0.0-alpha.118 to 5.0.0-alpha.119 ([6a0dcd7](https://github.com/sws2apps/sws-pocket/commit/6a0dcd78057138aaa81f0de19b8dfe246a7aa854))
+* **deps:** bump @mui/lab from 5.0.0-alpha.119 to 5.0.0-alpha.120 ([3023cff](https://github.com/sws2apps/sws-pocket/commit/3023cffba5252dd70d05e9577604030d5b160ef0))
+* **deps:** bump @mui/material from 5.11.7 to 5.11.8 ([81919c8](https://github.com/sws2apps/sws-pocket/commit/81919c870b6cd5ba7345a4aba3453544ff04f3e0))
+* **deps:** bump @mui/material from 5.11.8 to 5.11.9 ([406cd78](https://github.com/sws2apps/sws-pocket/commit/406cd78a57da41b7ee25f8534ec5f38e1825dbc0))
+* **deps:** bump @tanstack/react-query from 4.24.4 to 4.24.6 ([58ec994](https://github.com/sws2apps/sws-pocket/commit/58ec99412a64f5ed8b6f97e7de925cd10434c446))
+* **deps:** bump react-router-dom from 6.8.0 to 6.8.1 ([87b1aa7](https://github.com/sws2apps/sws-pocket/commit/87b1aa7bb0eae3fe72b623d874052247d78299d2))
+* **schedules:** display circuit overseer talk title ([36cd41e](https://github.com/sws2apps/sws-pocket/commit/36cd41eaa45847e4237daef8175460b309baaa47))
+
+# [1.9.0](https://github.com/sws2apps/sws-pocket/compare/v1.8.0...v1.9.0) (2023-02-17)
+
+
+### Features
+
+* **deps:** bump @fingerprintjs/fingerprintjs-pro from 3.8.1 to 3.8.2 ([55fecad](https://github.com/sws2apps/sws-pocket/commit/55fecaddb959caba8cf6f1bf26e037cff5a30626))
+* **deps:** bump @mui/icons-material from 5.11.0 to 5.11.9 ([bb41769](https://github.com/sws2apps/sws-pocket/commit/bb417695b981fb5f68350a52ae7c6975d70ecf44))
+* **deps:** bump @mui/lab from 5.0.0-alpha.118 to 5.0.0-alpha.119 ([6a0dcd7](https://github.com/sws2apps/sws-pocket/commit/6a0dcd78057138aaa81f0de19b8dfe246a7aa854))
+* **deps:** bump @mui/lab from 5.0.0-alpha.119 to 5.0.0-alpha.120 ([3023cff](https://github.com/sws2apps/sws-pocket/commit/3023cffba5252dd70d05e9577604030d5b160ef0))
+* **deps:** bump @mui/material from 5.11.7 to 5.11.8 ([81919c8](https://github.com/sws2apps/sws-pocket/commit/81919c870b6cd5ba7345a4aba3453544ff04f3e0))
+* **deps:** bump @mui/material from 5.11.8 to 5.11.9 ([406cd78](https://github.com/sws2apps/sws-pocket/commit/406cd78a57da41b7ee25f8534ec5f38e1825dbc0))
+* **deps:** bump @tanstack/react-query from 4.24.4 to 4.24.6 ([58ec994](https://github.com/sws2apps/sws-pocket/commit/58ec99412a64f5ed8b6f97e7de925cd10434c446))
+* **deps:** bump react-router-dom from 6.8.0 to 6.8.1 ([87b1aa7](https://github.com/sws2apps/sws-pocket/commit/87b1aa7bb0eae3fe72b623d874052247d78299d2))
+* **schedules:** display circuit overseer talk title ([36cd41e](https://github.com/sws2apps/sws-pocket/commit/36cd41eaa45847e4237daef8175460b309baaa47))
+
 # [1.8.0](https://github.com/sws2apps/sws-pocket/compare/v1.7.0...v1.8.0) (2023-02-08)
 
 
