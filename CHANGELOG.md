@@ -1,3 +1,17 @@
+# [1.10.0](https://github.com/sws2apps/sws-pocket/compare/v1.9.0...v1.10.0) (2023-02-25)
+
+
+### Features
+
+* **app:** add disclaimer for new address ([1e92484](https://github.com/sws2apps/sws-pocket/commit/1e92484f6e9a0bd86663bbbf49e09769ad7356f4))
+* **deps:** bump @emotion/react from 11.10.5 to 11.10.6 ([2604127](https://github.com/sws2apps/sws-pocket/commit/26041279a5b531d4688c8bb7c27c3195cf334d47))
+* **deps:** bump @emotion/styled from 11.10.5 to 11.10.6 ([faa70c0](https://github.com/sws2apps/sws-pocket/commit/faa70c06d4fd23b2d2206e81fa1cead593a06993))
+* **deps:** bump @mui/material from 5.11.9 to 5.11.10 ([bd390dc](https://github.com/sws2apps/sws-pocket/commit/bd390dcc02a5bedd974d0c6613c18a2365b74ca8))
+* **deps:** bump @tanstack/react-query from 4.24.6 to 4.24.9 ([b50cccd](https://github.com/sws2apps/sws-pocket/commit/b50cccdb2e80806ccfbffb8b4954af356bf08b02))
+* **deps:** bump @tanstack/react-query from 4.24.9 to 4.24.10 ([2e133a8](https://github.com/sws2apps/sws-pocket/commit/2e133a8b108f20e1ea425c707c943eb4b92d52fd))
+* **deps:** bump i18next from 22.4.9 to 22.4.10 ([a769a98](https://github.com/sws2apps/sws-pocket/commit/a769a9847d038838b61a583404378bea5ea01360))
+* **deps:** bump react-i18next from 12.1.5 to 12.2.0 ([51eb1a0](https://github.com/sws2apps/sws-pocket/commit/51eb1a0557c59d5c2cb7e1927f83842e00418e3b))
+
 # [1.9.0](https://github.com/sws2apps/sws-pocket/compare/v1.8.0...v1.9.0) (2023-02-17)
 
 
